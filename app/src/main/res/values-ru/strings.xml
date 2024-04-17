@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Видеоплеер</string>
+    <string name="folder">ПАПКА</string>
+    <string name="video">ВИДЕО</string>
+    <string name="fileDeletedSuccessfully">Файл успешно удален!</string>
+    <string name="fileNotDeleted">Файл не удален</string>
+    <string name="share_image_via">Поделиться файлом через...</string>
+    <string name="no_app_installed">Приложение для открытия этого файла не найдено.</string>
+    <string name="play">Играть</string>
+    <string name="rename">Переименовать</string>
+    <string name="share">Поделиться</string>
+    <string name="delete">Удалить</string>
+    <string name="are_you_sure_you_want_to_delete_n_this_video">Вы уверены, что хотите удалить это видео?</string>
+    <string name="cancle">ОТМЕНА</string>
+    <string name="r_rename">ПЕРЕИМЕНОВАТЬ</string>
+    <string name="d_delete">УДАЛИТЬ</string>
+    <string name="enter_a_name">Введите имя</string>
+    <string name="please_enter_a_valid_text">Введите действительный текст</string>
+    <string name="ok">ОК</string>
+    <string name="video_orientation_auto">Автоповорот</string>
+    <string name="video_orientation_portrait">Портрет заблокирован</string>
+    <string name="video_orientation_landscape">Альбомная ориентация заблокирована</string>
+    <string name="auto">Авто</string>
+    <string name="videos">Видео</string>
+    <string name="delete_this_video">Удалить это видео</string>
+    <string name="setting">Настройка</string>
+    <string name="language">Язык</string>
+    <string name="share_app">Поделиться приложением</string>
+    <string name="rate_us">Оцените нас</string>
+    <string name="privacy_policy">Политика конфиденциальности</string>
+    <string name="press">Для выхода нажмите «Назад» еще раз</string>
+    <string name="select_language">Выбрать язык</string>
+    <string name="speed">Скорость</string>
+    <string name="video_player">Видеоплеер</string>
+    <string name="video_players">ВИДЕОПЛЕЕР</string>
+    <string name="ultra_high_definition_video_player">Видеоплеер сверхвысокой четкости</string>
+</resources>

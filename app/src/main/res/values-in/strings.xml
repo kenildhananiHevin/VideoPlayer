@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Pemutar Video</string>
+    <string name="folder">FOLDER</string>
+    <string name="video">VIDEO</string>
+    <string name="fileDeletedSuccessfully">File Berhasil Dihapus!</string>
+    <string name="fileNotDeleted">File tidak dihapus</string>
+    <string name="share_image_via">Bagikan File melalui...</string>
+    <string name="no_app_installed">Tidak ditemukan aplikasi untuk membuka file ini.</string>
+    <string name="play">Mainkan</string>
+    <string name="rename">Ganti nama</string>
+    <string name="share">Bagikan</string>
+    <string name="delete">Hapus</string>
+    <string name="are_you_sure_you_want_to_delete_n_this_video">Yakin ingin menghapus Video ini?</string>
+    <string name="cancle">BATAL</string>
+    <string name="r_rename">GANTI NAMA</string>
+    <string name="d_delete">HAPUS</string>
+    <string name="enter_a_name">Masukkan nama</string>
+    <string name="please_enter_a_valid_text">Harap masukkan teks yang valid</string>
+    <string name="ok">Oke</string>
+    <string name="video_orientation_auto">Rotasi otomatis</string>
+    <string name="video_orientation_portrait">Potret terkunci</string>
+    <string name="video_orientation_landscape">Lanskap terkunci</string>
+    <string name="auto">Otomatis</string>
+    <string name="videos">Video</string>
+    <string name="delete_this_video">Hapus video ini</string>
+    <string name="setting">Pengaturan</string>
+    <string name="language">Bahasa</string>
+    <string name="share_app">Berbagi Aplikasi</string>
+    <string name="rate_us">Beri Nilai Kami</string>
+    <string name="privacy_policy">Kebijakan Privasi</string>
+    <string name="press">Tekan kembali lagi untuk keluar</string>
+    <string name="select_language">Pilih Bahasa</string>
+    <string name="speed">Kecepatan</string>
+    <string name="video_player">Pemutar Video</string>
+    <string name="video_players">PEMUTAR VIDEO</string>
+    <string name="ultra_high_definition_video_player">Pemutar Video Definisi Ultra Tinggi</string>
+</resources>

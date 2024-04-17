@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Reproductor de vídeo</string>
+    <string name="folder">CARPETA</string>
+    <string name="video">VÍDEO</string>
+    <string name="fileDeletedSuccessfully">¡Archivo eliminado exitosamente!</string>
+    <string name="fileNotDeleted">Archivo no eliminado</string>
+    <string name="share_image_via">Compartir archivo mediante...</string>
+    <string name="no_app_installed">No se encontró ninguna aplicación para abrir este archivo.</string>
+    <string name="play">Reproducir</string>
+    <string name="rename">Cambiar nombre</string>
+    <string name="share">Compartir</string>
+    <string name="delete">Eliminar</string>
+    <string name="are_you_sure_you_want_to_delete_n_this_video">¿Estás seguro de que deseas eliminar este vídeo?</string>
+    <string name="cancle">CANCELAR</string>
+    <string name="r_rename">RENOMBRAR</string>
+    <string name="d_delete">ELIMINAR</string>
+    <string name="enter_a_name">Ingrese un nombre</string>
+    <string name="please_enter_a_valid_text">Ingrese un texto válido</string>
+    <string name="ok">Ok</string>
+    <string name="video_orientation_auto">Rotación automática</string>
+    <string name="video_orientation_portrait">Retrato bloqueado</string>
+    <string name="video_orientation_landscape">Paisaje bloqueado</string>
+    <string name="auto">Auto</string>
+    <string name="videos">Vídeos</string>
+    <string name="delete_this_video">Eliminar este vídeo</string>
+    <string name="setting">Configuración</string>
+    <string name="language">Idioma</string>
+    <string name="share_app">Compartir aplicación</string>
+    <string name="rate_us">Califícanos</string>
+    <string name="privacy_policy">Política de privacidad</string>
+    <string name="press">Presione Atrás nuevamente para salir</string>
+    <string name="select_language">Seleccionar idioma</string>
+    <string name="speed">Velocidad</string>
+    <string name="video_player">Reproductor de vídeo</string>
+    <string name="video_players">REPRODUCTOR DE VIDEO</string>
+    <string name="ultra_high_definition_video_player">Reproductor de vídeo de ultra alta definición</string>
+</resources>

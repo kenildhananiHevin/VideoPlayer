@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Lecteur vidéo</string>
+    <string name="folder">DOSSIER</string>
+    <string name="video">VIDÉO</string>
+    <string name="fileDeletedSuccessfully">Fichier supprimé avec succès !</string>
+    <string name="fileNotDeleted">Fichier non supprimé</string>
+    <string name="share_image_via">Partager le fichier via...</string>
+    <string name="no_app_installed">Aucune application trouvée pour ouvrir ce fichier.</string>
+    <string name="play">Jouer</string>
+    <string name="rename">Renommer</string>
+    <string name="share">Partager</string>
+    <string name="delete">Supprimer</string>
+    <string name="are_you_sure_you_want_to_delete_n_this_video">Êtes-vous sûr de vouloir supprimer cette vidéo ?</string>
+    <string name="cancle">CANCLE</string>
+    <string name="r_rename">RENAME</string>
+    <string name="d_delete">SUPPRIMER</string>
+    <string name="enter_a_name">Entrez un nom</string>
+    <string name="please_enter_a_valid_text">Veuillez saisir un texte valide</string>
+    <string name="ok">D\'accord</string>
+    <string name="video_orientation_auto">Rotation automatique</string>
+    <string name="video_orientation_portrait">Portrait verrouillé</string>
+    <string name="video_orientation_landscape">Paysage verrouillé</string>
+    <string name="auto">Auto</string>
+    <string name="videos">Vidéos</string>
+    <string name="delete_this_video">Supprimer cette vidéo</string>
+    <string name="setting">Paramètre</string>
+    <string name="language">Langue</string>
+    <string name="share_app">Partager l\'application</string>
+    <string name="rate_us">Évaluez-nous</string>
+    <string name="privacy_policy">Politique de confidentialité</string>
+    <string name="press">Appuyez à nouveau pour quitter</string>
+    <string name="select_language">Sélectionner la langue</string>
+    <string name="speed">Vitesse</string>
+    <string name="video_player">Lecteur vidéo</string>
+    <string name="video_players">LECTEUR VIDÉO</string>
+    <string name="ultra_high_definition_video_player">Lecteur vidéo ultra haute définition</string>
+</resources>

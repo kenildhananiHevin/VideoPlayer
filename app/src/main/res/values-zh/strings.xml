@@ -1,0 +1,38 @@
+<resources>
+     <string name="app_name">视频播放器</string>
+     <string name="folder">文件夹</string>
+     <string name="video">视频</string>
+     <string name="fileDeletedSuccessfully">文件删除成功！</string>
+     <string name="fileNotDeleted">文件未删除</string>
+     <string name="share_image_via">分享文件 通过...</string>
+     <string name="no_app_installed">找不到可用于打开此文件的应用程序。</string>
+     <string name="play">播放</string>
+     <string name="rename">重命名</string>
+     <string name="share">分享</string>
+     <string name="delete">删除</string>
+     <string name="are_you_sure_you_want_to_delete_n_this_video">您确定要删除此视频吗？</string>
+     <string name="cancle">取消</string>
+     <string name="r_rename">重命名</string>
+     <string name="d_delete">删除</string>
+     <string name="enter_a_name">输入名称</string>
+     <string name="please_enter_a_valid_text">请输入有效的文本</string>
+     <string name="ok">确定</string>
+     <string name="video_orientation_auto">自动旋转</string>
+     <string name="video_orientation_portrait">锁定竖屏</string>
+     <string name="video_orientation_landscape">锁定横屏</string>
+     <string name="auto">自动</string>
+     <string name="videos">视频</string>
+     <string name="delete_this_video">删除此视频</string>
+     <string name="setting">设置</string>
+     <string name="language">语言</string>
+     <string name="share_app">分享应用</string>
+     <string name="rate_us">给我们评分</string>
+     <string name="privacy_policy">隐私政策</string>
+     <string name="press">再按一次返回键退出</string>
+     <string name="select_language">选择语言</string>
+     <string name="speed">速度</string>
+     <string name="video_player">影片播放器</string>
+     <string name="video_players">影片播放器</string>
+     <string name="ultra_high_definition_video_player">超高清視訊播放器</string>
+
+</resources>

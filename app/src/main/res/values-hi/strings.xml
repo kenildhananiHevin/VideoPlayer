@@ -1,0 +1,37 @@
+<resources>
+    <string name='app_name'>वीडियोप्लेयर</string>
+    <string name='folder'>फ़ोल्डर</string>
+    <string name='video'>वीडियो</string>
+    <string name='fileDeletedSuccessfully'>फ़ाइल सफलतापूर्वक हटा दी गई!</string>
+    <string name='fileNotDeleted'>फ़ाइल नहीं हटाई गई</string>
+    <string name='share_image_via'>फ़ाइल साझा करें...</string>
+    <string name='no_app_installed'>इस फ़ाइल को खोलने के लिए कोई एप्लिकेशन नहीं मिला।</string>
+    <string name='play'>चलाएँ</string>
+    <string name='rename'>नाम बदलें</string>
+    <string name='share'>साझा करें</string>
+    <string name='delete'>हटाएं</string>
+    <string name='are_you_sure_you_want_to_delete_n_this_video'>क्या आप वाकई इस वीडियो को हटाना चाहते हैं?</string>
+    <string name='cancle'>CANCLE</string>
+    <string name='r_rename'>नाम बदलें</string>
+    <string name='d_delete'>हटाएं</string>
+    <string name='enter_a_name'>एक नाम दर्ज करें</string>
+    <string name='please_enter_a_valid_text'>कृपया एक मान्य टेक्स्ट दर्ज करें</string>
+    <string name='ok'>ठीक है</string>
+    <string name='video_orientation_auto'>ऑटो रोटेट</string>
+    <string name='video_orientation_portrait'>पोर्ट्रेट लॉक</string>
+    <string name='video_orientation_landscape'>लैंडस्केप लॉक</string>
+    <string name="auto">ऑटो</string>
+    <string name='videos'>वीडियो</string>
+    <string name='delete_this_video'>यह वीडियो हटाएं</string>
+    <string name='setting'>सेटिंग</string>
+    <string name='language'>भाषा</string>
+    <string name='share_app'>ऐप साझा करें</string>
+    <string name='rate_us'>हमें रेट करें</string>
+    <string name='privacy_policy'>गोपनीयता नीति</string>
+    <string name='press'>बाहर निकलने के लिए दोबारा दबाएं</string>
+    <string name='select_language'>भाषा चुनें</string>
+    <string name='speed'>स्पीड</string>
+    <string name='video_player'>वीडियो प्लेयर</string>
+    <string name='video_players'>वीडियो प्लेयर</string>
+    <string name = "ultra_high_definition_video_player">अल्ट्रा हाई-डेफिनिशन वीडियो प्लेयर</string>
+</resources>

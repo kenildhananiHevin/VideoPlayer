@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_85sdp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginHorizontal="@dimen/_8sdp"
+        android:layout_marginTop="@dimen/_10sdp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/img_thumb"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_80sdp"
+            app:cardCornerRadius="@dimen/_10sdp"
+            app:cardElevation="0dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/img_video_preview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:background="#494949" />
+
+                <TextView
+                    android:id="@+id/txt_video_duration"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_21sdp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="@dimen/_7sdp"
+                    android:layout_marginTop="@dimen/_7sdp"
+                    android:layout_marginEnd="@dimen/_7sdp"
+                    android:layout_marginBottom="@dimen/_7sdp"
+                    android:background="@drawable/text_item_bg"
+                    android:fontFamily="@font/inter_semibold"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:includeFontPadding="false"
+                    android:text="00:18"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_9sdp" />
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_toStartOf="@id/more"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/img_thumb">
+
+            <TextView
+                android:id="@+id/text_video_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="2"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:singleLine="true"
+                android:layout_marginBottom="@dimen/_7sdp"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:fontFamily="@font/inter_semibold"
+                android:includeFontPadding="false"
+                android:text="@string/app_name" />
+
+            <TextView
+                android:id="@+id/txt_video_date"
+                android:layout_width="@dimen/_70sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_below="@+id/text_video_name"
+                android:singleLine="true"
+                android:background="@drawable/txt_date_bg"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="28/01/2024"
+                android:fontFamily="@font/inter_medium"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:textSize="@dimen/_10sdp"
+                android:textColor="@color/txt_color"
+                android:includeFontPadding="false"
+                android:layout_height="@dimen/_23sdp"/>
+
+            <TextView
+                android:id="@+id/txt_video_size"
+                android:layout_width="@dimen/_65sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_below="@+id/text_video_name"
+                android:layout_toEndOf="@+id/txt_video_date"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="896 Mb"
+                android:fontFamily="@font/inter_medium"
+                android:background="@drawable/txt_date_bg"
+                android:textSize="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:textColor="@color/txt_color"
+                android:includeFontPadding="false"
+                android:layout_height="@dimen/_23sdp"/>
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/more"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:src="@drawable/emi_more"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:adjustViewBounds="true"/>
+
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

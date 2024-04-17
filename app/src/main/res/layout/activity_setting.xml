@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".setting.SettingActivity">
+
+    <LinearLayout
+        android:id="@+id/linearToolBar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:background="@android:color/transparent"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/player_back"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/player_back"
+            app:tint="@color/black" />
+
+        <TextView
+            android:id="@+id/txtPlayer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:ellipsize="marquee"
+            android:fontFamily="@font/inter_semibold"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:singleLine="true"
+            android:text="@string/setting"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_15sdp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/language_click"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/_5sdp"
+        app:layout_constraintTop_toBottomOf="@+id/linearToolBar">
+
+        <ImageView
+            android:layout_width="@dimen/_18sdp"
+            android:layout_height="@dimen/_18sdp"
+            android:layout_margin="@dimen/_5sdp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/language" />
+
+        <TextView
+            android:id="@+id/setting_language_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_7sdp"
+            android:layout_weight="1"
+            android:ellipsize="marquee"
+            android:fontFamily="@font/inter_semibold"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:singleLine="true"
+            android:text="@string/language"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_13sdp" />
+
+        <ImageView
+            android:id="@+id/setting_next"
+            android:layout_width="@dimen/_13sdp"
+            android:layout_height="@dimen/_13sdp"
+            android:layout_margin="@dimen/_10sdp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/emi_next" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="@dimen/_45sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_marginVertical="@dimen/_5sdp"
+        android:background="#E3E3E3"
+        app:layout_constraintTop_toBottomOf="@+id/language_click" />
+
+    <LinearLayout
+        android:id="@+id/share_click"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/_5sdp"
+        app:layout_constraintTop_toBottomOf="@id/language_click">
+
+        <ImageView
+            android:layout_width="@dimen/_18sdp"
+            android:layout_height="@dimen/_18sdp"
+            android:layout_margin="@dimen/_5sdp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/player_share" />
+
+        <TextView
+            android:id="@+id/setting_share_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_7sdp"
+            android:layout_weight="1"
+            android:ellipsize="marquee"
+            android:fontFamily="@font/inter_semibold"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:singleLine="true"
+            android:text="@string/share_app"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_13sdp" />
+
+        <ImageView
+            android:id="@+id/setting_share_next"
+            android:layout_width="@dimen/_13sdp"
+            android:layout_height="@dimen/_13sdp"
+            android:layout_margin="@dimen/_10sdp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/emi_next" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="@dimen/_45sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:background="#E3E3E3"
+        app:layout_constraintTop_toBottomOf="@+id/share_click" />
+
+    <LinearLayout
+        android:id="@+id/rate_click"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/_5sdp"
+        app:layout_constraintTop_toBottomOf="@id/share_click">
+
+        <ImageView
+            android:layout_width="@dimen/_18sdp"
+            android:layout_height="@dimen/_18sdp"
+            android:layout_margin="@dimen/_5sdp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/rate" />
+
+        <TextView
+            android:id="@+id/setting_rate_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_7sdp"
+            android:layout_weight="1"
+            android:ellipsize="marquee"
+            android:fontFamily="@font/inter_semibold"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:singleLine="true"
+            android:text="@string/rate_us"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_13sdp" />
+
+        <ImageView
+            android:id="@+id/setting_rate_next"
+            android:layout_width="@dimen/_13sdp"
+            android:layout_height="@dimen/_13sdp"
+            android:layout_margin="@dimen/_10sdp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/emi_next" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="@dimen/_45sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:background="#E3E3E3"
+        android:layout_marginTop="@dimen/_5sdp"
+        app:layout_constraintTop_toBottomOf="@+id/rate_click" />
+
+    <LinearLayout
+        android:id="@+id/privacy_click"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/_5sdp"
+        app:layout_constraintTop_toBottomOf="@id/rate_click">
+
+        <ImageView
+            android:layout_width="@dimen/_18sdp"
+            android:layout_height="@dimen/_18sdp"
+            android:layout_margin="@dimen/_5sdp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/player_privacy" />
+
+        <TextView
+            android:id="@+id/setting_privacy_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_7sdp"
+            android:layout_weight="1"
+            android:ellipsize="marquee"
+            android:fontFamily="@font/inter_semibold"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:singleLine="true"
+            android:text="@string/privacy_policy"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_13sdp" />
+
+        <ImageView
+            android:id="@+id/setting_privacy_next"
+            android:layout_width="@dimen/_13sdp"
+            android:layout_height="@dimen/_13sdp"
+            android:layout_margin="@dimen/_10sdp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/emi_next" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
