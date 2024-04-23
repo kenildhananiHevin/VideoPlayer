@@ -1,9 +1,5 @@
 package com.cashloan.myapplication.videoplayer.language;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
@@ -15,6 +11,9 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.cashloan.myapplication.videoplayer.R;
 import com.cashloan.myapplication.videoplayer.activity.BaseActivity;
@@ -30,7 +29,7 @@ import java.util.Random;
 public class LanguageActivity extends BaseActivity {
 
     RecyclerView languageList;
-    public static ImageView back,imgDone;
+    public static ImageView back, imgDone;
     LanguageAdapter languageAdapter;
     ArrayList<Languages> languages = new ArrayList<>();
     boolean intent;
@@ -77,12 +76,21 @@ public class LanguageActivity extends BaseActivity {
         languages.add(new Languages(R.drawable.player_hindi, "Hindi", "hi"));
         languages.add(new Languages(R.drawable.player_spanish, "Spanish", "es"));
         languages.add(new Languages(R.drawable.player_french, "French", "fr"));
-        languages.add(new Languages(R.drawable.player_bangla, "Bengali", "bn"));
         languages.add(new Languages(R.drawable.player_russian, "Russian", "ru"));
         languages.add(new Languages(R.drawable.player_portuguese, "Portuguese", "pt"));
         languages.add(new Languages(R.drawable.player_german, "German", "de"));
         languages.add(new Languages(R.drawable.player_indonesian, "Indonesian", "in"));
         languages.add(new Languages(R.drawable.player_chinese, "Chinese", "zh"));
+        languages.add(new Languages(R.drawable.player_filipino, "Filipino", "fil"));
+        languages.add(new Languages(R.drawable.player_italian, "Italian", "it"));
+        languages.add(new Languages(R.drawable.player_afrikaans, "Afrikaans", "af"));
+        languages.add(new Languages(R.drawable.player_japanese, "Japanese", "ja"));
+        languages.add(new Languages(R.drawable.player_korean, "Korean", "ko"));
+        languages.add(new Languages(R.drawable.player_polish, "Polish", "pl"));
+        languages.add(new Languages(R.drawable.player_thai, "Thai", "th"));
+        languages.add(new Languages(R.drawable.player_turkish, "Turkish", "tr"));
+        languages.add(new Languages(R.drawable.player_ukrainian, "Ukrainian", "uk"));
+        languages.add(new Languages(R.drawable.player_vietnamese, "Vietnamese", "vi"));
 
         imgDone.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -135,8 +143,9 @@ public class LanguageActivity extends BaseActivity {
             }
         }
     }
+
     @Override
-    public void onBackPressed () {
+    public void onBackPressed() {
         if (prefsStrings) {
             /*backPressed();*/
             finish();
@@ -151,7 +160,7 @@ public class LanguageActivity extends BaseActivity {
                 finishAffinity();
             } else {
                 backClick = true;
-                Toast.makeText(LanguageActivity.this, R.string.press, Toast.LENGTH_SHORT).show();
+                Toast.makeText(LanguageActivity.this,  R.string.press, Toast.LENGTH_SHORT).show();
             }
         }
     }

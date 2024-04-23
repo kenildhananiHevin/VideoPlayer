@@ -8,5 +8,15 @@
     <color name="txt_color">#8A8892</color>
     <color name="txt_sec_color">#B3000000</color>
     <color name="transparent">#00000000</color>
+    <color name="image_bor">#2E5CFF</color>
+    <color name="dailog_bg">#FFFFFF</color>
+    <color name="rename_bg">#F7F7F7</color>
+    <color name="view_bg">#E3E3E3</color>
+    <color name="uns_bg">#BEBEBE</color>
+    <color name="du_bg">#FFFFFF</color>
+    <color name="st_bg">#1C1C1C</color>
+    <color name="exo_white">#FFFFFF</color>
+    <color name="exo_white_opacity_70">#FFFFFF</color>
+
 
 </resources>

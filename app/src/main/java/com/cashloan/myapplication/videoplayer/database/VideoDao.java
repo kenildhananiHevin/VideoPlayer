@@ -14,10 +14,10 @@ import java.util.List;
 @Dao
 public interface VideoDao {
 
-    @Query("SELECT * FROM VideoItem ORDER BY name ASC")
+    @Query("SELECT * FROM VideoItem ORDER BY DateAdded DESC")
     LiveData<List<VideoItem>> getAllVideosSortedByName();
 
-    @Query("SELECT * FROM VideoItem ORDER BY name ASC")
+    @Query("SELECT * FROM VideoItem ORDER BY DateAdded DESC")
     List<VideoItem> getAllVideos();
 
     @Query("SELECT videofoldername AS folderName, COUNT(*) AS folderSize FROM VideoItem GROUP BY videofoldername")
@@ -26,10 +26,10 @@ public interface VideoDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertVideo(List<VideoItem> video);
 
-    @Query("SELECT * FROM VideoItem where videofoldername = :videofoldername ORDER BY name ASC")
+    @Query("SELECT * FROM VideoItem where videofoldername = :videofoldername ORDER BY DateAdded DESC")
     LiveData<List<VideoItem>> getAllFolderVideo(String videofoldername);
 
-    @Query("SELECT * FROM VideoItem where videofoldername = :videofoldername ORDER BY name ASC")
+    @Query("SELECT * FROM VideoItem where videofoldername = :videofoldername ORDER BY DateAdded DESC")
    List<VideoItem> getAllFolder(String videofoldername);
 
     @Query("DELETE FROM videoitem WHERE recentvideopath = :path")

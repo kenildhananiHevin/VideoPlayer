@@ -1,6 +1,5 @@
 package com.cashloan.myapplication.videoplayer.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;

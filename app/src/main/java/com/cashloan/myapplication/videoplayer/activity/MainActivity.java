@@ -1,10 +1,14 @@
 package com.cashloan.myapplication.videoplayer.activity;
 
+import static com.cashloan.myapplication.videoplayer.adapter.VideoAdapter.VideoItems;
+import static com.cashloan.myapplication.videoplayer.fragment.video.VideoFragment.file;
 import static com.cashloan.myapplication.videoplayer.other.CommonClass.REQUEST_PERM_DELETE;
 import static com.cashloan.myapplication.videoplayer.other.CommonClass.getStringSizeLengthFile;
 
 import android.Manifest;
 import android.content.ContentResolver;
+import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -15,6 +19,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.provider.MediaStore;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -23,7 +28,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -31,13 +35,16 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.cashloan.myapplication.videoplayer.R;
+import com.cashloan.myapplication.videoplayer.adapter.VideoAdapter;
 import com.cashloan.myapplication.videoplayer.database.VideoDao;
 import com.cashloan.myapplication.videoplayer.database.VideoDatabase;
 import com.cashloan.myapplication.videoplayer.fragment.folder.FolderFragment;
 import com.cashloan.myapplication.videoplayer.fragment.video.VideoFragment;
 import com.cashloan.myapplication.videoplayer.model.CustomViewPager;
 import com.cashloan.myapplication.videoplayer.model.video.VideoItem;
+import com.cashloan.myapplication.videoplayer.other.LocaleHelper;
 import com.cashloan.myapplication.videoplayer.setting.SettingActivity;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
 import java.io.File;
@@ -57,7 +64,7 @@ public class MainActivity extends BaseActivity {
     MyAdapter adapter;
     VideoFragment videoFragment = new VideoFragment();
     FolderFragment folderFragment = new FolderFragment();
-    ProgressBar progressBar;
+    public static ProgressBar progressBar;
     String languageCode;
     ImageView imgSetting;
 
@@ -67,6 +74,13 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
 
         activity = this;
+
+        Log.d("TAG", "onCreate25689: ");
+
+        viewPager = findViewById(R.id.view_pager);
+        tabLayout = findViewById(R.id.tabLayout);
+        progressBar = findViewById(R.id.progressBar);
+        imgSetting = findViewById(R.id.imgSetting);
 
         SharedPreferences preferences = getSharedPreferences("Language", 0);
         languageCode = preferences.getString("language_code", "en");
@@ -85,10 +99,13 @@ public class MainActivity extends BaseActivity {
                 if (ActivityCompat.shouldShowRequestPermissionRationale(activity, Manifest.permission.POST_NOTIFICATIONS) &&
                         ActivityCompat.shouldShowRequestPermissionRationale(activity, Manifest.permission.READ_MEDIA_IMAGES) &&
                         ActivityCompat.shouldShowRequestPermissionRationale(activity, Manifest.permission.READ_MEDIA_VIDEO)) {
-                    Intent intent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-                    Uri uri = Uri.fromParts("package", getPackageName(), null);
-                    intent.setData(uri);
-                    startActivity(intent);
+                    progressBar.setVisibility(View.GONE);
+                    showSnackbar(activity, findViewById(R.id.settingA), R.string.please_allow, R.string.allow, new Runnable() {
+                        @Override
+                        public void run() {
+                            openSettingsDialog();
+                        }
+                    });
                 } else {
                     ActivityCompat.requestPermissions(activity, permissions, 101);
                 }
@@ -97,20 +114,20 @@ public class MainActivity extends BaseActivity {
             permissions = new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE};
             if (ContextCompat.checkSelfPermission(activity, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
                 if (ActivityCompat.shouldShowRequestPermissionRationale(activity, Manifest.permission.READ_EXTERNAL_STORAGE) && ActivityCompat.shouldShowRequestPermissionRationale(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-                    Intent intent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-                    Uri uri = Uri.fromParts("package", getPackageName(), null);
-                    intent.setData(uri);
-                    startActivity(intent);
+                    progressBar.setVisibility(View.GONE);
+                    showSnackbar(activity, findViewById(R.id.settingA), R.string.please_allow, R.string.allow, new Runnable() {
+                        @Override
+                        public void run() {
+                            openSettingsDialog();
+                        }
+                    });
                 } else {
                     ActivityCompat.requestPermissions(activity, permissions, 101);
                 }
             }
         }
 
-        viewPager = findViewById(R.id.view_pager);
-        tabLayout = findViewById(R.id.tabLayout);
-        progressBar = findViewById(R.id.progressBar);
-        imgSetting = findViewById(R.id.imgSetting);
+
 
         imgSetting.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -152,7 +169,38 @@ public class MainActivity extends BaseActivity {
             }
         });
 
-        new AsyncCaller().execute();
+        if (!videoDao.getAllVideos().isEmpty()){
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    progressBar.setVisibility(View.GONE);
+                }
+            });
+
+        }
+
+
+    }
+
+    public void showSnackbar(Context context, View view, int text, int dismissText, final Runnable onDismiss) {
+        Snackbar snackbar = Snackbar.make(
+                view,
+                context.getString(text),
+                Snackbar.LENGTH_INDEFINITE
+        );
+        snackbar.setBackgroundTint(context.getColor(R.color.white));
+        snackbar.setTextColor(context.getColor(R.color.black));
+        snackbar.setActionTextColor(context.getColor(R.color.txt_bg));
+        snackbar.setAction(context.getString(dismissText), new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                snackbar.dismiss();
+                if (onDismiss != null) {
+                    onDismiss.run();
+                }
+            }
+        });
+        snackbar.show();
     }
 
 
@@ -160,7 +208,39 @@ public class MainActivity extends BaseActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (101 == requestCode) {
-            getAllVideosWithQualityInfo(activity);
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+                permissions = new String[]{Manifest.permission.POST_NOTIFICATIONS,
+                        Manifest.permission.READ_MEDIA_IMAGES,
+                        Manifest.permission.READ_MEDIA_VIDEO
+
+                };
+                if (ContextCompat.checkSelfPermission(activity, Manifest.permission.READ_MEDIA_IMAGES) != PackageManager.PERMISSION_GRANTED &&
+                        ContextCompat.checkSelfPermission(activity, Manifest.permission.READ_MEDIA_VIDEO) != PackageManager.PERMISSION_GRANTED) {
+                    progressBar.setVisibility(View.GONE);
+                    showSnackbar(activity, findViewById(R.id.settingA), R.string.please_allow, R.string.allow, new Runnable() {
+                        @Override
+                        public void run() {
+                            openSettingsDialog();
+                        }
+                    });
+                } else {
+                    new AsyncCaller().execute();
+                }
+            } else {
+                permissions = new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE};
+                if (ContextCompat.checkSelfPermission(activity, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                    progressBar.setVisibility(View.GONE);
+                    showSnackbar(activity, findViewById(R.id.settingA), R.string.please_allow, R.string.allow, new Runnable() {
+                        @Override
+                        public void run() {
+                            openSettingsDialog();
+                        }
+                    });
+                } else {
+                    new AsyncCaller().execute();
+                }
+            }
+
         }
     }
 
@@ -197,11 +277,40 @@ public class MainActivity extends BaseActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_PERM_DELETE && resultCode == -1) {
-            videoFragment.onActivityResult(requestCode, resultCode, data);
+            videoDatabase = VideoDatabase.getInstance(activity);
+            videoDao = videoDatabase.videoDao();
+            videoDao.deleteByPath(file.getAbsolutePath());
         }
 
         if (requestCode == 1031 && resultCode == -1) {
-            videoFragment.onActivityResult(requestCode, resultCode, data);
+            ContentValues values = new ContentValues();
+            values.put(MediaStore.MediaColumns.DISPLAY_NAME, VideoAdapter.newFile.getName());
+            int updatedRows = getContentResolver().update(VideoAdapter.uris.get(0), values, null, null);
+            if (updatedRows > 0) {
+                videoDao.updateById((int) VideoItems.getId(), VideoAdapter.newFile.getName(), VideoAdapter.newFile.getAbsolutePath());
+            } else {
+            }
+        }
+
+        if (requestCode == 102) {
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+                permissions = new String[]{Manifest.permission.POST_NOTIFICATIONS,
+                        Manifest.permission.READ_MEDIA_IMAGES,
+                        Manifest.permission.READ_MEDIA_VIDEO
+
+                };
+                if (ContextCompat.checkSelfPermission(activity, Manifest.permission.READ_MEDIA_IMAGES) != PackageManager.PERMISSION_GRANTED &&
+                        ContextCompat.checkSelfPermission(activity, Manifest.permission.READ_MEDIA_VIDEO) != PackageManager.PERMISSION_GRANTED) {
+                } else {
+                    progressBar.setVisibility(View.VISIBLE);
+                }
+            } else {
+                permissions = new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE};
+                if (ContextCompat.checkSelfPermission(activity, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                } else {
+                    progressBar.setVisibility(View.VISIBLE);
+                }
+            }
         }
     }
 
@@ -213,7 +322,6 @@ public class MainActivity extends BaseActivity {
 
         @Override
         protected Void doInBackground(Void... params) {
-            progressBar.setVisibility(View.VISIBLE);
             getAllVideosWithQualityInfo(activity);
             return null;
         }
@@ -221,11 +329,38 @@ public class MainActivity extends BaseActivity {
         @Override
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
-            progressBar.setVisibility(View.GONE);
         }
     }
 
     private void getAllVideosWithQualityInfo(MainActivity activity) {
+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+            permissions = new String[]{Manifest.permission.POST_NOTIFICATIONS,
+                    Manifest.permission.READ_MEDIA_IMAGES,
+                    Manifest.permission.READ_MEDIA_VIDEO
+
+            };
+            if (ContextCompat.checkSelfPermission(activity, Manifest.permission.READ_MEDIA_IMAGES) != PackageManager.PERMISSION_GRANTED &&
+                    ContextCompat.checkSelfPermission(activity, Manifest.permission.READ_MEDIA_VIDEO) != PackageManager.PERMISSION_GRANTED) {
+                return;
+            }
+        } else {
+            permissions = new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE};
+            if (ContextCompat.checkSelfPermission(activity, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                return;
+            }
+        }
+
+        if (!videoDao.getAllVideos().isEmpty()){
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    progressBar.setVisibility(View.GONE);
+                }
+            });
+
+        }
+
         String[] projection = {
                 MediaStore.Video.Media._ID,
                 MediaStore.Video.Media.DATA,
@@ -233,6 +368,7 @@ public class MainActivity extends BaseActivity {
                 MediaStore.Video.Media.DURATION,
                 MediaStore.Video.Media.DISPLAY_NAME,
                 MediaStore.Video.Media.MIME_TYPE,
+                MediaStore.Video.Media.DATE_ADDED,
                 MediaStore.Video.Media.RESOLUTION
         };
 
@@ -240,7 +376,6 @@ public class MainActivity extends BaseActivity {
         Uri videosUri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
 
         Cursor cursor = contentResolver.query(videosUri, projection, null, null, null);
-
         if (cursor != null) {
             videoItemArrayList.clear();
             Log.d("TAG", "getAllVideosWithQualityInfo: ");
@@ -252,21 +387,22 @@ public class MainActivity extends BaseActivity {
                 int nameColumnIndex = cursor.getColumnIndex(MediaStore.Video.Media.DISPLAY_NAME);
                 int resolutionColumnIndex = cursor.getColumnIndex(MediaStore.Video.Media.RESOLUTION);
                 int mimeColumnIndex = cursor.getColumnIndex(MediaStore.Video.Media.MIME_TYPE);
+                int dateColumnIndex = cursor.getColumnIndex(MediaStore.Video.Media.DATE_ADDED);
 
                 long videoId = cursor.getLong(idColumnIndex);
                 String videoPath = cursor.getString(dataColumnIndex);
                 long videoSize = cursor.getLong(sizeColumnIndex);
-                String videofinalduration = getStringSizeLengthFile(videoSize);
                 String videoName = cursor.getString(nameColumnIndex);
                 long Duration_milis = cursor.getLong(duartionColumnIndex);
                 /*String videofinalduartion = millisecToTime((int) videoDuration);*/
                 String videoResolution = cursor.getString(resolutionColumnIndex);
                 String videomine = cursor.getString(mimeColumnIndex);
+                long datemine = cursor.getLong(dateColumnIndex);
 
                 try {
                     String foldername = new File(videoPath).getParent();
 
-                    VideoItem videoItem = new VideoItem(videoId, videoPath, videoName, Duration_milis, videofinalduration, foldername, videoResolution, videomine);
+                    VideoItem videoItem = new VideoItem(videoId, videoPath, videoName, Duration_milis, videoSize, foldername, videoResolution, videomine, datemine);
                     if (videoSize > 0) {
                         videoItemArrayList.add(videoItem);
                     }
@@ -276,9 +412,16 @@ public class MainActivity extends BaseActivity {
 
             }
             cursor.close();
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    progressBar.setVisibility(View.GONE);
+                }
+            });
             videoDao.insertVideo(videoItemArrayList);
         }
     }
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -303,8 +446,32 @@ public class MainActivity extends BaseActivity {
             finishAffinity();
         } else {
             backClick = true;
+            SharedPreferences preferences = getSharedPreferences("Language", 0);
+            String languageCode = preferences.getString("language_code", "en");
+            LocaleHelper.setLocale(activity, languageCode);
             Toast.makeText(this, R.string.press, Toast.LENGTH_SHORT).show();
         }
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        new AsyncCaller().execute();
+    }
+
+    private void openSettingsDialog() {
+        final String EXTRA_FRAGMENT_ARG_KEY = ":settings:fragment_args_key";
+        final String EXTRA_SHOW_FRAGMENT_ARGUMENTS = ":settings:show_fragment_args";
+        final String EXTRA_SYSTEM_ALERT_WINDOW = "permission_settings";
+
+        Bundle bundle = new Bundle();
+        bundle.putString(EXTRA_FRAGMENT_ARG_KEY, EXTRA_SYSTEM_ALERT_WINDOW);
+
+        Uri uri = Uri.fromParts("package", getPackageName(), null);
+        Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                .setData(uri)
+                .putExtra(EXTRA_FRAGMENT_ARG_KEY, EXTRA_SYSTEM_ALERT_WINDOW)
+                .putExtra(EXTRA_SHOW_FRAGMENT_ARGUMENTS, bundle);
+        startActivityForResult(intent, 102);
+    }
 }

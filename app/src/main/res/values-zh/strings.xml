@@ -1,10 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
      <string name="app_name">视频播放器</string>
      <string name="folder">文件夹</string>
      <string name="video">视频</string>
      <string name="fileDeletedSuccessfully">文件删除成功！</string>
      <string name="fileNotDeleted">文件未删除</string>
-     <string name="share_image_via">分享文件 通过...</string>
+     <string name="share_image_via">分享文件 通过…</string>
      <string name="no_app_installed">找不到可用于打开此文件的应用程序。</string>
      <string name="play">播放</string>
      <string name="rename">重命名</string>
@@ -34,5 +35,15 @@
      <string name="video_player">影片播放器</string>
      <string name="video_players">影片播放器</string>
      <string name="ultra_high_definition_video_player">超高清視訊播放器</string>
+     <string name="theme">主題</string>
+     <string name="choose_theme">選擇主題</string>
+     <string name="light_theme">淺色主題</string>
+     <string name="dark_theme">深色主題</string>
+     <string name="system_default">系統預設</string>
+    <string name="player">玩家</string>
+     <string name="please_allow">請授予使用功能的權限</string>
+     <string name="allow">允許</string>
+    <string name="successfull">成功的!</string>
+     <string name="video_not_supported">不支援視頻</string>
 
 </resources>

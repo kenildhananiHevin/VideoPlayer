@@ -1,5 +1,6 @@
 package com.cashloan.myapplication.videoplayer.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +19,7 @@ import java.util.List;
 
 public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.ViewHolder> {
     FragmentActivity requireActivity;
-    List<VideoFolderSize> folderItem;
+    public List<VideoFolderSize> folderItem;
 
     public FolderAdapter(FragmentActivity requireActivity, List<VideoFolderSize> folderItem) {
         this.requireActivity = requireActivity;
@@ -31,6 +32,7 @@ public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.ViewHolder
         return new ViewHolder(LayoutInflater.from(requireActivity).inflate(R.layout.folder_item, parent, false));
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull FolderAdapter.ViewHolder holder, int position) {
         VideoFolderSize item = folderItem.get(position);
@@ -60,7 +62,7 @@ public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.ViewHolder
         return folderItem.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView folder_name, folder_size;
 

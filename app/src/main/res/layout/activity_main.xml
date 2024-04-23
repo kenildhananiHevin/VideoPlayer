@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/settingA"
     android:layout_height="match_parent"
     android:background="@color/white"
     tools:context=".activity.MainActivity">
@@ -53,7 +54,6 @@
         app:layout_constraintTop_toBottomOf="@+id/linearToolBar"
         app:tabIndicatorColor="@color/txt_bg"
         app:tabMaxWidth="0dp"
-
         app:tabSelectedTextColor="@color/txt_bg"
         app:tabTextAppearance="@style/MyTabLayoutTextAppearance"
         app:tabTextColor="@color/txt_color" />
@@ -64,18 +64,19 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tabLayout" />
+        app:layout_constraintTop_toBottomOf="@id/progressBar" />
+
 
 
     <ProgressBar
         android:id="@+id/progressBar"
-        android:layout_width="wrap_content"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:indeterminateTint="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/tabLayout"
+        android:indeterminate="true"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:indeterminateTint="@color/txt_bg"
+        android:indeterminateTintMode="src_atop" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

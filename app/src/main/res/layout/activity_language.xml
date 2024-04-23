@@ -44,7 +44,8 @@
             android:layout_height="@dimen/_18sdp"
             android:adjustViewBounds="true"
             android:visibility="gone"
-            android:src="@drawable/done" />
+            android:src="@drawable/done"
+            app:tint="@color/black" />
 
     </LinearLayout>
 

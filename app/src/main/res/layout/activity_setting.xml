@@ -88,8 +88,59 @@
         android:layout_marginStart="@dimen/_45sdp"
         android:layout_marginEnd="@dimen/_20sdp"
         android:layout_marginVertical="@dimen/_5sdp"
-        android:background="#E3E3E3"
+        android:background="@color/view_bg"
         app:layout_constraintTop_toBottomOf="@+id/language_click" />
+
+    <LinearLayout
+        android:id="@+id/theme_click"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/_5sdp"
+        app:layout_constraintTop_toBottomOf="@id/language_click">
+
+        <ImageView
+            android:layout_width="@dimen/_18sdp"
+            android:layout_height="@dimen/_18sdp"
+            android:layout_margin="@dimen/_5sdp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/player_theme" />
+
+        <TextView
+            android:id="@+id/setting_theme_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_7sdp"
+            android:layout_weight="1"
+            android:ellipsize="marquee"
+            android:fontFamily="@font/inter_semibold"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:singleLine="true"
+            android:text="@string/theme"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_13sdp" />
+
+        <ImageView
+            android:id="@+id/setting_theme_next"
+            android:layout_width="@dimen/_13sdp"
+            android:layout_height="@dimen/_13sdp"
+            android:layout_margin="@dimen/_10sdp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/emi_next" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="@dimen/_45sdp"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:background="@color/view_bg"
+        app:layout_constraintTop_toBottomOf="@+id/theme_click" />
 
     <LinearLayout
         android:id="@+id/share_click"
@@ -100,7 +151,7 @@
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:padding="@dimen/_5sdp"
-        app:layout_constraintTop_toBottomOf="@id/language_click">
+        app:layout_constraintTop_toBottomOf="@id/theme_click">
 
         <ImageView
             android:layout_width="@dimen/_18sdp"
@@ -139,7 +190,7 @@
         android:layout_marginStart="@dimen/_45sdp"
         android:layout_marginEnd="@dimen/_20sdp"
         android:layout_marginTop="@dimen/_5sdp"
-        android:background="#E3E3E3"
+        android:background="@color/view_bg"
         app:layout_constraintTop_toBottomOf="@+id/share_click" />
 
     <LinearLayout
@@ -189,7 +240,7 @@
         android:layout_height="1dp"
         android:layout_marginStart="@dimen/_45sdp"
         android:layout_marginEnd="@dimen/_20sdp"
-        android:background="#E3E3E3"
+        android:background="@color/view_bg"
         android:layout_marginTop="@dimen/_5sdp"
         app:layout_constraintTop_toBottomOf="@+id/rate_click" />
 

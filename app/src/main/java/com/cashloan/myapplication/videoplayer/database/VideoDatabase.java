@@ -8,7 +8,7 @@ import androidx.room.RoomDatabase;
 
 import com.cashloan.myapplication.videoplayer.model.video.VideoItem;
 
-@Database(entities = {VideoItem.class}, version = 1,exportSchema = false)
+@Database(entities = {VideoItem.class}, version = 2,exportSchema = false)
 public abstract class VideoDatabase extends RoomDatabase {
     public abstract VideoDao videoDao();
 

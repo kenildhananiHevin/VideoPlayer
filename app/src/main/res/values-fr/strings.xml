@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Lecteur vidéo</string>
     <string name="folder">DOSSIER</string>
@@ -11,8 +12,8 @@
     <string name="share">Partager</string>
     <string name="delete">Supprimer</string>
     <string name="are_you_sure_you_want_to_delete_n_this_video">Êtes-vous sûr de vouloir supprimer cette vidéo ?</string>
-    <string name="cancle">CANCLE</string>
-    <string name="r_rename">RENAME</string>
+    <string name="cancle">ANNULER</string>
+    <string name="r_rename">RENOMMER</string>
     <string name="d_delete">SUPPRIMER</string>
     <string name="enter_a_name">Entrez un nom</string>
     <string name="please_enter_a_valid_text">Veuillez saisir un texte valide</string>
@@ -34,4 +35,14 @@
     <string name="video_player">Lecteur vidéo</string>
     <string name="video_players">LECTEUR VIDÉO</string>
     <string name="ultra_high_definition_video_player">Lecteur vidéo ultra haute définition</string>
+    <string name="theme">Thème</string>
+    <string name="choose_theme">Choisir un thème</string>
+    <string name="light_theme">Thème clair</string>
+    <string name="dark_theme">Thème sombre</string>
+    <string name="system_default">Défaut du système</string>
+    <string name="player">LECTEUR</string>
+    <string name="please_allow">veuillez autoriser l\'utilisation des fonctionnalités</string>
+    <string name="allow">autoriser</string>
+    <string name="successfull">Réussi!</string>
+    <string name="video_not_supported">Vidéo non compatible</string>
 </resources>

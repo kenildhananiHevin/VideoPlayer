@@ -5,13 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:keepScreenOn="true"
-    android:background="@color/black"
+    android:background="#1C1C1C"
     tools:context=".activity.VideoPlayerActivity">
 
     <com.google.android.exoplayer2.ui.StyledPlayerView
         android:id="@+id/video_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        app:animation_enabled="false"
+        app:hide_on_touch="false"
+        app:show_timeout="0"
+        />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -19,7 +23,7 @@
 
         <RelativeLayout
             android:id="@+id/relativeLayout_touch"
-            android:layout_width="@dimen/_200sdp"
+            android:layout_width="@dimen/_180sdp"
             android:layout_height="match_parent"
             android:layout_centerVertical="true"
             android:layout_marginVertical="@dimen/_100sdp" />
@@ -31,6 +35,14 @@
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginVertical="@dimen/_100sdp" />
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout_videoDuration"
+            android:layout_width="@dimen/landspace"
+            android:layout_centerHorizontal="true"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_marginBottom="@dimen/_100sdp"
+            android:layout_alignParentBottom="true"/>
 
     </RelativeLayout>
 
@@ -45,7 +57,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -67,7 +78,7 @@
                     android:layout_marginTop="@dimen/_10sdp"
                     android:fontFamily="@font/inter_semibold"
                     android:text="20"
-                    android:textColor="@color/white"
+                    android:textColor="#FFFFFF"
                     android:textSize="@dimen/_14sdp" />
                 <ImageView
                     android:id="@+id/iv_volume"
@@ -79,7 +90,6 @@
                     android:padding="@dimen/_2sdp"
                     android:src="@drawable/volume" />
             </RelativeLayout>
-
 
             <FrameLayout
                 android:id="@+id/frameprogress"
@@ -104,7 +114,7 @@
                         android:max="100"
                         android:splitTrack="false"
                         android:progressTint="@color/txt_bg"
-                        android:progressBackgroundTint="@color/white"
+                        android:progressBackgroundTint="#FFFFFF"
                         android:thumb="@drawable/thumb_white"
                         app:seekBarRotation="CW270" />
 
@@ -149,7 +159,7 @@
                     android:layout_marginTop="@dimen/_10sdp"
                     android:fontFamily="@font/inter_semibold"
                     android:text="20"
-                    android:textColor="@color/white"
+                    android:textColor="#FFFFFF"
                     android:textSize="@dimen/_14sdp" />
                 <ImageView
                     android:id="@+id/iv_brightness"
@@ -187,7 +197,7 @@
                         android:splitTrack="false"
                         android:thumb="@drawable/thumb_white"
                         android:progressTint="@color/txt_bg"
-                        android:progressBackgroundTint="@color/white"
+                        android:progressBackgroundTint="#FFFFFF"
                         app:seekBarRotation="CW270" />
                 </com.cashloan.myapplication.videoplayer.other.VerticalSeekBarWrapper>
 
@@ -220,7 +230,7 @@
                 android:layout_width="@dimen/_13sdp"
                 android:layout_height="@dimen/_13sdp"
                 android:src="@drawable/emi_close"
-                app:tint="@color/white"
+                app:tint="#FFFFFF"
                 android:adjustViewBounds="true"/>
 
             <TextView
@@ -228,7 +238,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/speed"
-                android:textColor="@color/white"
+                android:textColor="#FFFFFF"
                 android:singleLine="true"
                 android:ellipsize="marquee"
                 android:marqueeRepeatLimit="marquee_forever"
@@ -250,7 +260,7 @@
                 android:layout_width="@dimen/_50sdp"
                 android:layout_height="@dimen/_30sdp"
                 android:background="@drawable/speed_border"
-                android:textColor="@color/white"
+                android:textColor="#FFFFFF"
                 android:text="0.25X"
                 android:layout_marginEnd="@dimen/_5sdp"
                 android:layout_weight="1"
@@ -262,7 +272,7 @@
                 android:layout_width="@dimen/_50sdp"
                 android:layout_height="@dimen/_30sdp"
                 android:background="@drawable/speed_border"
-                android:textColor="@color/white"
+                android:textColor="#FFFFFF"
                 android:text="0.5X"
                 android:layout_marginHorizontal="@dimen/_5sdp"
                 android:layout_weight="1"
@@ -274,7 +284,7 @@
                 android:layout_width="@dimen/_50sdp"
                 android:layout_height="@dimen/_30sdp"
                 android:background="@drawable/select_border"
-                android:textColor="@color/white"
+                android:textColor="#FFFFFF"
                 android:text="1X"
                 android:layout_marginHorizontal="@dimen/_5sdp"
                 android:layout_weight="1"
@@ -286,7 +296,7 @@
                 android:layout_width="@dimen/_50sdp"
                 android:layout_height="@dimen/_30sdp"
                 android:background="@drawable/speed_border"
-                android:textColor="@color/white"
+                android:textColor="#FFFFFF"
                 android:text="1.25X"
                 android:layout_marginHorizontal="@dimen/_5sdp"
                 android:layout_weight="1"
@@ -298,7 +308,7 @@
                 android:layout_width="@dimen/_50sdp"
                 android:layout_height="@dimen/_30sdp"
                 android:background="@drawable/speed_border"
-                android:textColor="@color/white"
+                android:textColor="#FFFFFF"
                 android:text="2X"
                 android:layout_marginStart="@dimen/_5sdp"
                 android:layout_weight="1"
@@ -308,8 +318,24 @@
             
         </LinearLayout>
 
-
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtCurrentPostion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="00:00"
+        android:gravity="center_horizontal"
+        android:textSize="@dimen/_20sdp"
+        android:textColor="@color/du_bg"
+        android:fontFamily="@font/inter_semibold"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+

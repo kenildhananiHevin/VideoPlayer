@@ -1,10 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">VideoPlayer</string>
     <string name="folder">PASTA</string>
     <string name="video">VÍDEO</string>
     <string name="fileDeletedSuccessfully">Arquivo excluído com sucesso!</string>
     <string name="fileNotDeleted">Arquivo não excluído</string>
-    <string name="share_image_via">Compartilhar arquivo via...</string>
+    <string name="share_image_via">Compartilhar arquivo via…</string>
     <string name="no_app_installed">Nenhum aplicativo encontrado para abrir este arquivo.</string>
     <string name="play">Reproduzir</string>
     <string name="rename">Renomear</string>
@@ -13,10 +14,10 @@
     <string name="are_you_sure_you_want_to_delete_n_this_video">Tem certeza de que deseja excluir este vídeo?</string>
     <string name="cancle">CANCELAR</string>
     <string name="r_rename">RENOMEAR</string>
-    <string name="d_delete">DELETAR</string>
+    <string name="d_delete">EXCLUIR</string>
     <string name="enter_a_name">Digite um nome</string>
     <string name="please_enter_a_valid_text">Insira um texto válido</string>
-    <string name="ok">Ok</string>
+    <string name="ok">OK</string>
     <string name="video_orientation_auto">Rotação automática</string>
     <string name="video_orientation_portrait">Retrato bloqueado</string>
     <string name="video_orientation_landscape">Paisagem bloqueada</string>
@@ -34,4 +35,14 @@
     <string name="video_player">Reprodutor de vídeo</string>
     <string name="video_players">REPRODUTOR DE VÍDEO</string>
     <string name="ultra_high_definition_video_player">Reprodutor de vídeo de ultra alta definição</string>
+    <string name="theme">Tema</string>
+    <string name="choose_theme">Escolha o tema</string>
+    <string name="light_theme">Tema claro</string>
+    <string name="dark_theme">Tema escuro</string>
+    <string name="system_default">Padrão do sistema</string>
+    <string name="player">REPRODUTOR</string>
+    <string name="please_allow">permita permissão para usar os recursos</string>
+    <string name="allow">permitir</string>
+    <string name="successfull">Bem-sucedido!</string>
+    <string name="video_not_supported">Vídeo não suportado</string>
 </resources>

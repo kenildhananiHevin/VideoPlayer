@@ -4,8 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/splash_bg"
     tools:context=".activity.SplashActivity">
+
+
+    <ImageView
+        android:id="@+id/background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:layout_alignParentBottom="true"
+        style="@style/imagetheme"
+        android:adjustViewBounds="true"/>
 
     <ImageView
         android:id="@+id/splash_logo"
@@ -18,30 +27,47 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/txtSplash"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/linearText"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/inter_bold"
-        android:text="@string/video_players"
-        android:textSize="@dimen/_16sdp"
-        app:layout_constraintTop_toBottomOf="@+id/splash_logo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="@dimen/_10sdp"/>
+        app:layout_constraintTop_toBottomOf="@id/splash_logo"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txtVideo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_bold"
+            android:text="@string/video"
+            android:textSize="@dimen/_16sdp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/txtPlayer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_bold"
+            android:text="@string/player"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:textSize="@dimen/_16sdp"
+            android:textColor="@color/txt_bg"/>
+
+    </LinearLayout>
+
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/ultra_high_definition_video_player"
         android:textColor="#6D6D6D"
-        app:layout_constraintTop_toBottomOf="@id/txtSplash"
+        app:layout_constraintTop_toBottomOf="@id/linearText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="@dimen/_5sdp"
         android:fontFamily="@font/inter_medium"
         android:textSize="@dimen/_12sdp"/>
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

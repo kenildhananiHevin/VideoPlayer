@@ -1,22 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">VideoPlayer</string>
     <string name="folder">ORDNER</string>
     <string name="video">VIDEO</string>
     <string name="fileDeletedSuccessfully">Datei erfolgreich gelöscht!</string>
     <string name="fileNotDeleted">Datei nicht gelöscht</string>
-    <string name="share_image_via">Datei teilen über...</string>
+    <string name="share_image_via">Datei teilen über…</string>
     <string name="no_app_installed">Keine Anwendung zum Öffnen dieser Datei gefunden.</string>
     <string name="play">Spielen</string>
     <string name="rename">Umbenennen</string>
     <string name="share">Teilen</string>
     <string name="delete">Löschen</string>
     <string name="are_you_sure_you_want_to_delete_n_this_video">Sind Sie sicher, dass Sie dieses Video löschen möchten?</string>
-    <string name="cancle">CANCLE</string>
+    <string name="cancle">STORNIEREN</string>
     <string name="r_rename">UMBENENNEN</string>
     <string name="d_delete">LÖSCHEN</string>
     <string name="enter_a_name">Geben Sie einen Namen ein</string>
     <string name="please_enter_a_valid_text">Bitte geben Sie einen gültigen Text ein</string>
-    <string name="ok">Ok</string>
+    <string name="ok">OK</string>
     <string name="video_orientation_auto">Automatisch drehen</string>
     <string name="video_orientation_portrait">Porträt gesperrt</string>
     <string name="video_orientation_landscape">Landschaft gesperrt</string>
@@ -34,4 +35,14 @@
     <string name="video_player">Videoplayer</string>
     <string name="video_players">VIDEO-PLAYER</string>
     <string name="ultra_high_definition_video_player">Ultra-High-Definition-Videoplayer</string>
+    <string name="theme">Theme</string>
+    <string name="choose_theme">Thema auswählen</string>
+    <string name="light_theme">Licht thema</string>
+    <string name="dark_theme">Dunkles Thema</string>
+    <string name="system_default">System fehler</string>
+    <string name="player">PLAYER</string>
+    <string name="please_allow">Bitte erlauben Sie die Berechtigung zur Nutzung von Funktionen</string>
+    <string name="allow">erlauben</string>
+    <string name="successfull">Erfolgreich!</string>
+    <string name="video_not_supported">Video nicht unterstützt</string>
 </resources>

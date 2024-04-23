@@ -1,10 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Reproductor de vídeo</string>
     <string name="folder">CARPETA</string>
     <string name="video">VÍDEO</string>
     <string name="fileDeletedSuccessfully">¡Archivo eliminado exitosamente!</string>
     <string name="fileNotDeleted">Archivo no eliminado</string>
-    <string name="share_image_via">Compartir archivo mediante...</string>
+    <string name="share_image_via">Compartir archivo mediante…</string>
     <string name="no_app_installed">No se encontró ninguna aplicación para abrir este archivo.</string>
     <string name="play">Reproducir</string>
     <string name="rename">Cambiar nombre</string>
@@ -12,11 +13,11 @@
     <string name="delete">Eliminar</string>
     <string name="are_you_sure_you_want_to_delete_n_this_video">¿Estás seguro de que deseas eliminar este vídeo?</string>
     <string name="cancle">CANCELAR</string>
-    <string name="r_rename">RENOMBRAR</string>
-    <string name="d_delete">ELIMINAR</string>
+    <string name="r_rename">REBAUTIZAR</string>
+    <string name="d_delete">BORRAR</string>
     <string name="enter_a_name">Ingrese un nombre</string>
     <string name="please_enter_a_valid_text">Ingrese un texto válido</string>
-    <string name="ok">Ok</string>
+    <string name="ok">OK</string>
     <string name="video_orientation_auto">Rotación automática</string>
     <string name="video_orientation_portrait">Retrato bloqueado</string>
     <string name="video_orientation_landscape">Paisaje bloqueado</string>
@@ -34,4 +35,14 @@
     <string name="video_player">Reproductor de vídeo</string>
     <string name="video_players">REPRODUCTOR DE VIDEO</string>
     <string name="ultra_high_definition_video_player">Reproductor de vídeo de ultra alta definición</string>
+    <string name="theme">Tema</string>
+    <string name="choose_theme">Elegir tema</string>
+    <string name="light_theme">Tema ligero</string>
+    <string name="dark_theme">Tema oscuro</string>
+    <string name="system_default">Predeterminado del sistema</string>
+    <string name="player">REPRODUCTOR</string>
+    <string name="please_allow">permita permiso para usar funciones</string>
+    <string name="allow">permitir</string>
+    <string name="successfull">Exitoso!</string>
+    <string name="video_not_supported">Vídeo no compatible</string>
 </resources>

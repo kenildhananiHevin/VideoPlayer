@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FFFFFF</color>
+    <color name="white">#1C1C1C</color>
+
+    <color name="btn_bg">#1F2025</color>
+    <color name="txt_bg">#2E5CFF</color>
+    <color name="txt_color">#8A8892</color>
+    <color name="txt_sec_color">#B3000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="image_bor">#222C51</color>
+    <color name="dailog_bg">#191A1F</color>
+    <color name="rename_bg">#25262B</color>
+    <color name="view_bg">#2E2F34</color>
+    <color name="uns_bg">#2E2F34</color>
+    <color name="du_bg">#FFFFFF</color>
+    <color name="st_bg">#1C1C1C</color>
+    <color name="exo_white">#FFFFFF</color>
+    <color name="exo_white_opacity_70">#FFFFFF</color>
+
+</resources>

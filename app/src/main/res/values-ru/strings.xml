@@ -1,10 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Видеоплеер</string>
     <string name="folder">ПАПКА</string>
     <string name="video">ВИДЕО</string>
     <string name="fileDeletedSuccessfully">Файл успешно удален!</string>
     <string name="fileNotDeleted">Файл не удален</string>
-    <string name="share_image_via">Поделиться файлом через...</string>
+    <string name="share_image_via">Поделиться файлом через…</string>
     <string name="no_app_installed">Приложение для открытия этого файла не найдено.</string>
     <string name="play">Играть</string>
     <string name="rename">Переименовать</string>
@@ -16,7 +17,7 @@
     <string name="d_delete">УДАЛИТЬ</string>
     <string name="enter_a_name">Введите имя</string>
     <string name="please_enter_a_valid_text">Введите действительный текст</string>
-    <string name="ok">ОК</string>
+    <string name="ok">ХОРОШО</string>
     <string name="video_orientation_auto">Автоповорот</string>
     <string name="video_orientation_portrait">Портрет заблокирован</string>
     <string name="video_orientation_landscape">Альбомная ориентация заблокирована</string>
@@ -34,4 +35,14 @@
     <string name="video_player">Видеоплеер</string>
     <string name="video_players">ВИДЕОПЛЕЕР</string>
     <string name="ultra_high_definition_video_player">Видеоплеер сверхвысокой четкости</string>
+    <string name="theme">Тема</string>
+    <string name="choose_theme">Выбрать тему</string>
+    <string name="light_theme">Светлая тема</string>
+    <string name="dark_theme">Темная тема</string>
+    <string name="system_default">Система по умолчанию</string>
+    <string name="player">ИГРОК</string>
+    <string name="please_allow">дайте разрешение на использование функций</string>
+    <string name="allow">разрешить</string>
+    <string name="successfull">Успешный!</string>
+    <string name="video_not_supported">Видео не поддерживает</string>
 </resources>

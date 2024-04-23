@@ -6,6 +6,7 @@ import static com.cashloan.myapplication.videoplayer.other.CommonClass.showToast
 
 import android.content.ContentValues;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -14,7 +15,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -61,12 +61,16 @@ public class FolderVideoItemActivity extends BaseActivity implements VideoAdapte
         txtFolderVideoName.setText(name);
         txtFolderVideoName.setSelected(true);
 
+        recycleFolderVideo.setLayoutManager(new LinearLayoutManager(activity));
+        videoAdapter = new VideoAdapter(activity, new ArrayList<>(), activity, paths);
+        recycleFolderVideo.setAdapter(videoAdapter);
+
         videoDao.getAllFolderVideo(paths).observe(activity, new Observer<List<VideoItem>>() {
             @Override
             public void onChanged(List<VideoItem> videoItems) {
-                recycleFolderVideo.setLayoutManager(new LinearLayoutManager(activity));
-                videoAdapter = new VideoAdapter(activity, videoItems,activity,paths);
-                recycleFolderVideo.setAdapter(videoAdapter);
+                videoAdapter.videoItems = videoItems;
+                videoAdapter.notifyDataSetChanged();
+
             }
         });
 
@@ -76,11 +80,10 @@ public class FolderVideoItemActivity extends BaseActivity implements VideoAdapte
                 finish();
             }
         });
-
     }
 
     @Override
-    public void deleteclick(File str, int i) {
+    public void deleteclick(File str, int i, VideoItem videoItem) {
         if (Build.VERSION.SDK_INT >= 30) {
             pos = i;
             Intent b = new Intent();
@@ -91,31 +94,31 @@ public class FolderVideoItemActivity extends BaseActivity implements VideoAdapte
             file = str;
             CommonClass.deleteFiles(list, REQUEST_PERM_DELETE, activity, b);
         } else {
+            Uri contentUri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
+            String where = MediaStore.Video.Media._ID + " = ?";
+            String[] args = new String[]{String.valueOf(videoItem.getId())};
+            getContentResolver().delete(contentUri, where, args);
             File file = str;
-            if (file.exists()) {
-                if (file.delete()) {
-                    removeAt(pos);
-                    showToast(activity, getString(R.string.fileDeletedSuccessfully));
-                    finish();
-                    return;
-                }
-                showToast(activity, getString(R.string.fileNotDeleted));
-            }
+            file.delete();
+            removeAt(pos);
+            videoDao.deleteByPath(file.getAbsolutePath());
+            showToast(activity, getString(R.string.fileDeletedSuccessfully));
         }
     }
 
     private void removeAt(int pos) {
-        videoAdapter.videoItems.remove(pos);
         videoAdapter.notifyDataSetChanged();
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
         if (requestCode == REQUEST_PERM_DELETE && resultCode == -1) {
             removeAt(pos);
             videoDao.deleteByPath(file.getAbsolutePath());
         }
+
         if (requestCode == 1031 && resultCode == -1) {
             ContentValues values = new ContentValues();
             values.put(MediaStore.MediaColumns.DISPLAY_NAME, VideoAdapter.newFile.getName());

@@ -21,7 +21,7 @@ public class VideoItem implements Serializable {
     private String videofolderpath;
     @ColumnInfo(name = "isplaylist")
     private boolean isplaylist;
-    private String videosize;
+    private long videosize;
     private String videofoldername;
     private String videoquality;
     private String videomimetype;
@@ -31,7 +31,7 @@ public class VideoItem implements Serializable {
     public VideoItem() {
     }
 
-    public VideoItem(long id,String path, String displayName, long Duration_milis, String size, String folderPath, String videoQuality, String MimeType) {
+    public VideoItem(long id,String path, String displayName, long Duration_milis, long size, String folderPath, String videoQuality, String MimeType,long DateAdded) {
         this.id = id;
         this.videopath = path;
         this.videodisplayname = displayName;
@@ -40,6 +40,7 @@ public class VideoItem implements Serializable {
         this.videofoldername = folderPath;
         this.videoquality = videoQuality;
         this.videomimetype = MimeType;
+        this.DateAdded = DateAdded;
     }
 
     public boolean getIsplaylist() {
@@ -74,11 +75,11 @@ public class VideoItem implements Serializable {
         Duration_milis = duration_milis;
     }
 
-    public String getVideosize() {
+    public long getVideosize() {
         return videosize;
     }
 
-    public void setVideosize(String videosize) {
+    public void setVideosize(long videosize) {
         this.videosize = videosize;
     }
 
@@ -129,4 +130,5 @@ public class VideoItem implements Serializable {
     public void setDateAdded(long dateAdded) {
         DateAdded = dateAdded;
     }
+
 }

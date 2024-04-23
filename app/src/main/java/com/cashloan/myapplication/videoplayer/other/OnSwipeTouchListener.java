@@ -9,7 +9,7 @@ import android.view.View;
 public class OnSwipeTouchListener implements View.OnTouchListener {
 
    private GestureDetector gestureDetector;
-   private float previousY;
+   private float  previousY,previousX;
 
    public OnSwipeTouchListener(Context c) {
       gestureDetector = new GestureDetector(c, new GestureListener());
@@ -21,11 +21,12 @@ public class OnSwipeTouchListener implements View.OnTouchListener {
 
    private final class GestureListener extends GestureDetector.SimpleOnGestureListener {
 
-
       @Override
       public boolean onDown(MotionEvent e) {
          return true;
       }
+
+
 
       @Override
       public boolean onSingleTapUp(MotionEvent e) {
@@ -52,16 +53,50 @@ public class OnSwipeTouchListener implements View.OnTouchListener {
               float velocityY
       ) {
          float currentY = e2.getY();
+         float currentX = e2.getX();
          if (currentY > previousY) {
             onSwipeDown();
          } else if (currentY < previousY) {
             onSwipeUp();
+
+         }
+         if (currentX > previousX) {
+            onSwipeLeft();
+         } else if (currentX < previousX) {
+            onSwipeRight();
          }
          previousY = currentY;
+         previousX = currentX;
          Log.e("TAG", "onScroll: " + e1.getAction());
-
          return false;
       }
+
+  /*    @Override
+      public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+         float deltaX = e2.getX() - e1.getX();
+         float deltaY = e2.getY() - e1.getY();
+
+         if (Math.abs(deltaX) > Math.abs(deltaY)) {
+            if (Math.abs(deltaX) > SWIPE_THRESHOLD && Math.abs(distanceX) > SWIPE_VELOCITY_THRESHOLD) {
+               if (deltaX > 0) {
+                  onSwipeRight();
+               } else {
+                  onSwipeLeft();
+               }
+               return true;
+            }
+         } else {
+            if (Math.abs(deltaY) > SWIPE_THRESHOLD && Math.abs(distanceY) > SWIPE_VELOCITY_THRESHOLD) {
+               if (deltaY > 0) {
+                  onSwipeDown();
+               } else {
+                  onSwipeUp();
+               }
+               return true;
+            }
+         }
+         return false;
+      }*/
 
    }
 
@@ -72,6 +107,7 @@ public class OnSwipeTouchListener implements View.OnTouchListener {
 
    }
 
+
    public void onClick() {
    }
 
@@ -79,5 +115,14 @@ public class OnSwipeTouchListener implements View.OnTouchListener {
    }
 
    private void onLongClick() {
+   }
+
+   public void onSwipeLeft() {
+      Log.d("Swipe", "Left swipe detected");
+   }
+
+
+   public void onSwipeRight() {
+      Log.d("Swipe", "Right swipe detected");
    }
 }

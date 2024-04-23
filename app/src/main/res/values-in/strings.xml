@@ -1,13 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Pemutar Video</string>
-    <string name="folder">FOLDER</string>
+    <string name="folder">MAP</string>
     <string name="video">VIDEO</string>
     <string name="fileDeletedSuccessfully">File Berhasil Dihapus!</string>
     <string name="fileNotDeleted">File tidak dihapus</string>
-    <string name="share_image_via">Bagikan File melalui...</string>
+    <string name="share_image_via">Bagikan File melalui…</string>
     <string name="no_app_installed">Tidak ditemukan aplikasi untuk membuka file ini.</string>
     <string name="play">Mainkan</string>
-    <string name="rename">Ganti nama</string>
+    <string name="rename">BATAL</string>
     <string name="share">Bagikan</string>
     <string name="delete">Hapus</string>
     <string name="are_you_sure_you_want_to_delete_n_this_video">Yakin ingin menghapus Video ini?</string>
@@ -34,4 +35,14 @@
     <string name="video_player">Pemutar Video</string>
     <string name="video_players">PEMUTAR VIDEO</string>
     <string name="ultra_high_definition_video_player">Pemutar Video Definisi Ultra Tinggi</string>
+    <string name="theme">Tema</string>
+    <string name="choose_theme">Pilih tema</string>
+    <string name="light_theme">Tema Ringan</string>
+    <string name="dark_theme">Tema Gelap</string>
+    <string name="system_default">Default Sistem</string>
+    <string name="player">PEMUTAR</string>
+    <string name="please_allow">mohon izin untuk menggunakan fitur</string>
+    <string name="allow">izinkan</string>
+    <string name="successfull">Berhasil!</string>
+    <string name="video_not_supported">Video tidak Didukung</string>
 </resources>

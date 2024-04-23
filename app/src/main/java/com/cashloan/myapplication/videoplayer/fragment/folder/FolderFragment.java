@@ -1,5 +1,7 @@
 package com.cashloan.myapplication.videoplayer.fragment.folder;
 
+import static com.cashloan.myapplication.videoplayer.activity.MainActivity.progressBar;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +20,7 @@ import com.cashloan.myapplication.videoplayer.database.VideoDatabase;
 import com.cashloan.myapplication.videoplayer.model.video.VideoFolderSize;
 import com.cashloan.myapplication.videoplayer.model.video.VideoItem;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FolderFragment extends Fragment {
@@ -36,12 +39,15 @@ public class FolderFragment extends Fragment {
 
         recyclerView = view.findViewById(R.id.allFolderList);
 
+        recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity()));
+        folderAdapter = new FolderAdapter(requireActivity(),new ArrayList<>());
+        recyclerView.setAdapter(folderAdapter);
+
         videoDao.getFolderSizes().observe(requireActivity(), new Observer<List<VideoFolderSize>>() {
             @Override
             public void onChanged(List<VideoFolderSize> videoFolderSizes) {
-                recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity()));
-                folderAdapter = new FolderAdapter(requireActivity(),videoFolderSizes);
-                recyclerView.setAdapter(folderAdapter);
+                folderAdapter.folderItem = videoFolderSizes;
+                folderAdapter.notifyDataSetChanged();
             }
         });
 

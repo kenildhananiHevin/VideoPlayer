@@ -1,17 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name='app_name'>वीडियोप्लेयर</string>
     <string name='folder'>फ़ोल्डर</string>
     <string name='video'>वीडियो</string>
     <string name='fileDeletedSuccessfully'>फ़ाइल सफलतापूर्वक हटा दी गई!</string>
     <string name='fileNotDeleted'>फ़ाइल नहीं हटाई गई</string>
-    <string name='share_image_via'>फ़ाइल साझा करें...</string>
+    <string name='share_image_via'>फ़ाइल साझा करें…</string>
     <string name='no_app_installed'>इस फ़ाइल को खोलने के लिए कोई एप्लिकेशन नहीं मिला।</string>
     <string name='play'>चलाएँ</string>
     <string name='rename'>नाम बदलें</string>
     <string name='share'>साझा करें</string>
     <string name='delete'>हटाएं</string>
     <string name='are_you_sure_you_want_to_delete_n_this_video'>क्या आप वाकई इस वीडियो को हटाना चाहते हैं?</string>
-    <string name='cancle'>CANCLE</string>
+    <string name='cancle'>रद्द करें</string>
     <string name='r_rename'>नाम बदलें</string>
     <string name='d_delete'>हटाएं</string>
     <string name='enter_a_name'>एक नाम दर्ज करें</string>
@@ -33,5 +34,15 @@
     <string name='speed'>स्पीड</string>
     <string name='video_player'>वीडियो प्लेयर</string>
     <string name='video_players'>वीडियो प्लेयर</string>
-    <string name = "ultra_high_definition_video_player">अल्ट्रा हाई-डेफिनिशन वीडियो प्लेयर</string>
+    <string name="ultra_high_definition_video_player">अल्ट्रा हाई-डेफिनिशन वीडियो प्लेयर</string>
+    <string name='theme'>थीम</string>
+    <string name='choose_theme'>थीम चुनें</string>
+    <string name='light_theme'>लाइट थीम</string>
+    <string name="dark_theme"> डार्क थीम</string>
+    <string name='system_default'>सिस्टम डिफ़ॉल्ट</string>
+    <string name="player">प्लेयर</string>
+    <string name='please_allow'>कृपया सुविधाओं का उपयोग करने की अनुमति दें</string>
+    <string name='allow'>अनुमति दें</string>
+    <string name="successfull">सफल!</string>
+    <string name="video_not_supported">वीडियो समर्थित नहीं है</string>
 </resources>

@@ -1,10 +1,12 @@
 package com.cashloan.myapplication.videoplayer.activity;
 
 import static android.view.View.GONE;
+import static com.cashloan.myapplication.videoplayer.activity.BaseActivity.clearLightStatusBar;
+import static com.cashloan.myapplication.videoplayer.activity.BaseActivity.setLightStatusBar;
+import static com.cashloan.myapplication.videoplayer.other.CommonClass.millisecToTime;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.app.AppOpsManager;
 import android.app.PendingIntent;
 import android.app.PictureInPictureParams;
@@ -13,6 +15,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.drawable.Icon;
@@ -42,6 +45,7 @@ import com.cashloan.myapplication.videoplayer.database.VideoDao;
 import com.cashloan.myapplication.videoplayer.database.VideoDatabase;
 import com.cashloan.myapplication.videoplayer.model.video.VideoItem;
 import com.cashloan.myapplication.videoplayer.other.BrightnessController;
+import com.cashloan.myapplication.videoplayer.other.LocaleHelper;
 import com.cashloan.myapplication.videoplayer.other.OnSwipeTouchListener;
 import com.cashloan.myapplication.videoplayer.other.VerticalSeekBar;
 import com.cashloan.myapplication.videoplayer.other.VideoPlayerUtils;
@@ -58,8 +62,7 @@ import com.google.android.exoplayer2.video.VideoSize;
 import java.util.ArrayList;
 import java.util.List;
 
-public class VideoPlayerActivity extends BaseActivity {
-
+public class VideoPlayerActivity extends AppCompatActivity {
     public static VideoPlayerActivity activity;
     public static StyledPlayerView playerView;
     private ExoPlayer player;
@@ -78,15 +81,19 @@ public class VideoPlayerActivity extends BaseActivity {
     private BroadcastReceiver mReceiver;
     private boolean isCallOnStop = false;
     public static float subtitleSize = 20f;
-    ImageView rotation, imgVolume, imgPipMode,player_back,speed_close,imgSpeed;
+    ImageView rotation, imgVolume, imgPipMode, player_back, speed_close, imgSpeed, minit, minits;
     public static LoudnessEnhancer loudnessEnhancer;
-    RelativeLayout relativeLayout_touch, relativeLayout_bright;
-    TextView txtPlayer,txtSpeed,txtSpeed_255,
-    txtSpeed_5,
-    txtSpeed_1,
-    txtSpeed_25,
-    txtSpeed_2;
+    RelativeLayout relativeLayout_touch, relativeLayout_bright, relativeLayout_videoDuration;
+    TextView txtPlayer;
+    TextView txtSpeed;
+    TextView txtSpeed_255;
+    TextView txtSpeed_5;
+    TextView txtSpeed_1;
+    TextView txtSpeed_25;
+    TextView txtCurrentPostion;
+    TextView txtSpeed_2;
     LinearLayout linearSpeed;
+    public String prefsString;
 
     public static FrameLayout rl_brightness;
     public static FrameLayout rlVolume;
@@ -97,9 +104,7 @@ public class VideoPlayerActivity extends BaseActivity {
     public static ImageView ivVolume;
     boolean mute = false;
     float currentSpeed = 1.0f;
-
-
-
+    boolean visilb = false;
 
     public static final Runnable runnableVolume = new Runnable() {
         @Override
@@ -115,19 +120,29 @@ public class VideoPlayerActivity extends BaseActivity {
         }
     };
 
+    public final Runnable runnableDuration = new Runnable() {
+        @Override
+        public void run() {
+            txtCurrentPostion.setVisibility(GONE);
+        }
+    };
+
 
     @SuppressLint({"MissingInflatedId", "ClickableViewAccessibility"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setLightStatusBar(this);
-        clearLightStatusBar(this);
-        getWindow().setStatusBarColor(getColor(R.color.black));
-        getWindow().setNavigationBarColor(getColor(R.color.black));
+        handleLanguageChange();
+        SharedPreferences preferences = getSharedPreferences("Language", 0);
+        prefsString = preferences.getString("language_code", "en");
+        LocaleHelper.setLocale(VideoPlayerActivity.this, prefsString);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video_player);
+        getWindow().setStatusBarColor(getColor(R.color.st_bg));
+        getWindow().setNavigationBarColor(getColor(R.color.st_bg));
+        setLightStatusBar(this);
+        clearLightStatusBar(this);
 
         activity = this;
-
 
         videoDatabase = VideoDatabase.getInstance(activity);
         videoDao = videoDatabase.videoDao();
@@ -150,10 +165,14 @@ public class VideoPlayerActivity extends BaseActivity {
         player_back = findViewById(R.id.player_back);
         relativeLayout_touch = findViewById(R.id.relativeLayout_touch);
         relativeLayout_bright = findViewById(R.id.relativeLayout_bright);
+        relativeLayout_videoDuration = findViewById(R.id.relativeLayout_videoDuration);
         speed_close = findViewById(R.id.speed_close);
         txtSpeed = findViewById(R.id.txtSpeed);
         linearSpeed = findViewById(R.id.linearSpeed);
         imgSpeed = findViewById(R.id.imgSpeed);
+        minit = findViewById(R.id.minit);
+        minits = findViewById(R.id.minits);
+        txtCurrentPostion = findViewById(R.id.txtCurrentPostion);
 
         rl_brightness = findViewById(R.id.rl_brightness);
         rlVolume = findViewById(R.id.rl_volume);
@@ -181,6 +200,20 @@ public class VideoPlayerActivity extends BaseActivity {
             }
         });
 
+        minit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                player.seekBack();
+            }
+        });
+
+        minits.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                player.seekForward();
+            }
+        });
+
         speed_close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -204,6 +237,7 @@ public class VideoPlayerActivity extends BaseActivity {
             }
         });
 
+
         txtSpeed_25.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -219,6 +253,7 @@ public class VideoPlayerActivity extends BaseActivity {
                 linearSpeed.setVisibility(GONE);
             }
         });
+
 
         txtSpeed_5.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -271,7 +306,7 @@ public class VideoPlayerActivity extends BaseActivity {
         player_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                enterPiP();
             }
         });
 
@@ -376,13 +411,38 @@ public class VideoPlayerActivity extends BaseActivity {
             }
         });
 
+        relativeLayout_videoDuration.setOnTouchListener(new OnSwipeTouchListener(activity) {
+            @Override
+            public void onSwipeRight() {
+                super.onSwipeRight();
+                txtCurrentPostion.setVisibility(View.VISIBLE);
+                String Duration = millisecToTime((int) player.getCurrentPosition());
+                txtCurrentPostion.setText(Duration);
+                player.seekTo(player.getCurrentPosition() - 1000);
+                playerView.removeCallbacks(runnableDuration);
+                playerView.postDelayed(runnableDuration, 500);
+            }
+
+
+            @Override
+            public void onSwipeLeft() {
+                super.onSwipeLeft();
+                txtCurrentPostion.setVisibility(View.VISIBLE);
+                String Duration = millisecToTime((int) player.getCurrentPosition());
+                txtCurrentPostion.setText(Duration);
+                player.seekTo(player.getCurrentPosition() + 1000);
+                playerView.removeCallbacks(runnableDuration);
+                playerView.postDelayed(runnableDuration, 500);
+            }
+        });
+
         DefaultTimeBar timeBar = playerView.findViewById(com.google.android.exoplayer2.ui.R.id.exo_progress);
         if (timeBar != null) {
             timeBar.setBackgroundColor(ContextCompat.getColor(this, R.color.transparent));
             timeBar.setScrubberColor(ContextCompat.getColor(this, R.color.txt_bg));
             timeBar.setPlayedColor(ContextCompat.getColor(this, R.color.txt_bg));
-            timeBar.setUnplayedColor(ContextCompat.getColor(this, R.color.white));
-            timeBar.setBufferedColor(ContextCompat.getColor(this, R.color.white));
+            timeBar.setUnplayedColor(ContextCompat.getColor(this, R.color.du_bg));
+            timeBar.setBufferedColor(ContextCompat.getColor(this, R.color.du_bg));
         }
 
         player.addListener(new Player.Listener() {
@@ -426,13 +486,10 @@ public class VideoPlayerActivity extends BaseActivity {
         });
     }
 
-    public static void clearLightStatusBar(Activity activity) {
-        View decorView = activity.getWindow().getDecorView();
-        decorView.setSystemUiVisibility(0);
-    }
-    public static void setLightStatusBar(Activity activity) {
-        View decorView = activity.getWindow().getDecorView();
-        decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+    private void handleLanguageChange() {
+        SharedPreferences preferences = getSharedPreferences("Language", 0);
+        String languageCode = preferences.getString("language_code", "en");
+        LocaleHelper.setLocale(VideoPlayerActivity.this, languageCode);
     }
 
 
@@ -457,7 +514,7 @@ public class VideoPlayerActivity extends BaseActivity {
         final ArrayList<RemoteAction> actions = new ArrayList<>();
 
         final PendingIntent intentPrevious = PendingIntent.getBroadcast(VideoPlayerActivity.this, CONTROL_TYPE_PREV, new Intent(ACTION_MEDIA_CONTROL).putExtra(EXTRA_CONTROL_TYPE, CONTROL_TYPE_PREV), PendingIntent.FLAG_IMMUTABLE);
-            final Icon iconPause = Icon.createWithResource(VideoPlayerActivity.this, R.drawable.img_previous_pip);
+        final Icon iconPause = Icon.createWithResource(VideoPlayerActivity.this, R.drawable.img_previous_pip);
 
         final PendingIntent intentPlayPause = PendingIntent.getBroadcast(VideoPlayerActivity.this, CONTROL_TYPE_PLAY_PAUSE, new Intent(ACTION_MEDIA_CONTROL).putExtra(EXTRA_CONTROL_TYPE, CONTROL_TYPE_PLAY_PAUSE), PendingIntent.FLAG_IMMUTABLE);
         final Icon iconPlayPause = Icon.createWithResource(VideoPlayerActivity.this, isPlaying ? R.drawable.ic_pause : R.drawable.img_play_pip);
@@ -617,12 +674,11 @@ public class VideoPlayerActivity extends BaseActivity {
         player.release();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onBackPressed() {
-        if (isPiPSupported() && hasPiPPermission()) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             enterPiP();
-        } else {
-            finishAndRemoveTask();
         }
     }
 
@@ -637,14 +693,14 @@ public class VideoPlayerActivity extends BaseActivity {
     protected void onStop() {
         super.onStop();
         isCallOnStop = true;
-        player.stop();
+        player.pause();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+        handleLanguageChange();
         isCallOnStop = false;
     }
-
 
 }

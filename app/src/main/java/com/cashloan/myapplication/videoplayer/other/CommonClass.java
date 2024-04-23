@@ -210,20 +210,20 @@ public class CommonClass {
         int seconds = duration % 60;
 
         if (duration >= 3600) {
-            sb.append(String.format(Locale.getDefault(), "%02d", hours)).append(":");
+            sb.append(String.format(Locale.US, "%02d", hours)).append(":");
         } else if (forceShowHours) {
             sb.append("0:");
         }
 
-        sb.append(String.format(Locale.getDefault(), "%02d", minutes))
+        sb.append(String.format(Locale.US, "%02d", minutes))
                 .append(":")
-                .append(String.format(Locale.getDefault(), "%02d", seconds));
+                .append(String.format(Locale.US, "%02d", seconds));
         return sb.toString();
     }
 
     public static String convertMillisToTime(long millis,String pattern) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat(pattern, (Locale.getDefault()));
-        Calendar calendar = Calendar.getInstance((Locale.getDefault()));
+        SimpleDateFormat dateFormat = new SimpleDateFormat(pattern, (Locale.US));
+        Calendar calendar = Calendar.getInstance((Locale.US));
         calendar.setTimeInMillis(millis);
         calendar.set(Calendar.SECOND, 0);
 
