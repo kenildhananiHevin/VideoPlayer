@@ -100,13 +100,13 @@
                 android:minHeight="280dp"
                 android:visibility="visible">
 
-                <com.cashloan.myapplication.videoplayer.other.VerticalSeekBarWrapper
+                <videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.other.VerticalSeekBarWrapper
                     android:layout_width="30dp"
                     android:layout_height="@dimen/_140sdp"
                     android:layout_gravity="center"
                     android:layoutDirection="ltr">
 
-                    <com.cashloan.myapplication.videoplayer.other.VerticalSeekBar
+                    <videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.other.VerticalSeekBar
                         android:id="@+id/sb_volume"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
@@ -118,7 +118,7 @@
                         android:thumb="@drawable/thumb_white"
                         app:seekBarRotation="CW270" />
 
-                </com.cashloan.myapplication.videoplayer.other.VerticalSeekBarWrapper>
+                </videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.other.VerticalSeekBarWrapper>
 
 
             </FrameLayout>
@@ -182,13 +182,13 @@
                 android:minHeight="280dp"
                 android:visibility="visible">
 
-                <com.cashloan.myapplication.videoplayer.other.VerticalSeekBarWrapper
+                <videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.other.VerticalSeekBarWrapper
                     android:layout_width="30dp"
                     android:layout_height="@dimen/_140sdp"
                     android:layout_gravity="center"
                     android:layoutDirection="ltr">
 
-                    <com.cashloan.myapplication.videoplayer.other.VerticalSeekBar
+                    <videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.other.VerticalSeekBar
                         android:id="@+id/sb_brightness"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
@@ -199,7 +199,7 @@
                         android:progressTint="@color/txt_bg"
                         android:progressBackgroundTint="#FFFFFF"
                         app:seekBarRotation="CW270" />
-                </com.cashloan.myapplication.videoplayer.other.VerticalSeekBarWrapper>
+                </videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.other.VerticalSeekBarWrapper>
 
 
             </FrameLayout>

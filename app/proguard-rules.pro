@@ -23,4 +23,4 @@
 -keep class com.cashloan.myapplication.videoplayer.model.**{*;}
 -keep class com.cashloan.myapplication.videoplayer.model.language_model**{*;}
 -keep class com.cashloan.myapplication.videoplayer.model.video**{*;}
--keep class com.cashloan.myapplication.videoplayer.model.CustomViewPager{*;}
+-keep class videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.model.CustomViewPager{*;}

@@ -59,12 +59,12 @@
         app:tabTextColor="@color/txt_color" />
 
 
-    <com.cashloan.myapplication.videoplayer.model.CustomViewPager
-        android:id="@+id/view_pager"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/progressBar" />
+        <videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.model.CustomViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/progressBar" />
 
 
 
