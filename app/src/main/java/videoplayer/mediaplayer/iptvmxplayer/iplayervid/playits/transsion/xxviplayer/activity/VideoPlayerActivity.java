@@ -236,7 +236,6 @@ public class VideoPlayerActivity extends AppCompatActivity {
             }
         });
 
-
         txtSpeed_25.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -421,7 +420,6 @@ public class VideoPlayerActivity extends AppCompatActivity {
                 playerView.removeCallbacks(runnableDuration);
                 playerView.postDelayed(runnableDuration, 500);
             }
-
 
             @Override
             public void onSwipeLeft() {

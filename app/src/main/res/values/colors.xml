@@ -15,7 +15,7 @@
     <color name="uns_bg">#BEBEBE</color>
     <color name="du_bg">#FFFFFF</color>
     <color name="st_bg">#1C1C1C</color>
-    <color name="exo_white">#FFFFFF</color>
+        <color name="exo_white">#FFFFFF</color>
     <color name="exo_white_opacity_70">#FFFFFF</color>
 
 

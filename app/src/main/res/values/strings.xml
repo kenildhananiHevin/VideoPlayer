@@ -11,7 +11,7 @@
     <string name="rename">Rename</string>
     <string name="share">Share</string>
     <string name="delete">Delete</string>
-    <string name="are_you_sure_you_want_to_delete_n_this_video">Are you sure you want to delete this Video?</string>
+        <string name="are_you_sure_you_want_to_delete_n_this_video">Are you sure you want to delete this Video?</string>
     <string name="cancle">CANCEL</string>
     <string name="r_rename">RENAME</string>
     <string name="d_delete">DELETE</string>

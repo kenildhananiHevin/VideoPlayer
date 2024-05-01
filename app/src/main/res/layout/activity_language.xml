@@ -56,7 +56,7 @@
         android:layout_marginBottom="@dimen/_10sdp"
         android:overScrollMode="never"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/ad_view_container"
         app:layout_constraintTop_toBottomOf="@id/Layout" />
 
 
@@ -68,5 +68,12 @@
         android:indeterminateTint="@color/txt_bg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
+    <FrameLayout
+        android:id="@+id/ad_view_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

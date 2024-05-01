@@ -4,16 +4,39 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.DisplayMetrics;
+import android.util.Log;
+import android.view.Display;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.gms.ads.AdError;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.FullScreenContentCallback;
+import com.google.android.gms.ads.LoadAdError;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.RequestConfiguration;
+import com.google.android.gms.ads.interstitial.InterstitialAd;
+import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Objects;
+import java.util.Random;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.R;
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.activity.BaseActivity;
@@ -21,10 +44,6 @@ import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxvipla
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.adapter.LanguageAdapter;
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.model.language_model.Languages;
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.other.LocaleHelper;
-
-import java.util.ArrayList;
-import java.util.Objects;
-import java.util.Random;
 
 public class LanguageActivity extends BaseActivity {
 
@@ -38,6 +57,19 @@ public class LanguageActivity extends BaseActivity {
     ProgressBar pbLoading;
     LanguageActivity activity;
     TextView txtSelectedLanguage;
+    private FrameLayout adContainerView;
+    private AdView adView;
+    private static final String AD_UNIT_ID = "ca-app-pub-3940256099942544/9214589741";
+    private static final String AD_UNIT_IDS = "ca-app-pub-3940256099942544/1033173712";
+    private AtomicBoolean initialLayoutComplete = new AtomicBoolean(false);
+    private InterstitialAd interstitialAd;
+    private boolean adIsLoading;
+    private static final long GAME_LENGTH_MILLISECONDS = 3000;
+    private CountDownTimer countDownTimer;
+    boolean gamePaused;
+    private boolean gameOver;
+    private long timerMilliseconds;
+    String prefsString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +78,8 @@ public class LanguageActivity extends BaseActivity {
 
         activity = this;
         SharedPreferences preferences = getSharedPreferences("Language", 0);
-        String prefsString = preferences.getString("language_code", "en");
+        prefsString = preferences.getString("language_code", "en");
+
         intent = getIntent().getBooleanExtra("from", false);
 
         languageList = findViewById(R.id.language_list);
@@ -54,13 +87,29 @@ public class LanguageActivity extends BaseActivity {
         pbLoading = findViewById(R.id.pbLoading);
         back = findViewById(R.id.back);
         txtSelectedLanguage = findViewById(R.id.txtSelectedLanguage);
+        adContainerView = findViewById(R.id.ad_view_container);
+
+        adContainerView
+                .getViewTreeObserver()
+                .addOnGlobalLayoutListener(
+                        () -> {
+                            if (!initialLayoutComplete.getAndSet(true)) {
+                                loadBanner();
+                            }
+                        });
+
+        MobileAds.setRequestConfiguration(
+                new RequestConfiguration.Builder().setTestDeviceIds(Arrays.asList("ABCDEF012345")).build());
+
+        loadAd();
+
         imgDone.setSelected(true);
         txtSelectedLanguage.setSelected(true);
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                onBackPressed();
             }
         });
 
@@ -98,10 +147,8 @@ public class LanguageActivity extends BaseActivity {
                 if (languageAdapter.selected != -1) {
                     Languages languages = LanguageActivity.this.languages.get(languageAdapter.selected);
                     LocaleHelper.setLocale(LanguageActivity.this, languages.getLanguageCode());
-
-                    SharedPreferences prefsString = getSharedPreferences("Language", 0);
-                    SharedPreferences.Editor editor = prefsString.edit();
-
+                    SharedPreferences prefsStringss = getSharedPreferences("Language", 0);
+                    SharedPreferences.Editor editor = prefsStringss.edit();
                     String languageCode = languages.getLanguageCode();
                     editor.putString("language_code", languageCode);
                     editor.putBoolean("language_set", true);
@@ -110,7 +157,11 @@ public class LanguageActivity extends BaseActivity {
                         startActivity(new Intent(LanguageActivity.this, MainActivity.class));
                         finish();
                     } else {
-                        finish();
+                        if (!prefsString.equals(languages.getLanguageCode())) {
+                            showInterstitial();
+                        } else {
+                            finish();
+                        }
                     }
 
                 } else {
@@ -144,11 +195,98 @@ public class LanguageActivity extends BaseActivity {
         }
     }
 
+    private void showInterstitial() {
+        if (interstitialAd != null) {
+            interstitialAd.show(activity);
+        } else {
+            startGame();
+            loadAd();
+        }
+    }
+
+    public void loadAd() {
+        if (adIsLoading || interstitialAd != null) {
+            return;
+        }
+        adIsLoading = true;
+        AdRequest adRequest = new AdRequest.Builder().build();
+        InterstitialAd.load(
+                this,
+                AD_UNIT_IDS,
+                adRequest,
+                new InterstitialAdLoadCallback() {
+                    @Override
+                    public void onAdLoaded(@NonNull InterstitialAd interstitialAd) {
+                        activity.interstitialAd = interstitialAd;
+                        adIsLoading = false;
+                        interstitialAd.setFullScreenContentCallback(
+                                new FullScreenContentCallback() {
+                                    @Override
+                                    public void onAdDismissedFullScreenContent() {
+                                        activity.interstitialAd = null;
+                                        finish();
+                                    }
+
+                                    @Override
+                                    public void onAdFailedToShowFullScreenContent(AdError adError) {
+                                        activity.interstitialAd = null;
+                                    }
+
+                                    @Override
+                                    public void onAdShowedFullScreenContent() {
+                                    }
+                                });
+                    }
+
+                    @Override
+                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
+                        Log.i("TAG", loadAdError.getMessage());
+                        interstitialAd = null;
+                        adIsLoading = false;
+
+                        String error =
+                                String.format(
+                                        java.util.Locale.US,
+                                        "domain: %s, code: %d, message: %s",
+                                        loadAdError.getDomain(),
+                                        loadAdError.getCode(),
+                                        loadAdError.getMessage());
+                        Toast.makeText(activity, "onAdFailedToLoad() with error: " + error, Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+
+    private void startGame() {
+        createTimer(GAME_LENGTH_MILLISECONDS);
+        gamePaused = false;
+        gameOver = false;
+    }
+
+    private void createTimer(final long milliseconds) {
+        if (countDownTimer != null) {
+            countDownTimer.cancel();
+        }
+
+        countDownTimer = new CountDownTimer(milliseconds, 50) {
+            @Override
+            public void onTick(long millisUnitFinished) {
+                timerMilliseconds = millisUnitFinished;
+            }
+
+            @Override
+            public void onFinish() {
+                gameOver = true;
+            }
+        };
+
+        countDownTimer.start();
+    }
+
     @Override
     public void onBackPressed() {
         if (prefsStrings) {
-            /*backPressed();*/
-            finish();
+            showInterstitial();
         } else {
             new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
                 @Override
@@ -160,8 +298,81 @@ public class LanguageActivity extends BaseActivity {
                 finishAffinity();
             } else {
                 backClick = true;
-                Toast.makeText(LanguageActivity.this,  R.string.press, Toast.LENGTH_SHORT).show();
+                Toast.makeText(LanguageActivity.this, R.string.press, Toast.LENGTH_SHORT).show();
             }
         }
     }
+
+    private void loadBanner() {
+        adView = new AdView(this);
+        adView.setAdUnitId(AD_UNIT_ID);
+        adView.setAdSize(getAdSize());
+
+        adContainerView.removeAllViews();
+        adContainerView.addView(adView);
+
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
+    }
+
+    private AdSize getAdSize() {
+        Display display = getWindowManager().getDefaultDisplay();
+        DisplayMetrics outMetrics = new DisplayMetrics();
+        display.getMetrics(outMetrics);
+
+        float density = outMetrics.density;
+
+        float adWidthPixels = adContainerView.getWidth();
+
+        if (adWidthPixels == 0) {
+            adWidthPixels = outMetrics.widthPixels;
+        }
+
+        int adWidth = (int) (adWidthPixels / density);
+        return AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(this, adWidth);
+    }
+
+    public void onPause() {
+        if (adView != null) {
+            adView.pause();
+        }
+        super.onPause();
+        pauseGame();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        resumeGame();
+        if (adView != null) {
+            adView.resume();
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        if (adView != null) {
+            adView.destroy();
+        }
+        super.onDestroy();
+    }
+
+    private void resumeGame() {
+        if (gameOver || !gamePaused) {
+            return;
+        }
+        gamePaused = false;
+        createTimer(timerMilliseconds);
+    }
+
+    private void pauseGame() {
+        if (gameOver || gamePaused) {
+            return;
+        }
+        if (countDownTimer != null) {
+            countDownTimer.cancel();
+        }
+        gamePaused = true;
+    }
+
 }
