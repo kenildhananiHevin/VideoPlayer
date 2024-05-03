@@ -6,31 +6,62 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 
+import plugin.adsdk.extras.BaseLauncherActivity;
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.R;
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.language.LanguageActivity;
+import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.other.LocaleHelper;
 
-public class SplashActivity extends BaseActivity {
+public class SplashActivity extends BaseLauncherActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        handleLanguageChange();
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                SharedPreferences preferences = getSharedPreferences("Language", 0);
-                boolean prefsString = preferences.getBoolean("language_set", false);
-                if (prefsString){
-                    startActivity(new Intent(SplashActivity.this, MainActivity.class));
-                    finish();
-                }else {
-                    Intent i = new Intent(SplashActivity.this, LanguageActivity.class);
-                    i.putExtra("from", true);
-                    startActivity(i);
-                    finish();
-                }
-
-            }
-        }, 2000);
     }
+
+    @Override
+    protected Intent destinationIntent() {
+        SharedPreferences preferences = getSharedPreferences("Language", 0);
+        boolean prefsString = preferences.getBoolean("language_set", false);
+        if (prefsString) {
+            return new Intent(new Intent(SplashActivity.this, MainActivity.class));
+        } else {
+            return new Intent(new Intent(SplashActivity.this, LanguageActivity.class).putExtra("from", true));
+        }
+    }
+
+    @Override
+    protected String extraAppContentText() {
+        return getString(plugin.adsdk.R.string.app_content);
+    }
+
+    @Override
+    protected int extraAppContentImage() {
+        return R.mipmap.ic_launcher;
+    }
+
+    public static final String BASE_URL = "https://ht.askforad.com/";
+
+    @Override
+    protected String baseURL() {
+        return BASE_URL;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        handleLanguageChange();
+    }
+
+    public SplashActivity() {
+        super(R.layout.activity_splash, plugin.adsdk.R.layout.ad_activity_extra_dashboard);
+    }
+
+    protected void handleLanguageChange() {
+        SharedPreferences preferences = getSharedPreferences("Language", 0);
+        String languageCode = preferences.getString("language_code", "en");
+        LocaleHelper.setLocale(SplashActivity.this, languageCode);
+    }
+
+
 }

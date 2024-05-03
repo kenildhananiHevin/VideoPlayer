@@ -17,5 +17,7 @@
     <color name="st_bg">#1C1C1C</color>
     <color name="exo_white">#FFFFFF</color>
     <color name="exo_white_opacity_70">#FFFFFF</color>
+    <color name="ad_native_background">#1C1C1C</color>
+    <color name="colorAccent">#2E5CFF</color>
 
 </resources>

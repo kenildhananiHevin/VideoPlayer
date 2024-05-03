@@ -31,16 +31,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.R;
-import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.adapter.VideoAdapter;
-import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.database.VideoDao;
-import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.database.VideoDatabase;
-import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.fragment.folder.FolderFragment;
-import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.fragment.video.VideoFragment;
-import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.model.CustomViewPager;
-import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.model.video.VideoItem;
-import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.other.LocaleHelper;
-import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.setting.SettingActivity;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
@@ -49,7 +39,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import plugin.adsdk.service.AppOpenManager;
+import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.R;
+import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.adapter.VideoAdapter;
+import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.database.VideoDao;
+import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.database.VideoDatabase;
+import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.fragment.folder.FolderFragment;
+import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.fragment.video.VideoFragment;
+import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.model.CustomViewPager;
+import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.model.video.VideoItem;
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.other.CommonClass;
+import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.other.LocaleHelper;
+import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.setting.SettingActivity;
 
 public class MainActivity extends BaseActivity {
 
@@ -69,8 +70,10 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        AppOpenManager.blockAppOpen(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         activity = this;
 
@@ -127,7 +130,6 @@ public class MainActivity extends BaseActivity {
         }
 
 
-
         imgSetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -168,7 +170,7 @@ public class MainActivity extends BaseActivity {
             }
         });
 
-        if (!videoDao.getAllVideos().isEmpty()){
+        if (!videoDao.getAllVideos().isEmpty()) {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
@@ -350,7 +352,7 @@ public class MainActivity extends BaseActivity {
             }
         }
 
-        if (!videoDao.getAllVideos().isEmpty()){
+        if (!videoDao.getAllVideos().isEmpty()) {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {

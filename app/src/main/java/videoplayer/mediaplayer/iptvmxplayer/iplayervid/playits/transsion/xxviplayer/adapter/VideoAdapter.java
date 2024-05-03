@@ -1,7 +1,6 @@
 package videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.adapter;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.PendingIntent;
 import android.content.ActivityNotFoundException;
@@ -30,6 +29,11 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+
+import plugin.adsdk.service.AdsUtility;
+import plugin.adsdk.service.BaseActivity;
+import plugin.adsdk.service.NativeAdsAdapter;
+import plugin.adsdk.service.NativeFirstAdsAdapter;
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.R;
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.activity.VideoPlayerActivity;
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.database.VideoDao;
@@ -42,8 +46,9 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> {
-    Activity activity;
+public class VideoAdapter extends NativeFirstAdsAdapter {
+
+    BaseActivity activity;
     public List<VideoItem> videoItems;
     DeleteData deleteData;
     LinearLayout play, rename, share, delete;
@@ -56,7 +61,8 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
     VideoDatabase videoDatabase;
     VideoDao videoDao;
 
-    public VideoAdapter(Activity activity, List<VideoItem> videoItems, DeleteData deleteData, String from) {
+    public VideoAdapter(BaseActivity activity, List<VideoItem> videoItems, DeleteData deleteData, String from) {
+        super(activity, plugin.adsdk.R.layout.ad_layout_native_medium, NativeSize.MID);
         this.activity = activity;
         this.videoItems = videoItems;
         this.deleteData = deleteData;
@@ -68,14 +74,14 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolder createView(@NonNull ViewGroup parent, int viewType) {
         return new ViewHolder(LayoutInflater.from(activity).inflate(R.layout.video_item, parent, false));
     }
 
-    @SuppressLint("SetTextI18n")
-    @Override
-    public void onBindViewHolder(@NonNull VideoAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
+    @Override
+    public void bindView(@NonNull RecyclerView.ViewHolder baseHolder, int position) {
+        final ViewHolder holder = (ViewHolder) baseHolder;
         VideoItem videoItem = videoItems.get(position);
             String Duration = CommonClass.millisecToTime((int) videoItem.getDuration_milis());
             String Date = CommonClass.convertMillisToTime(new File(videoItem.getVideopath()).lastModified(), "dd/MM/yyyy");
@@ -321,7 +327,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
     }
 
     @Override
-    public int getItemCount() {
+    public int itemCount() {
         return videoItems.size();
     }
 

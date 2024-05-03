@@ -11,17 +11,18 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.List;
+
+import plugin.adsdk.service.BaseActivity;
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.R;
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.activity.FolderVideoItemActivity;
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.model.video.VideoFolderSize;
 
-import java.util.List;
-
 public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.ViewHolder> {
-    FragmentActivity requireActivity;
+    BaseActivity requireActivity;
     public List<VideoFolderSize> folderItem;
 
-    public FolderAdapter(FragmentActivity requireActivity, List<VideoFolderSize> folderItem) {
+    public FolderAdapter(BaseActivity requireActivity, List<VideoFolderSize> folderItem) {
         this.requireActivity = requireActivity;
         this.folderItem = folderItem;
     }
@@ -43,12 +44,12 @@ public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.ViewHolder
         String[] parts = path.split("/");
 
         holder.folder_name.setText(parts[parts.length - 1]);
-        holder.folder_size.setText("(" + FolderSize + " " +requireActivity.getString(R.string.videos) + ")");
+        holder.folder_size.setText("(" + FolderSize + " " + requireActivity.getString(R.string.videos) + ")");
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                requireActivity.startActivity(new Intent(requireActivity, FolderVideoItemActivity.class)
+                requireActivity.showInterstitial(new Intent(requireActivity, FolderVideoItemActivity.class)
                         .putExtra("name", parts[parts.length - 1])
                         .putExtra("path", path));
             }

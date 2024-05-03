@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import plugin.adsdk.service.BaseActivity;
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.R;
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.adapter.FolderAdapter;
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.database.VideoDao;
@@ -20,7 +21,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FolderFragment extends Fragment {
-
     RecyclerView recyclerView;
     VideoDatabase videoDatabase;
     VideoDao videoDao;
@@ -30,13 +30,15 @@ public class FolderFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_folder, container, false);
 
+        ((BaseActivity) getActivity()).bannerAd(view.findViewById(R.id.banner_ad_container));
+
         videoDatabase = VideoDatabase.getInstance(requireActivity());
         videoDao = videoDatabase.videoDao();
 
         recyclerView = view.findViewById(R.id.allFolderList);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity()));
-        folderAdapter = new FolderAdapter(requireActivity(),new ArrayList<>());
+        folderAdapter = new FolderAdapter((BaseActivity) requireActivity(),new ArrayList<>());
         recyclerView.setAdapter(folderAdapter);
 
         videoDao.getFolderSizes().observe(requireActivity(), new Observer<List<VideoFolderSize>>() {

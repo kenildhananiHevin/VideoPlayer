@@ -73,7 +73,7 @@ public class FolderVideoItemActivity extends BaseActivity implements VideoAdapte
         imgBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                onBackPressed();
             }
         });
     }
@@ -124,5 +124,10 @@ public class FolderVideoItemActivity extends BaseActivity implements VideoAdapte
             } else {
             }
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        backPressed();
     }
 }

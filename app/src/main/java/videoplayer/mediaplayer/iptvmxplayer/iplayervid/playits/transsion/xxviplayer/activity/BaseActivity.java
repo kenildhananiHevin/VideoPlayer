@@ -17,7 +17,7 @@ import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxvipla
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.other.LocaleHelper;
 
 
-public class BaseActivity extends AppCompatActivity {
+public class BaseActivity extends plugin.adsdk.service.BaseActivity {
     public String prefsString;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

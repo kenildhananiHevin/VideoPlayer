@@ -14,6 +14,7 @@ import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import plugin.adsdk.service.BaseActivity;
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.R;
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.adapter.VideoAdapter;
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.database.VideoDao;
@@ -43,7 +44,7 @@ public class VideoFragment extends Fragment implements VideoAdapter.DeleteData {
         recycleVideo = view.findViewById(R.id.allvideolist);
 
         recycleVideo.setLayoutManager(new LinearLayoutManager(requireActivity()));
-        videoAdapter = new VideoAdapter(requireActivity(), new ArrayList<>(), VideoFragment.this, "all");
+        videoAdapter = new VideoAdapter((BaseActivity) requireActivity(), new ArrayList<>(), VideoFragment.this, "all");
         recycleVideo.setAdapter(videoAdapter);
 
         videoDao.getAllVideosSortedByName().observe(requireActivity(), new Observer<List<VideoItem>>() {
