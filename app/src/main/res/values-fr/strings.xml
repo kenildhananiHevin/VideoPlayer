@@ -75,7 +75,8 @@
     <string name="des_lock">La question de sécurité est utilisée lorsque vous oubliez votre mot de passe. Vous pouvez la changer à tout moment.</string>
     <string name="please_enter_your_4_digit_passcode">Veuillez entrer votre code à 4 chiffres</string>
     <string name="please_enter_password">Veuillez entrer le mot de passe</string>
-    <string name="no_data_found">No Data Found</string>
+    <string name="no_data_found">Aucune donnée trouvée</string>
+    <string name="enter_password">Entrer le mot de passe</string>
 
 
 </resources>

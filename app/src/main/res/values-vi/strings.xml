@@ -75,6 +75,7 @@
     <string name="des_lock">Câu hỏi bảo mật được sử dụng khi bạn quên mật khẩu. Bạn có thể thay đổi điều này bất cứ lúc nào.</string>
     <string name="please_enter_your_4_digit_passcode">Vui lòng nhập mã số bảo mật 4 chữ số của bạn</string>
     <string name="please_enter_password">Vui lòng nhập mật khẩu</string>
-    <string name="no_data_found">No Data Found</string>
+    <string name="no_data_found">Không Tìm Thấy Dữ Liệu</string>
+    <string name="enter_password">Nhập Mật Khẩu</string>
 
 </resources>

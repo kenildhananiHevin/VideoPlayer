@@ -75,7 +75,8 @@
     <string name="des_lock">A pergunta de segurança é usada quando você esquece sua senha. Você pode alterá-la a qualquer momento.</string>
     <string name="please_enter_your_4_digit_passcode">Por favor, insira seu código de 4 dígitos</string>
     <string name="please_enter_password">Por favor, insira a senha</string>
-    <string name="no_data_found">No Data Found</string>
+    <string name="no_data_found">Dados não encontrados</string>
+    <string name="enter_password">Digite a senha</string>
 
 
 </resources>

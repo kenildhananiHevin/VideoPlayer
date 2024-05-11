@@ -75,7 +75,8 @@
     <string name="des_lock">Запитання безпеки використовується, коли ви забули свій пароль. Ви можете змінити його в будь-який час.</string>
     <string name="please_enter_your_4_digit_passcode">Будь ласка, введіть свій 4-значний код доступу</string>
     <string name="please_enter_password">Будь ласка, введіть пароль</string>
-    <string name="no_data_found">No Data Found</string>
+    <string name="no_data_found">Дані не знайдені</string>
+    <string name="enter_password">Введіть пароль</string>
 
 
 </resources>

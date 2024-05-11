@@ -75,7 +75,8 @@
     <string name="des_lock">Ang tanong sa seguridad ay ginagamit kapag nakalimutan mo ang iyong password. Maaari mong baguhin ito anumang oras.</string>
     <string name="please_enter_your_4_digit_passcode">Mangyaring maglagay ng iyong 4-digit na passcode</string>
     <string name="please_enter_password">Mangyaring Ipasok ang Password</string>
-    <string name="no_data_found">No Data Found</string>
+    <string name="no_data_found">Walang Natagpuang Data</string>
+    <string name="enter_password">Maglagay ng Password</string>
 
 
 </resources>

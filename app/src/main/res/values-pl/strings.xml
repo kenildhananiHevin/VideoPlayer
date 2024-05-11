@@ -75,7 +75,8 @@
     <string name="des_lock">Pytanie zabezpieczające jest używane, gdy zapomnisz hasła. Możesz je zmienić w dowolnym momencie.</string>
     <string name="please_enter_your_4_digit_passcode">Proszę podać swój 4-cyfrowy kod dostępu</string>
     <string name="please_enter_password">Proszę podać hasło</string>
-    <string name="no_data_found">No Data Found</string>
+    <string name="no_data_found">Nie znaleziono danych</string>
+    <string name="enter_password">Wprowadź hasło</string>
 
 
 </resources>

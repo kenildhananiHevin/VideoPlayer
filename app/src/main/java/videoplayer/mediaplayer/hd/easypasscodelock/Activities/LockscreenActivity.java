@@ -15,7 +15,6 @@ import videoplayer.mediaplayer.hd.easypasscodelock.Utils.EasylockSP;
 import videoplayer.mediaplayer.hd.easypasscodelock.Utils.LockscreenHandler;
 
 public class LockscreenActivity extends LockscreenHandler implements ActivityChanger {
-
     @SuppressWarnings("rawtypes")
     private static Class classToGoAfter;
     private final int[] passButtonIds = {R.id.lbtn1, R.id.lbtn2, R.id.lbtn3, R.id.lbtn4, R.id.lbtn5, R.id.lbtn6, R.id.lbtn7, R.id.lbtn8, R.id.lbtn9, R.id.lbtn0};
@@ -28,7 +27,6 @@ public class LockscreenActivity extends LockscreenHandler implements ActivityCha
     private final String changeStatus2 = "change2";
     String tempPass = "";
     public ImageView img_select, img_select_one, img_select_two, img_select_three;
-    //    private TextView textViewHAHA;
     private String passString = "", realPass = "";
     private String status = "";
 
@@ -52,8 +50,6 @@ public class LockscreenActivity extends LockscreenHandler implements ActivityCha
     }
 
     private void initViews() {
-        /*textViewHAHA = findViewById(R.id.span_text);
-        textViewDot = findViewById(R.id.dotText);*/
         img_select = findViewById(R.id.img_select);
         img_select_one = findViewById(R.id.img_select_one);
         img_select_two = findViewById(R.id.img_select_two);
@@ -61,8 +57,6 @@ public class LockscreenActivity extends LockscreenHandler implements ActivityCha
         TextView textViewForgotPassword = findViewById(R.id.forgot_pass_textview);
         ImageView buttonEnter = findViewById(R.id.lbtnEnter);
         ImageView imageButtonDelete = findViewById(R.id.lbtnDelete);
-        /*ConstraintLayout relativeLayoutBackground = findViewById(R.id.background_layout);*/
-        /*relativeLayoutBackground.setBackgroundColor(EasyLock.backgroundColor);*/
 
         textViewForgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override

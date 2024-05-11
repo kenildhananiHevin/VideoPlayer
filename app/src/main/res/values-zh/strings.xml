@@ -75,7 +75,8 @@
     <string name="des_lock">安全问题用于当您忘记密码时。您可以随时更改它。</string>
     <string name="please_enter_your_4_digit_passcode">请输入您的4位数密码</string>
     <string name="please_enter_password">请输入密码</string>
-    <string name="no_data_found">No Data Found</string>
+    <string name="no_data_found">未找到数据</string>
+    <string name="enter_password">输入密码</string>
 
 
 </resources>

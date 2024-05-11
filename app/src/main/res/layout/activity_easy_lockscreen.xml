@@ -32,7 +32,7 @@
             android:fontFamily="@font/inter_semibold"
             android:marqueeRepeatLimit="marquee_forever"
             android:singleLine="true"
-            android:text="Enter Password"
+            android:text="@string/enter_password"
             android:textColor="@color/black"
             android:textSize="@dimen/_15sdp" />
 

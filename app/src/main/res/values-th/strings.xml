@@ -75,7 +75,8 @@
     <string name="des_lock">คำถามเกี่ยวกับความปลอดภัยใช้เมื่อคุณลืมรหัสผ่าน คุณสามารถเปลี่ยนแปลงได้ตลอดเวลา</string>
     <string name="please_enter_your_4_digit_passcode">โปรดใส่รหัสผ่านของคุณที่มี 4 หลัก</string>
     <string name="please_enter_password">โปรดใส่รหัสผ่าน</string>
-    <string name="no_data_found">No Data Found</string>
+    <string name="no_data_found">ไม่พบข้อมูล</string>
+    <string name="enter_password">ป้อนรหัสผ่าน</string>
 
 
 </resources>

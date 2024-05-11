@@ -77,4 +77,5 @@
     <string name="please_enter_your_4_digit_passcode">Please enter your 4 digit passcode</string>
     <string name="please_enter_password">Please Enter Password</string>
     <string name="no_data_found">No Data Found</string>
+    <string name="enter_password">Enter Password</string>
 </resources>

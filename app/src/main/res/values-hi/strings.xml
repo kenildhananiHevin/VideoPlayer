@@ -75,7 +75,8 @@
     <string name="des_lock">सुरक्षा प्रश्न का उपयोग तब किया जाता है जब आप अपना पासवर्ड भूल जाते हैं। आप किसी भी समय इसे बदल सकते हैं।</string>
     <string name="please_enter_your_4_digit_passcode">कृपया अपना 4 अंकों का पासकोड दर्ज करें</string>
     <string name="please_enter_password">कृपया पासवर्ड दर्ज करें</string>
-    <string name="no_data_found">No Data Found</string>
+    <string name="no_data_found">कोई डेटा नहीं मिला</string>
+    <string name="enter_password">पासवर्ड दर्ज करें</string>
 
 
 </resources>

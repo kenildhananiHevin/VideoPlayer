@@ -75,7 +75,8 @@
     <string name="des_lock">Die veiligheidsvraag word gebruik wanneer jy jou wagwoord vergeet. Jy kan dit enige tyd verander.</string>
     <string name="please_enter_your_4_digit_passcode">Voer asseblief jou 4-syfer wagwoord in</string>
     <string name="please_enter_password">Voer asseblief wagwoord in</string>
-    <string name="no_data_found">No Data Found</string>
+    <string name="no_data_found">Geen Data Gevind Nie</string>
+    <string name="enter_password">Voer Wagwoord in</string>
 
 
 </resources>

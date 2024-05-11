@@ -75,7 +75,8 @@
     <string name="des_lock">Güvenlik sorusu, şifrenizi unuttuğunuzda kullanılır. Her zaman değiştirebilirsiniz.</string>
     <string name="please_enter_your_4_digit_passcode">Lütfen 4 haneli kodunuzu girin</string>
     <string name="please_enter_password">Lütfen şifreyi girin</string>
-    <string name="no_data_found">No Data Found</string>
+    <string name="no_data_found">Veri Bulunamadı</string>
+    <string name="enter_password">Şifreyi Girin</string>
 
 
 </resources>

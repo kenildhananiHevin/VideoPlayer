@@ -75,7 +75,8 @@
     <string name="des_lock">Pertanyaan keamanan digunakan ketika Anda lupa kata sandi Anda. Anda dapat mengubahnya kapan saja.</string>
     <string name="please_enter_your_4_digit_passcode">Silakan masukkan kode akses 4 digit Anda</string>
     <string name="please_enter_password">Silakan Masukkan Kata Sandi</string>
-    <string name="no_data_found">No Data Found</string>
+    <string name="no_data_found">Tidak Ada Data Ditemukan</string>
+    <string name="enter_password">Masukkan Kata Sandi</string>
 
 
 </resources>
