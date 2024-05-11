@@ -45,4 +45,37 @@
     <string name="allow">consenti</string>
     <string name="successfull">Riuscito!</string>
     <string name="video_not_supported">Videonon supportato</string>
+    <string name="selected">%d Selezionato</string>
+    <string name="list">Lista</string>
+    <string name="grid">Griglia</string>
+    <string name="ascending">Crescente</string>
+    <string name="descending">Decrescente</string>
+    <string name="oldest">Più Vecchio</string>
+    <string name="newest">Più Recente</string>
+    <string name="smallest">Più Piccolo</string>
+    <string name="largest">Più Grande</string>
+    <string name="enter_a_new_password_txt">Inserisci una nuova password</string>
+    <string name="confirm_password_txt">Conferma password</string>
+    <string name="password_changed_txt">Password modificata</string>
+    <string name="please_enter_a_new_password_again_txt">Inserisci di nuovo una nuova password</string>
+    <string name="max_8_characters_txt">Massimo 4 caratteri</string>
+    <string name="please_enter_current_password_txt">Inserisci la password corrente</string>
+    <string name="password_is_set_txt">Password impostata</string>
+    <string name="incorrect_password_txt">Password non corretta</string>
+    <string name="password_disabled_txt">Password disabilitata</string>
+    <string name="enter_your_password_txt">Inserisci la tua password</string>
+    <string name="clear_txt">Cancella</string>
+    <string name="forgot_password_txt">Password dimenticata?</string>
+    <string name="wrong_answer">Risposta sbagliata</string>
+    <string name="hide_video">Nascondi video</string>
+    <string name="show_video">Mostra video</string>
+    <string name="security_question">Domanda di sicurezza</string>
+    <string name="what_is_your_name">Qual è il tuo nome?</string>
+    <string name="type_answer_here">Digita qui la risposta...</string>
+    <string name="des_lock">La domanda di sicurezza viene utilizzata quando dimentichi la password. Puoi cambiarla in qualsiasi momento.</string>
+    <string name="please_enter_your_4_digit_passcode">Inserisci il tuo codice a 4 cifre</string>
+    <string name="please_enter_password">Inserisci la password</string>
+    <string name="no_data_found">No Data Found</string>
+
+
 </resources>

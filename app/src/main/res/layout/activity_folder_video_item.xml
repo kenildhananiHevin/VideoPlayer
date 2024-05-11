@@ -8,40 +8,103 @@
     tools:context=".activity.FolderVideoItemActivity">
 
     <LinearLayout
-        android:id="@+id/linearTab"
+        android:id="@+id/linearFolderVideo"
         android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
-        android:orientation="horizontal"
-        android:padding="@dimen/_10sdp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/imgBack"
-            android:layout_width="@dimen/_16sdp"
-            android:layout_height="@dimen/_16sdp"
-            android:adjustViewBounds="true"
-            android:src="@drawable/player_back"
-            app:tint="@color/black" />
-
-        <TextView
-            android:id="@+id/txtFolderVideoName"
-            style="@style/TextMarquee"
+        <LinearLayout
+            android:id="@+id/linearToolBar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="?actionBarSize"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/_10sdp">
+
+            <ImageView
+                android:id="@+id/imgBack"
+                android:layout_width="@dimen/_16sdp"
+                android:layout_height="@dimen/_16sdp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/player_back" />
+
+            <TextView
+                android:id="@+id/txtFolderVideoName"
+                style="@style/TextMarquee"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_weight="1"
+                android:fontFamily="@font/inter_semibold"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15sdp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearItemBar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
             android:layout_marginHorizontal="@dimen/_10sdp"
-            android:textColor="@color/black"
-            android:fontFamily="@font/inter_semibold"
-            android:textSize="@dimen/_15sdp" />
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/imgDeleteBack"
+                android:layout_width="@dimen/_16sdp"
+                android:layout_height="@dimen/_16sdp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/player_back" />
+
+            <TextView
+                android:id="@+id/txtSelected"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:fontFamily="@font/inter_semibold"
+                android:text="2 Selected"
+                android:layout_weight="1"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15sdp" />
+
+            <ImageView
+                android:id="@+id/imgDelete"
+                android:layout_width="@dimen/_16sdp"
+                android:layout_height="@dimen/_16sdp"
+                android:src="@drawable/delete_player"
+                android:layout_marginEnd="@dimen/_22sdp"
+                android:adjustViewBounds="true"/>
+
+            <ImageView
+                android:id="@+id/imgSelect"
+                android:layout_width="@dimen/_16sdp"
+                android:layout_height="@dimen/_16sdp"
+                android:src="@drawable/selecte_player"
+                android:adjustViewBounds="true"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycleFolderVideo"
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginBottom="@dimen/_8sdp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linearTab" />
+        app:layout_constraintTop_toBottomOf="@id/linearFolderVideo">
+
+        <include layout="@layout/native_collapsing_layout" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycleFolderVideo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

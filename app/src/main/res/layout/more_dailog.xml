@@ -34,7 +34,7 @@
             android:layout_width="@dimen/_13sdp"
             android:layout_height="@dimen/_13sdp"
             android:adjustViewBounds="true"
-            android:src="@drawable/emi_close" />
+            android:src="@drawable/player_close" />
 
     </LinearLayout>
 
@@ -56,7 +56,7 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_13sdp"
             android:fontFamily="@font/inter_medium"
             android:text="@string/play"
@@ -124,10 +124,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_20sdp"
-        android:layout_marginBottom="@dimen/_10sdp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/share">
 
 
@@ -143,6 +141,35 @@
             android:layout_marginStart="@dimen/_13sdp"
             android:fontFamily="@font/inter_medium"
             android:text="@string/delete"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_13sdp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/hide"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/delete">
+
+
+        <ImageView
+            android:layout_width="@dimen/_16sdp"
+            android:layout_height="@dimen/_16sdp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/hide_video" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_13sdp"
+            android:fontFamily="@font/inter_medium"
+            android:text="@string/hide_video"
             android:textColor="@color/black"
             android:textSize="@dimen/_13sdp" />
 

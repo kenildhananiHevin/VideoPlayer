@@ -45,4 +45,37 @@
     <string name="allow">zezwól</string>
     <string name="successfull">Udany!</string>
     <string name="video_not_supported">Nieobsługiwane wideo</string>
+    <string name="selected">%d Wybranych</string>
+    <string name="list">Lista</string>
+    <string name="grid">Siatka</string>
+    <string name="ascending">Rosnąco</string>
+    <string name="descending">Malejąco</string>
+    <string name="oldest">Najstarsze</string>
+    <string name="newest">Najnowsze</string>
+    <string name="smallest">Najmniejsze</string>
+    <string name="largest">Największe</string>
+    <string name="enter_a_new_password_txt">Wprowadź nowe hasło</string>
+    <string name="confirm_password_txt">Potwierdź hasło</string>
+    <string name="password_changed_txt">Hasło zostało zmienione</string>
+    <string name="please_enter_a_new_password_again_txt">Proszę ponownie wprowadzić nowe hasło</string>
+    <string name="max_8_characters_txt">Maksymalnie 4 znaków</string>
+    <string name="please_enter_current_password_txt">Proszę wprowadzić bieżące hasło</string>
+    <string name="password_is_set_txt">Hasło jest ustawione</string>
+    <string name="incorrect_password_txt">Niepoprawne hasło</string>
+    <string name="password_disabled_txt">Hasło wyłączone</string>
+    <string name="enter_your_password_txt">Wprowadź hasło</string>
+    <string name="clear_txt">Wyczyść</string>
+    <string name="forgot_password_txt">Zapomniałeś hasła?</string>
+    <string name="wrong_answer">Błędna odpowiedź</string>
+    <string name="hide_video">Ukryj wideo</string>
+    <string name="show_video">Pokaż wideo</string>
+    <string name="security_question">Pytanie zabezpieczające</string>
+    <string name="what_is_your_name">Jak masz na imię?</string>
+    <string name="type_answer_here">Wprowadź odpowiedź tutaj...</string>
+    <string name="des_lock">Pytanie zabezpieczające jest używane, gdy zapomnisz hasła. Możesz je zmienić w dowolnym momencie.</string>
+    <string name="please_enter_your_4_digit_passcode">Proszę podać swój 4-cyfrowy kod dostępu</string>
+    <string name="please_enter_password">Proszę podać hasło</string>
+    <string name="no_data_found">No Data Found</string>
+
+
 </resources>

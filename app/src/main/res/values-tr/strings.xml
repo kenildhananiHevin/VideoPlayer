@@ -45,4 +45,37 @@
     <string name="allow">izin ver</string>
     <string name="successfull">Başarılı!</string>
     <string name="video_not_supported">Video Desteklenmiyor</string>
+    <string name="selected">%d Seçilen</string>
+    <string name="list">Liste</string>
+    <string name="grid">Kılavuz</string>
+    <string name="ascending">Artan</string>
+    <string name="descending">Azalan</string>
+    <string name="oldest">En Eski</string>
+    <string name="newest">En Yeni</string>
+    <string name="smallest">En Küçük</string>
+    <string name="largest">En Büyük</string>
+    <string name="enter_a_new_password_txt">Yeni Şifre Girin</string>
+    <string name="confirm_password_txt">Şifreyi Onayla</string>
+    <string name="password_changed_txt">Şifre Değiştirildi</string>
+    <string name="please_enter_a_new_password_again_txt">Lütfen Yeni Şifreyi Tekrar Girin</string>
+    <string name="max_8_characters_txt">En fazla 4 karakter</string>
+    <string name="please_enter_current_password_txt">Lütfen Geçerli Şifreyi Girin</string>
+    <string name="password_is_set_txt">Şifre ayarlandı</string>
+    <string name="incorrect_password_txt">Yanlış Şifre</string>
+    <string name="password_disabled_txt">Şifre Devre Dışı Bırakıldı</string>
+    <string name="enter_your_password_txt">Şifrenizi Girin</string>
+    <string name="clear_txt">Temizle</string>
+    <string name="forgot_password_txt">Şifrenizi mi unuttunuz?</string>
+    <string name="wrong_answer">Yanlış Cevap</string>
+    <string name="hide_video">Videoyu Gizle</string>
+    <string name="show_video">Videoyu Göster</string>
+    <string name="security_question">Güvenlik Sorusu</string>
+    <string name="what_is_your_name">Adınız nedir?</string>
+    <string name="type_answer_here">Cevabı buraya yazın...</string>
+    <string name="des_lock">Güvenlik sorusu, şifrenizi unuttuğunuzda kullanılır. Her zaman değiştirebilirsiniz.</string>
+    <string name="please_enter_your_4_digit_passcode">Lütfen 4 haneli kodunuzu girin</string>
+    <string name="please_enter_password">Lütfen şifreyi girin</string>
+    <string name="no_data_found">No Data Found</string>
+
+
 </resources>

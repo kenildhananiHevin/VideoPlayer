@@ -45,4 +45,37 @@
     <string name="allow">autoriser</string>
     <string name="successfull">Réussi!</string>
     <string name="video_not_supported">Vidéo non compatible</string>
+    <string name="selected">%d Sélectionné</string>
+    <string name="list">Liste</string>
+    <string name="grid">Grille</string>
+    <string name="ascending">Croissant</string>
+    <string name="descending">Décroissant</string>
+    <string name="oldest">Le Plus Ancien</string>
+    <string name="newest">Le Plus Récent</string>
+    <string name="smallest">Le Plus Petit</string>
+    <string name="largest">Le Plus Grand</string>
+    <string name="enter_a_new_password_txt">Entrez un nouveau mot de passe</string>
+    <string name="confirm_password_txt">Confirmer le mot de passe</string>
+    <string name="password_changed_txt">Mot de passe modifié</string>
+    <string name="please_enter_a_new_password_again_txt">Veuillez entrer à nouveau un nouveau mot de passe</string>
+    <string name="max_8_characters_txt">Maximum 4 caractères</string>
+    <string name="please_enter_current_password_txt">Veuillez entrer le mot de passe actuel</string>
+    <string name="password_is_set_txt">Mot de passe défini</string>
+    <string name="incorrect_password_txt">Mot de passe incorrect</string>
+    <string name="password_disabled_txt">Mot de passe désactivé</string>
+    <string name="enter_your_password_txt">Entrez votre mot de passe</string>
+    <string name="clear_txt">Effacer</string>
+    <string name="forgot_password_txt">Mot de passe oublié?</string>
+    <string name="wrong_answer">Mauvaise réponse</string>
+    <string name="hide_video">Masquer la vidéo</string>
+    <string name="show_video">Afficher la vidéo</string>
+    <string name="security_question">Question de sécurité</string>
+    <string name="what_is_your_name">Quel est votre nom ?</string>
+    <string name="type_answer_here">Saisissez la réponse ici...</string>
+    <string name="des_lock">La question de sécurité est utilisée lorsque vous oubliez votre mot de passe. Vous pouvez la changer à tout moment.</string>
+    <string name="please_enter_your_4_digit_passcode">Veuillez entrer votre code à 4 chiffres</string>
+    <string name="please_enter_password">Veuillez entrer le mot de passe</string>
+    <string name="no_data_found">No Data Found</string>
+
+
 </resources>

@@ -45,4 +45,37 @@
     <string name="allow">許可</string>
     <string name="successfull">成功!</string>
     <string name="video_not_supported">動画はサポートされていません</string>
+    <string name="selected">%d 選択済み</string>
+    <string name="list">リスト</string>
+    <string name="grid">グリッド</string>
+    <string name="ascending">昇順</string>
+    <string name="descending">降順</string>
+    <string name="oldest">古い順</string>
+    <string name="newest">新しい順</string>
+    <string name="smallest">小さい順</string>
+    <string name="largest">大きい順</string>
+    <string name="enter_a_new_password_txt">新しいパスワードを入力してください</string>
+    <string name="confirm_password_txt">パスワードを確認</string>
+    <string name="password_changed_txt">パスワードが変更されました</string>
+    <string name="please_enter_a_new_password_again_txt">もう一度新しいパスワードを入力してください</string>
+    <string name="max_8_characters_txt">最大4文字</string>
+    <string name="please_enter_current_password_txt">現在のパスワードを入力してください</string>
+    <string name="password_is_set_txt">パスワードが設定されています</string>
+    <string name="incorrect_password_txt">パスワードが間違っています</string>
+    <string name="password_disabled_txt">パスワードが無効になっています</string>
+    <string name="enter_your_password_txt">パスワードを入力してください</string>
+    <string name="clear_txt">クリア</string>
+    <string name="forgot_password_txt">パスワードをお忘れですか？</string>
+    <string name="wrong_answer">誤った回答</string>
+    <string name="hide_video">ビデオを非表示</string>
+    <string name="show_video">ビデオを表示</string>
+    <string name="security_question">セキュリティの質問</string>
+    <string name="what_is_your_name">あなたの名前は何ですか？</string>
+    <string name="type_answer_here">ここに回答を入力してください...</string>
+    <string name="des_lock">セキュリティの質問は、パスワードを忘れた場合に使用されます。いつでも変更できます。</string>
+    <string name="please_enter_your_4_digit_passcode">4桁のパスコードを入力してください</string>
+    <string name="please_enter_password">パスワードを入力してください</string>
+    <string name="no_data_found">No Data Found</string>
+
+
 </resources>

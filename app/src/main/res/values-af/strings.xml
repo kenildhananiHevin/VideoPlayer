@@ -45,4 +45,37 @@
     <string name="allow">laat toe</string>
     <string name="successfull">Suksesvol!</string>
     <string name="video_not_supported">Video nie gesteun nie</string>
+    <string name="selected">%d Gekies</string>
+    <string name="list">Lys</string>
+    <string name="grid">Ruit</string>
+    <string name="ascending">Oplopend</string>
+    <string name="descending">Aflopend</string>
+    <string name="oldest">Oudste</string>
+    <string name="newest">Nuutste</string>
+    <string name="smallest">Kleinste</string>
+    <string name="largest">Grootste</string>
+    <string name="enter_a_new_password_txt">Voer \'n Nuwe Wagwoord In</string>
+    <string name="confirm_password_txt">Bevestig Wagwoord</string>
+    <string name="password_changed_txt">Wagwoord Verander</string>
+    <string name="please_enter_a_new_password_again_txt">Voer asseblief \'n Nuwe Wagwoord Weer In</string>
+    <string name="max_8_characters_txt">Maksimum 4 karakters</string>
+    <string name="please_enter_current_password_txt">Voer asseblief die Huidige Wagwoord In</string>
+    <string name="password_is_set_txt">Wagwoord is Gestel</string>
+    <string name="incorrect_password_txt">Verkeerde Wagwoord</string>
+    <string name="password_disabled_txt">Wagwoord Afgeskakel</string>
+    <string name="enter_your_password_txt">Voer Jou Wagwoord In</string>
+    <string name="clear_txt">Skoonmaak</string>
+    <string name="forgot_password_txt">Wagwoord Vergeet?</string>
+    <string name="wrong_answer">Verkeerde Antwoord</string>
+    <string name="hide_video">Versteek Video</string>
+    <string name="show_video">Wys Video</string>
+    <string name="security_question">Veiligheidsvraag</string>
+    <string name="what_is_your_name">Wat is jou naam?</string>
+    <string name="type_answer_here">Tik antwoord hier...</string>
+    <string name="des_lock">Die veiligheidsvraag word gebruik wanneer jy jou wagwoord vergeet. Jy kan dit enige tyd verander.</string>
+    <string name="please_enter_your_4_digit_passcode">Voer asseblief jou 4-syfer wagwoord in</string>
+    <string name="please_enter_password">Voer asseblief wagwoord in</string>
+    <string name="no_data_found">No Data Found</string>
+
+
 </resources>

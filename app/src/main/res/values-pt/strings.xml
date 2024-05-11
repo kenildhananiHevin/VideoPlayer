@@ -45,4 +45,37 @@
     <string name="allow">permitir</string>
     <string name="successfull">Bem-sucedido!</string>
     <string name="video_not_supported">Vídeo não suportado</string>
+    <string name="selected">%d Selecionado</string>
+    <string name="list">Lista</string>
+    <string name="grid">Grade</string>
+    <string name="ascending">Crescente</string>
+    <string name="descending">Decrescente</string>
+    <string name="oldest">Mais Antigo</string>
+    <string name="newest">Mais Recente</string>
+    <string name="smallest">Menor</string>
+    <string name="largest">Maior</string>
+    <string name="enter_a_new_password_txt">Digite uma nova senha</string>
+    <string name="confirm_password_txt">Confirmar senha</string>
+    <string name="password_changed_txt">Senha alterada</string>
+    <string name="please_enter_a_new_password_again_txt">Por favor, digite novamente uma nova senha</string>
+    <string name="max_8_characters_txt">Máximo de 4 caracteres</string>
+    <string name="please_enter_current_password_txt">Por favor, digite a senha atual</string>
+    <string name="password_is_set_txt">Senha definida</string>
+    <string name="incorrect_password_txt">Senha incorreta</string>
+    <string name="password_disabled_txt">Senha desativada</string>
+    <string name="enter_your_password_txt">Digite sua senha</string>
+    <string name="clear_txt">Limpar</string>
+    <string name="forgot_password_txt">Esqueceu a senha?</string>
+    <string name="wrong_answer">Resposta errada</string>
+    <string name="hide_video">Ocultar vídeo</string>
+    <string name="show_video">Mostrar vídeo</string>
+    <string name="security_question">Pergunta de segurança</string>
+    <string name="what_is_your_name">Qual é o seu nome?</string>
+    <string name="type_answer_here">Digite a resposta aqui...</string>
+    <string name="des_lock">A pergunta de segurança é usada quando você esquece sua senha. Você pode alterá-la a qualquer momento.</string>
+    <string name="please_enter_your_4_digit_passcode">Por favor, insira seu código de 4 dígitos</string>
+    <string name="please_enter_password">Por favor, insira a senha</string>
+    <string name="no_data_found">No Data Found</string>
+
+
 </resources>

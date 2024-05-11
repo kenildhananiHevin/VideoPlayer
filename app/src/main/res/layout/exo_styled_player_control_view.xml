@@ -8,6 +8,18 @@
         android:layout_height="match_parent">
 
         <ImageView
+            android:id="@+id/imgUnLock"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:src="@drawable/un_lock_player"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:adjustViewBounds="true"
+            android:visibility="gone"
+            android:layout_marginBottom="@dimen/_40sdp"/>
+
+        <ImageView
+            android:id="@+id/imgTopShad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
@@ -27,7 +39,8 @@
                 android:layout_width="@dimen/_15sdp"
                 android:layout_height="@dimen/_15sdp"
                 android:adjustViewBounds="true"
-                android:src="@drawable/player_back" />
+                android:src="@drawable/player_back"
+                app:tint="@color/du_bg" />
 
             <TextView
                 android:id="@+id/txtPlayer"
@@ -45,6 +58,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/linearVideoItem"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/linearToolBar"
@@ -82,11 +96,28 @@
                 android:layout_width="@dimen/_35sdp"
                 android:layout_height="@dimen/_35sdp"
                 android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/_10sdp"
                 android:src="@drawable/player_pip" />
+
+            <ImageView
+                android:id="@+id/imgLock"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:src="@drawable/lock_player" />
+
+            <ImageView
+                android:id="@+id/imgNightMode"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/white_player" />
 
         </LinearLayout>
 
         <ImageView
+            android:id="@+id/imgBottomShad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
@@ -158,6 +189,7 @@
         </LinearLayout>
 
         <RelativeLayout
+            android:id="@+id/relativeSeekLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_above="@+id/exo_center_controls"
@@ -197,6 +229,5 @@
         </RelativeLayout>
 
     </RelativeLayout>
-
 
 </merge>

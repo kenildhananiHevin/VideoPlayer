@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-    namespace 'videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer'
+    namespace 'videoplayer.mediaplayer.hd'
     compileSdk 33
 
     defaultConfig {
-        applicationId "videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer"
+        applicationId "videoplayer.mediaplayer.hd"
         minSdk 24
         targetSdk 33
         versionCode 3
@@ -74,14 +74,4 @@ dependencies {
     annotationProcessor 'androidx.room:room-compiler:2.4.0'
 
     implementation 'com.google.code.gson:gson:2.9.1'
-
-    /*implementation platform('com.google.firebase:firebase-bom:32.1.1')
-    implementation 'com.google.firebase:firebase-analytics'
-    implementation 'com.google.firebase:firebase-firestore'
-    implementation 'com.google.firebase:firebase-crashlytics'
-    implementation 'com.google.firebase:firebase-messaging'
-    implementation 'com.google.firebase:firebase-perf'*/
-
-
-
 }

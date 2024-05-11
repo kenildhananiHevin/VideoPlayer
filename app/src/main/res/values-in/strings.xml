@@ -45,4 +45,37 @@
     <string name="allow">izinkan</string>
     <string name="successfull">Berhasil!</string>
     <string name="video_not_supported">Video tidak Didukung</string>
+    <string name="selected">%d Dipilih</string>
+    <string name="list">Daftar</string>
+    <string name="grid">Kotak</string>
+    <string name="ascending">Menaik</string>
+    <string name="descending">Menurun</string>
+    <string name="oldest">Paling Tua</string>
+    <string name="newest">Paling Baru</string>
+    <string name="smallest">Paling Kecil</string>
+    <string name="largest">Paling Besar</string>
+    <string name="enter_a_new_password_txt">Masukkan Kata Sandi Baru</string>
+    <string name="confirm_password_txt">Konfirmasi Kata Sandi</string>
+    <string name="password_changed_txt">Kata Sandi Diubah</string>
+    <string name="please_enter_a_new_password_again_txt">Silakan Masukkan Kata Sandi Baru Lagi</string>
+    <string name="max_8_characters_txt">Maksimal 4 karakter</string>
+    <string name="please_enter_current_password_txt">Silakan Masukkan Kata Sandi Saat Ini</string>
+    <string name="password_is_set_txt">Kata Sandi Sudah Diatur</string>
+    <string name="incorrect_password_txt">Kata Sandi Salah</string>
+    <string name="password_disabled_txt">Kata Sandi Dinonaktifkan</string>
+    <string name="enter_your_password_txt">Masukkan Kata Sandi Anda</string>
+    <string name="clear_txt">Hapus</string>
+    <string name="forgot_password_txt">Lupa kata sandi?</string>
+    <string name="wrong_answer">Jawaban Salah</string>
+    <string name="hide_video">Sembunyikan Video</string>
+    <string name="show_video">Tampilkan Video</string>
+    <string name="security_question">Pertanyaan Keamanan</string>
+    <string name="what_is_your_name">Siapa nama Anda?</string>
+    <string name="type_answer_here">Ketik jawaban di sini...</string>
+    <string name="des_lock">Pertanyaan keamanan digunakan ketika Anda lupa kata sandi Anda. Anda dapat mengubahnya kapan saja.</string>
+    <string name="please_enter_your_4_digit_passcode">Silakan masukkan kode akses 4 digit Anda</string>
+    <string name="please_enter_password">Silakan Masukkan Kata Sandi</string>
+    <string name="no_data_found">No Data Found</string>
+
+
 </resources>

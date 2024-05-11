@@ -19,7 +19,7 @@
             android:layout_width="@dimen/_40sdp"
             android:layout_height="@dimen/_40sdp"
             android:scaleType="centerCrop"
-            android:src="@drawable/emi_folder"
+            android:src="@drawable/player_folder"
             android:adjustViewBounds="true" />
 
         <LinearLayout
@@ -34,7 +34,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Folder Name"
-                style="@style/TextMarquee"
+                android:singleLine="true"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:ellipsize="marquee"
                 android:fontFamily="@font/inter_semibold"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_13sdp" />
@@ -44,7 +46,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Folder Size"
-                style="@style/TextMarquee"
+                android:singleLine="true"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:ellipsize="marquee"
                 android:fontFamily="@font/inter_medium"
                 android:layout_marginTop="@dimen/_4sdp"
                 android:textColor="@color/txt_color"
@@ -55,7 +59,7 @@
         <ImageView
             android:layout_width="@dimen/_11sdp"
             android:layout_height="@dimen/_11sdp"
-            android:src="@drawable/emi_next"
+            android:src="@drawable/player_next"
             android:adjustViewBounds="true"/>
 
     </LinearLayout>

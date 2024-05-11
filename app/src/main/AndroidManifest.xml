@@ -10,18 +10,35 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name="videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.MyAppClass"
+        android:name=".MyAppClass"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_new_launcher"
         android:label="@string/app_name"
         android:largeHeap="true"
         android:requestLegacyExternalStorage="true"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_new_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.VideoPlayer"
         tools:targetApi="31">
+        <activity
+            android:name=".intro.PasteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".intro.CopyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".intro.SearchActivity"
+            android:exported="false" />
+        <activity
+            android:name=".easypasscodelock.Activities.SecurityActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ShowVideoActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activity.MainActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
@@ -40,7 +57,10 @@
             android:name=".activity.FolderVideoItemActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
-
+        <activity
+            android:name=".easypasscodelock.Activities.LockscreenActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".language.LanguageActivity"
             android:exported="false"
@@ -55,7 +75,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

@@ -204,8 +204,8 @@ public abstract class BaseLauncherActivity extends BaseActivity {
                         config = response.body();
 
                         if (config.packageName.isEmpty()) {
-                            onApiFailed("Error: App Not Found!");
-                            return;
+//                            onApiFailed("Error: App Not Found!");
+//                            return;
                         }
 
                         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());

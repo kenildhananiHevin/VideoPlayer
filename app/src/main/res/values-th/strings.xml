@@ -45,4 +45,37 @@
     <string name="allow">อนุญาต</string>
     <string name="successfull">ประสบความสำเร็จ!</string>
     <string name="video_not_supported">ไม่รองรับวิดีโอ</string>
+    <string name="selected">%d เลือกแล้ว</string>
+    <string name="list">รายการ</string>
+    <string name="grid">เส้นตาราง</string>
+    <string name="ascending">เรียงจากน้อยไปมาก</string>
+    <string name="descending">เรียงจากมากไปน้อย</string>
+    <string name="oldest">เก่าที่สุด</string>
+    <string name="newest">ใหม่ที่สุด</string>
+    <string name="smallest">เล็กที่สุด</string>
+    <string name="largest">ใหญ่ที่สุด</string>
+    <string name="enter_a_new_password_txt">ป้อนรหัสผ่านใหม่</string>
+    <string name="confirm_password_txt">ยืนยันรหัสผ่าน</string>
+    <string name="password_changed_txt">เปลี่ยนรหัสผ่านแล้ว</string>
+    <string name="please_enter_a_new_password_again_txt">กรุณาป้อนรหัสผ่านใหม่อีกครั้ง</string>
+    <string name="max_8_characters_txt">สูงสุด 4 ตัวอักษร</string>
+    <string name="please_enter_current_password_txt">กรุณาป้อนรหัสผ่านปัจจุบัน</string>
+    <string name="password_is_set_txt">รหัสผ่านถูกตั้งค่าแล้ว</string>
+    <string name="incorrect_password_txt">รหัสผ่านไม่ถูกต้อง</string>
+    <string name="password_disabled_txt">รหัสผ่านถูกปิดใช้งาน</string>
+    <string name="enter_your_password_txt">ป้อนรหัสผ่านของคุณ</string>
+    <string name="clear_txt">ล้าง</string>
+    <string name="forgot_password_txt">ลืมรหัสผ่านหรือไม่?</string>
+    <string name="wrong_answer">คำตอบผิด</string>
+    <string name="hide_video">ซ่อนวิดีโอ</string>
+    <string name="show_video">แสดงวิดีโอ</string>
+    <string name="security_question">คำถามเกี่ยวกับความปลอดภัย</string>
+    <string name="what_is_your_name">ชื่อของคุณคืออะไร?</string>
+    <string name="type_answer_here">พิมพ์คำตอบที่นี่...</string>
+    <string name="des_lock">คำถามเกี่ยวกับความปลอดภัยใช้เมื่อคุณลืมรหัสผ่าน คุณสามารถเปลี่ยนแปลงได้ตลอดเวลา</string>
+    <string name="please_enter_your_4_digit_passcode">โปรดใส่รหัสผ่านของคุณที่มี 4 หลัก</string>
+    <string name="please_enter_password">โปรดใส่รหัสผ่าน</string>
+    <string name="no_data_found">No Data Found</string>
+
+
 </resources>

@@ -45,4 +45,37 @@
     <string name="allow">разрешить</string>
     <string name="successfull">Успешный!</string>
     <string name="video_not_supported">Видео не поддерживает</string>
+    <string name="selected">%d Выбрано</string>
+    <string name="list">Список</string>
+    <string name="grid">Сетка</string>
+    <string name="ascending">По возрастанию</string>
+    <string name="descending">По убыванию</string>
+    <string name="oldest">Старейший</string>
+    <string name="newest">Самый новый</string>
+    <string name="smallest">Наименьший</string>
+    <string name="largest">Наибольший</string>
+    <string name="enter_a_new_password_txt">Введите новый пароль</string>
+    <string name="confirm_password_txt">Подтвердите пароль</string>
+    <string name="password_changed_txt">Пароль изменен</string>
+    <string name="please_enter_a_new_password_again_txt">Пожалуйста, введите новый пароль еще раз</string>
+    <string name="max_8_characters_txt">Максимум 4 символов</string>
+    <string name="please_enter_current_password_txt">Пожалуйста, введите текущий пароль</string>
+    <string name="password_is_set_txt">Пароль установлен</string>
+    <string name="incorrect_password_txt">Неверный пароль</string>
+    <string name="password_disabled_txt">Пароль отключен</string>
+    <string name="enter_your_password_txt">Введите ваш пароль</string>
+    <string name="clear_txt">Очистить</string>
+    <string name="forgot_password_txt">Забыли пароль?</string>
+    <string name="wrong_answer">Неправильный ответ</string>
+    <string name="hide_video">Скрыть видео</string>
+    <string name="show_video">Показать видео</string>
+    <string name="security_question">Вопрос безопасности</string>
+    <string name="what_is_your_name">Как вас зовут?</string>
+    <string name="type_answer_here">Введите ответ здесь...</string>
+    <string name="des_lock">Вопрос безопасности используется, когда вы забываете свой пароль. Вы можете изменить его в любое время.</string>
+    <string name="please_enter_your_4_digit_passcode">Пожалуйста, введите свой 4-значный код доступа</string>
+    <string name="please_enter_password">Пожалуйста, введите пароль</string>
+    <string name="no_data_found">No Data Found</string>
+
+
 </resources>

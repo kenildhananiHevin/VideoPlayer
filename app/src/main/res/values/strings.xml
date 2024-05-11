@@ -11,7 +11,7 @@
     <string name="rename">Rename</string>
     <string name="share">Share</string>
     <string name="delete">Delete</string>
-        <string name="are_you_sure_you_want_to_delete_n_this_video">Are you sure you want to delete this Video?</string>
+    <string name="are_you_sure_you_want_to_delete_n_this_video">Are you sure you want to delete this Video?</string>
     <string name="cancle">CANCEL</string>
     <string name="r_rename">RENAME</string>
     <string name="d_delete">DELETE</string>
@@ -45,4 +45,36 @@
     <string name="allow">allow</string>
     <string name="successfull">SuccessFull!</string>
     <string name="video_not_supported">Video not Supported</string>
+    <string name="selected">%d Selected</string>
+    <string name="list">List</string>
+    <string name="grid">Grid</string>
+    <string name="ascending">Ascending</string>
+    <string name="descending">Descending</string>
+    <string name="oldest">Oldest</string>
+    <string name="newest">Newest</string>
+    <string name="smallest">Smallest</string>
+    <string name="largest">Largest</string>
+
+    <string name="enter_a_new_password_txt">Enter a New Password</string>
+    <string name="confirm_password_txt">Confirm Password</string>
+    <string name="password_changed_txt">Password Changed</string>
+    <string name="please_enter_a_new_password_again_txt">Please Enter a New Password Again</string>
+    <string name="max_8_characters_txt">Max 4 characters</string>
+    <string name="please_enter_current_password_txt">Please Enter Current Password</string>
+    <string name="password_is_set_txt">Password is set</string>
+    <string name="incorrect_password_txt">Incorrect Password</string>
+    <string name="password_disabled_txt">Password Disabled</string>
+    <string name="enter_your_password_txt">Enter Your Password</string>
+    <string name="clear_txt">Clear</string>
+    <string name="forgot_password_txt">Forgot password ?</string>
+    <string name="wrong_answer">Wrong Answer</string>
+    <string name="hide_video">Hide Videos</string>
+    <string name="show_video">Show Video</string>
+    <string name="security_question">Security Question</string>
+    <string name="what_is_your_name">What is your name ?</string>
+    <string name="type_answer_here">Type answer here...</string>
+    <string name="des_lock">Security question is used when you forget your password. you can change this at any time.</string>
+    <string name="please_enter_your_4_digit_passcode">Please enter your 4 digit passcode</string>
+    <string name="please_enter_password">Please Enter Password</string>
+    <string name="no_data_found">No Data Found</string>
 </resources>

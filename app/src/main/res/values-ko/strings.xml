@@ -45,4 +45,37 @@
     <string name="allow">허용</string>
     <string name="successfull">성공적인!</string>
     <string name="video_not_supported">지원되지 않는 비디오</string>
+    <string name="selected">%d 선택됨</string>
+    <string name="list">목록</string>
+    <string name="grid">그리드</string>
+    <string name="ascending">오름차순</string>
+    <string name="descending">내림차순</string>
+    <string name="oldest">가장 오래된 순</string>
+    <string name="newest">가장 최신 순</string>
+    <string name="smallest">가장 작은 순</string>
+    <string name="largest">가장 큰 순</string>
+    <string name="enter_a_new_password_txt">새 비밀번호 입력</string>
+    <string name="confirm_password_txt">비밀번호 확인</string>
+    <string name="password_changed_txt">비밀번호가 변경되었습니다</string>
+    <string name="please_enter_a_new_password_again_txt">새 비밀번호를 다시 입력하세요</string>
+    <string name="max_8_characters_txt">최대 4자</string>
+    <string name="please_enter_current_password_txt">현재 비밀번호를 입력하세요</string>
+    <string name="password_is_set_txt">비밀번호가 설정되었습니다</string>
+    <string name="incorrect_password_txt">잘못된 비밀번호</string>
+    <string name="password_disabled_txt">비밀번호가 비활성화되었습니다</string>
+    <string name="enter_your_password_txt">비밀번호 입력</string>
+    <string name="clear_txt">지우기</string>
+    <string name="forgot_password_txt">비밀번호를 잊으셨나요?</string>
+    <string name="wrong_answer">잘못된 답변</string>
+    <string name="hide_video">비디오 숨기기</string>
+    <string name="show_video">비디오 보이기</string>
+    <string name="security_question">보안 질문</string>
+    <string name="what_is_your_name">당신의 이름은 무엇입니까?</string>
+    <string name="type_answer_here">여기에 답변을 입력하세요...</string>
+    <string name="des_lock">보안 질문은 비밀번호를 잊었을 때 사용됩니다. 언제든지 변경할 수 있습니다.</string>
+    <string name="please_enter_your_4_digit_passcode">4 자리 비밀번호를 입력하세요</string>
+    <string name="please_enter_password">비밀번호를 입력하세요</string>
+    <string name="no_data_found">No Data Found</string>
+
+
 </resources>

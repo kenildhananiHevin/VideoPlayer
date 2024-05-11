@@ -45,4 +45,37 @@
     <string name="allow">permitir</string>
     <string name="successfull">Exitoso!</string>
     <string name="video_not_supported">Vídeo no compatible</string>
+    <string name="selected">%d Seleccionado</string>
+    <string name="list">Lista</string>
+    <string name="grid">Cuadrícula</string>
+    <string name="ascending">Ascendente</string>
+    <string name="descending">Descendente</string>
+    <string name="oldest">Más Antiguo</string>
+    <string name="newest">Más Nuevo</string>
+    <string name="smallest">Más Pequeño</string>
+    <string name="largest">Más Grande</string>
+    <string name="enter_a_new_password_txt">Ingrese una nueva contraseña</string>
+    <string name="confirm_password_txt">Confirmar contraseña</string>
+    <string name="password_changed_txt">Contraseña cambiada</string>
+    <string name="please_enter_a_new_password_again_txt">Por favor, ingrese nuevamente una nueva contraseña</string>
+    <string name="max_8_characters_txt">Máximo 4 caracteres</string>
+    <string name="please_enter_current_password_txt">Por favor, ingrese la contraseña actual</string>
+    <string name="password_is_set_txt">Contraseña establecida</string>
+    <string name="incorrect_password_txt">Contraseña incorrecta</string>
+    <string name="password_disabled_txt">Contraseña deshabilitada</string>
+    <string name="enter_your_password_txt">Ingrese su contraseña</string>
+    <string name="clear_txt">Limpiar</string>
+    <string name="forgot_password_txt">Olvidaste tu contraseña?</string>
+    <string name="wrong_answer">Respuesta incorrecta</string>
+    <string name="hide_video">Ocultar vídeo</string>
+    <string name="show_video">Mostrar vídeo</string>
+    <string name="security_question">Pregunta de seguridad</string>
+    <string name="what_is_your_name">Cuál es tu nombre?</string>
+    <string name="type_answer_here">Escribe la respuesta aquí...</string>
+    <string name="des_lock">La pregunta de seguridad se utiliza cuando olvidas tu contraseña. Puedes cambiarla en cualquier momento.</string>
+    <string name="please_enter_your_4_digit_passcode">Por favor ingresa tu código de 4 dígitos</string>
+    <string name="please_enter_password">Por favor ingresa la contraseña</string>
+    <string name="no_data_found">No Data Found</string>
+
+
 </resources>

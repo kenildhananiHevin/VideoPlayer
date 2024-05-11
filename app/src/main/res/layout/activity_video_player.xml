@@ -17,20 +17,27 @@
         app:show_timeout="0"
         />
 
+    <FrameLayout
+        android:id="@+id/videoBackgroundNightMode"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/night_mode_bg"
+        android:visibility="gone" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <RelativeLayout
             android:id="@+id/relativeLayout_touch"
-            android:layout_width="@dimen/_180sdp"
+            android:layout_width="@dimen/port"
             android:layout_height="match_parent"
             android:layout_centerVertical="true"
             android:layout_marginVertical="@dimen/_100sdp" />
 
         <RelativeLayout
             android:id="@+id/relativeLayout_bright"
-            android:layout_width="@dimen/_180sdp"
+            android:layout_width="@dimen/port"
             android:layout_height="match_parent"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
@@ -100,13 +107,13 @@
                 android:minHeight="280dp"
                 android:visibility="visible">
 
-                <videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.other.VerticalSeekBarWrapper
+                <videoplayer.mediaplayer.hd.other.VerticalSeekBarWrapper
                     android:layout_width="30dp"
                     android:layout_height="@dimen/_140sdp"
                     android:layout_gravity="center"
                     android:layoutDirection="ltr">
 
-                    <videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.other.VerticalSeekBar
+                    <videoplayer.mediaplayer.hd.other.VerticalSeekBar
                         android:id="@+id/sb_volume"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
@@ -118,7 +125,7 @@
                         android:thumb="@drawable/thumb_white"
                         app:seekBarRotation="CW270" />
 
-                </videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.other.VerticalSeekBarWrapper>
+                </videoplayer.mediaplayer.hd.other.VerticalSeekBarWrapper>
 
 
             </FrameLayout>
@@ -182,13 +189,13 @@
                 android:minHeight="280dp"
                 android:visibility="visible">
 
-                <videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.other.VerticalSeekBarWrapper
+                <videoplayer.mediaplayer.hd.other.VerticalSeekBarWrapper
                     android:layout_width="30dp"
                     android:layout_height="@dimen/_140sdp"
                     android:layout_gravity="center"
                     android:layoutDirection="ltr">
 
-                    <videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.other.VerticalSeekBar
+                    <videoplayer.mediaplayer.hd.other.VerticalSeekBar
                         android:id="@+id/sb_brightness"
                         android:layout_width="0dp"
                         android:layout_height="0dp"
@@ -199,7 +206,7 @@
                         android:progressTint="@color/txt_bg"
                         android:progressBackgroundTint="#FFFFFF"
                         app:seekBarRotation="CW270" />
-                </videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.other.VerticalSeekBarWrapper>
+                </videoplayer.mediaplayer.hd.other.VerticalSeekBarWrapper>
 
 
             </FrameLayout>
@@ -229,7 +236,7 @@
                 android:id="@+id/speed_close"
                 android:layout_width="@dimen/_13sdp"
                 android:layout_height="@dimen/_13sdp"
-                android:src="@drawable/emi_close"
+                android:src="@drawable/player_close"
                 app:tint="#FFFFFF"
                 android:adjustViewBounds="true"/>
 

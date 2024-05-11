@@ -78,7 +78,7 @@
             android:layout_height="@dimen/_13sdp"
             android:layout_margin="@dimen/_10sdp"
             android:adjustViewBounds="true"
-            android:src="@drawable/emi_next" />
+            android:src="@drawable/player_next" />
 
     </LinearLayout>
 
@@ -129,7 +129,7 @@
             android:layout_height="@dimen/_13sdp"
             android:layout_margin="@dimen/_10sdp"
             android:adjustViewBounds="true"
-            android:src="@drawable/emi_next" />
+            android:src="@drawable/player_next" />
 
     </LinearLayout>
 
@@ -180,7 +180,7 @@
             android:layout_height="@dimen/_13sdp"
             android:layout_margin="@dimen/_10sdp"
             android:adjustViewBounds="true"
-            android:src="@drawable/emi_next" />
+            android:src="@drawable/player_next" />
 
     </LinearLayout>
 
@@ -231,7 +231,7 @@
             android:layout_height="@dimen/_13sdp"
             android:layout_margin="@dimen/_10sdp"
             android:adjustViewBounds="true"
-            android:src="@drawable/emi_next" />
+            android:src="@drawable/player_next" />
 
     </LinearLayout>
 
@@ -282,9 +282,11 @@
             android:layout_height="@dimen/_13sdp"
             android:layout_margin="@dimen/_10sdp"
             android:adjustViewBounds="true"
-            android:src="@drawable/emi_next" />
+            android:src="@drawable/player_next" />
 
     </LinearLayout>
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
