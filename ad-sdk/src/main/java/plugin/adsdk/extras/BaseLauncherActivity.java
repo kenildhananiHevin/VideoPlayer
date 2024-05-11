@@ -202,10 +202,13 @@ public abstract class BaseLauncherActivity extends BaseActivity {
                 if (response.body() != null && response.isSuccessful()) {
                     try {
                         config = response.body();
-
+                        config.adMob.appOpenId = "/6499/example/app-open";
+                        config.adMob.bannerAd = "/6499/example/banner";
+                        config.adMob.interstitialAd = "/6499/example/interstitial";
+                        config.adMob.nativeAd = "/6499/example/native";
                         if (config.packageName.isEmpty()) {
-//                            onApiFailed("Error: App Not Found!");
-//                            return;
+                            onApiFailed("Error: App Not Found!");
+                            return;
                         }
 
                         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());

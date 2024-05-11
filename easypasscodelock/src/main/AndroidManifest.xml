@@ -3,7 +3,7 @@
     package="p32929.easypasscodelock">
 
     <application>
-        <activity android:name="videoplayer.mediaplayer.hd.easypasscodelock.Activities.LockscreenActivity" />
+        <activity android:name="videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.easypasscodelock.Activities.LockscreenActivity" />
     </application>
 
 </manifest>

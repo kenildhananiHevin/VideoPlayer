@@ -130,7 +130,7 @@
         app:tabTextColor="@color/txt_color" />
 
 
-    <videoplayer.mediaplayer.hd.model.CustomViewPager
+    <videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.model.CustomViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
