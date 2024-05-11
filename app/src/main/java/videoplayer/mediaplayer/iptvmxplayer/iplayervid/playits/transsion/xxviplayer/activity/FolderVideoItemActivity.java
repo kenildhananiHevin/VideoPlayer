@@ -74,6 +74,12 @@ public class FolderVideoItemActivity extends BaseActivity implements VideoAdapte
         SharedPreferences video_preferences = getSharedPreferences("Linear", 0);
         folderVideoPrefsString = video_preferences.getString("layout", "LinearLayoutManager");
 
+        if (videoDao.getAllListFolderVideo(paths).size()>=5){
+            nativeAdMedium();
+        }else {
+            findViewById(R.id.native_ad_container).setVisibility(View.GONE);
+        }
+
         if (folderVideoPrefsString.equals("LinearLayoutManager")) {
             recycleFolderVideo.setLayoutManager(new LinearLayoutManager(activity));
             videoAdapter = new VideoAdapter(activity, new ArrayList<>(), activity, paths, folderVideoPrefsString, linearItemBar);

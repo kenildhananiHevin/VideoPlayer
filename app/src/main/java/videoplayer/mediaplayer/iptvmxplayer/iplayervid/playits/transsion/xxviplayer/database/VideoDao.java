@@ -20,6 +20,9 @@ public interface VideoDao {
     LiveData<List<VideoItem>> getAllVideosSortedByDate();
 
     @Query("SELECT * FROM VideoItem ORDER BY DateAdded DESC")
+    List<VideoItem> getAllListVideosSortedByDate();
+
+    @Query("SELECT * FROM VideoItem ORDER BY DateAdded DESC")
     List<VideoItem> getAllVideos();
 
     @Query("SELECT videofoldername AS folderName, COUNT(*) AS folderSize FROM VideoItem GROUP BY videofoldername")
@@ -30,6 +33,9 @@ public interface VideoDao {
 
     @Query("SELECT * FROM VideoItem where videofoldername = :videofoldername ORDER BY DateAdded DESC")
     LiveData<List<VideoItem>> getAllFolderVideo(String videofoldername);
+
+    @Query("SELECT * FROM VideoItem where videofoldername = :videofoldername ORDER BY DateAdded DESC")
+   List<VideoItem> getAllListFolderVideo(String videofoldername);
 
     @Query("SELECT * FROM VideoItem where videofoldername = :videofoldername ORDER BY DateAdded DESC")
     List<VideoItem> getAllFolder(String videofoldername);

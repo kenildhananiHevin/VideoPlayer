@@ -48,7 +48,6 @@ public class VideoFragment extends Fragment implements VideoAdapter.DeleteData {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_video, container, false);
 
-        ((BaseActivity) getActivity()).nativeAdMedium(view.findViewById(R.id.native_ad_container));
 
         videoDatabase = VideoDatabase.getInstance(requireActivity());
         videoDao = videoDatabase.videoDao();
@@ -57,6 +56,12 @@ public class VideoFragment extends Fragment implements VideoAdapter.DeleteData {
 
         SharedPreferences video_preferences = requireActivity().getSharedPreferences("Linear", 0);
         videoPrefsString = video_preferences.getString("layout", "LinearLayoutManager");
+
+        if (videoDao.getAllListVideosSortedByDate().size()>=5){
+            ((BaseActivity) getActivity()).nativeAdMedium(view.findViewById(R.id.native_ad_container));
+        }else {
+            requireActivity().findViewById(R.id.native_ad_container).setVisibility(View.GONE);
+        }
 
         if (videoPrefsString.equals("LinearLayoutManager")) {
             recycleVideo.setLayoutManager(new LinearLayoutManager(requireActivity()));
