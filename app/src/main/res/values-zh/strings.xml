@@ -72,11 +72,25 @@
     <string name="security_question">安全问题</string>
     <string name="what_is_your_name">你叫什么名字？</string>
     <string name="type_answer_here">在这里输入答案...</string>
-    <string name="des_lock">安全问题用于当您忘记密码时。您可以随时更改它。</string>
+    <string name="des_lock">安全问题用于当您忘记密码时.</string>
     <string name="please_enter_your_4_digit_passcode">请输入您的4位数密码</string>
     <string name="please_enter_password">请输入密码</string>
     <string name="no_data_found">未找到数据</string>
     <string name="enter_password">输入密码</string>
+    <string name="please_enter_security_question">请输入安全问题</string>
+    <string name="change_password">更改密码</string>
+    <string name="loading_ads">加载广告中...</string>
+    <string name="next">下一个</string>
+    <string name="ads_dsc">此操作可能包含广告</string>
+    <string name="details">细节</string>
+    <string name="video_info">视频信息</string>
+    <string name="file">文件</string>
+    <string name="location">位置</string>
+    <string name="length">长度</string>
+    <string name="size">大小</string>
+    <string name="resolution">分辨率</string>
+    <string name="date">日期</string>
+    <string name="hide_desc">如果你隐藏视频，它将从原始目录中移出。当你取消隐藏视频时，它将在电影目录中重新创建</string>
 
 
 </resources>

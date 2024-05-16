@@ -134,8 +134,24 @@
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintBottom_toTopOf="@id/banner_ad_container"
         app:layout_constraintTop_toBottomOf="@id/progressBar" />
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinatorA"
+        android:layout_width="match_parent"
+        app:layout_constraintBottom_toTopOf="@id/banner_ad_container"
+        android:layout_height="wrap_content">
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <include
+        android:id="@+id/banner_ad_container"
+        layout="@layout/ad_banner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 
     <ProgressBar

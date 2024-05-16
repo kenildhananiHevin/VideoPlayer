@@ -15,7 +15,7 @@
     <string name="cancle">ANNULER</string>
     <string name="r_rename">RENOMMER</string>
     <string name="d_delete">SUPPRIMER</string>
-    <string name="enter_a_name">Entrez un nom</string>
+    <string name="enter_a_name">Entrez nom</string>
     <string name="please_enter_a_valid_text">Veuillez saisir un texte valide</string>
     <string name="ok">D\'accord</string>
     <string name="video_orientation_auto">Rotation automatique</string>
@@ -72,11 +72,25 @@
     <string name="security_question">Question de sécurité</string>
     <string name="what_is_your_name">Quel est votre nom ?</string>
     <string name="type_answer_here">Saisissez la réponse ici...</string>
-    <string name="des_lock">La question de sécurité est utilisée lorsque vous oubliez votre mot de passe. Vous pouvez la changer à tout moment.</string>
+    <string name="des_lock">La question de sécurité est utilisée lorsque vous oubliez votre mot de passe.</string>
     <string name="please_enter_your_4_digit_passcode">Veuillez entrer votre code à 4 chiffres</string>
     <string name="please_enter_password">Veuillez entrer le mot de passe</string>
     <string name="no_data_found">Aucune donnée trouvée</string>
     <string name="enter_password">Entrer le mot de passe</string>
+    <string name="please_enter_security_question">Veuillez entrer la question de sécurité</string>
+    <string name="change_password">Changer le mot de passe</string>
+    <string name="loading_ads">Chargement des publicités...</string>
+    <string name="next">Suivant</string>
+    <string name="ads_dsc">Cette action peut contenir des publicités</string>
+    <string name="details">Détails</string>
+    <string name="video_info">Informations sur la vidéo</string>
+    <string name="file">Fichier</string>
+    <string name="location">Emplacement</string>
+    <string name="length">Durée</string>
+    <string name="size">Taille</string>
+    <string name="resolution">Résolution</string>
+    <string name="date">Date</string>
+    <string name="hide_desc">Si vous cachez la vidéo, elle sera déplacée de son répertoire d\'origine. Lorsque vous réaffichez la vidéo, elle sera recréée dans le répertoire des films</string>
 
 
 </resources>

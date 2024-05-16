@@ -72,11 +72,25 @@
     <string name="security_question">Veiligheidsvraag</string>
     <string name="what_is_your_name">Wat is jou naam?</string>
     <string name="type_answer_here">Tik antwoord hier...</string>
-    <string name="des_lock">Die veiligheidsvraag word gebruik wanneer jy jou wagwoord vergeet. Jy kan dit enige tyd verander.</string>
+    <string name="des_lock">Die veiligheidsvraag word gebruik as jy jou wagwoord vergeet.</string>
     <string name="please_enter_your_4_digit_passcode">Voer asseblief jou 4-syfer wagwoord in</string>
     <string name="please_enter_password">Voer asseblief wagwoord in</string>
     <string name="no_data_found">Geen Data Gevind Nie</string>
     <string name="enter_password">Voer Wagwoord in</string>
+    <string name="please_enter_security_question">Voer asseblief die veiligheidsvraag in</string>
+    <string name="change_password">Verander wagwoord</string>
+    <string name="loading_ads">Laai advertensies...</string>
+    <string name="next">Volgende</string>
+    <string name="ads_dsc">Hierdie aksie kan advertensies bevat</string>
+    <string name="details">Besonderhede</string>
+    <string name="video_info">Video-inligting</string>
+    <string name="file">Lêer</string>
+    <string name="location">Plek</string>
+    <string name="length">Lengte</string>
+    <string name="size">Grootte</string>
+    <string name="resolution">Resolusie</string>
+    <string name="date">Datum</string>
+    <string name="hide_desc">As jy die video wegsteek, sal dit uit sy oorspronklike gids verwyder word. Wanneer jy die video weer wys, sal dit in die films-gids herskep word</string>
 
 
 </resources>

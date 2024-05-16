@@ -72,12 +72,25 @@
     <string name="security_question">セキュリティの質問</string>
     <string name="what_is_your_name">あなたの名前は何ですか？</string>
     <string name="type_answer_here">ここに回答を入力してください...</string>
-    <string name="des_lock">セキュリティの質問は、パスワードを忘れた場合に使用されます。いつでも変更できます。</string>
+    <string name="des_lock">パスワードを忘れたときにセキュリティ質問が使用されます.</string>
     <string name="please_enter_your_4_digit_passcode">4桁のパスコードを入力してください</string>
     <string name="please_enter_password">パスワードを入力してください</string>
     <string name="no_data_found">データが見つかりません</string>
     <string name="enter_password">パスワードを入力してください</string>
-
+    <string name="please_enter_security_question">セキュリティー質問を入力してください</string>
+    <string name="change_password">パスワードを変更する</string>
+    <string name="loading_ads">広告を読み込んでいます...</string>
+    <string name="next">次へ</string>
+    <string name="ads_dsc">このアクションには広告が含まれている可能性があります</string>
+    <string name="details">詳細</string>
+    <string name="video_info">ビデオ情報</string>
+    <string name="file">ファイル</string>
+    <string name="location">場所</string>
+    <string name="length">長さ</string>
+    <string name="size">サイズ</string>
+    <string name="resolution">解像度</string>
+    <string name="date">日付</string>
+    <string name="hide_desc">ビデオを非表示にすると、元のディレクトリから移動されます。ビデオの非表示を解除すると、映画ディレクトリに再作成されます</string>
 
 
 </resources>

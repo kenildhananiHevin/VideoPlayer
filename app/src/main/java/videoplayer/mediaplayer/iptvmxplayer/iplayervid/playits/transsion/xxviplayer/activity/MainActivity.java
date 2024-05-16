@@ -1,10 +1,12 @@
 package videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.activity;
 
+import static videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.adapter.VideoAdapter.isSelectionEnabledVideo;
 import static videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.fragment.folder.FolderFragment.stringMutableLiveDataAscendingSort;
 import static videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.fragment.folder.FolderFragment.stringMutableLiveDataDescendingSort;
 import static videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.fragment.folder.FolderFragment.stringMutableLiveDataGrid;
 import static videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.fragment.folder.FolderFragment.stringMutableLiveDataList;
 import static videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.fragment.folder.FolderFragment.stringMutableLiveDataSmallestSize;
+import static videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.fragment.video.VideoFragment.deSelectMutableLiveData;
 import static videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.fragment.video.VideoFragment.file;
 import static videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.fragment.video.VideoFragment.stringMutableLiveDataAscendingAndDescending;
 import static videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.fragment.video.VideoFragment.stringMutableLiveDataGridVideo;
@@ -123,7 +125,7 @@ public class MainActivity extends BaseActivity {
             if (ContextCompat.checkSelfPermission(activity, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(activity, Manifest.permission.READ_MEDIA_IMAGES) != PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(activity, Manifest.permission.READ_MEDIA_VIDEO) != PackageManager.PERMISSION_GRANTED) {
                 if (ActivityCompat.shouldShowRequestPermissionRationale(activity, Manifest.permission.POST_NOTIFICATIONS) && ActivityCompat.shouldShowRequestPermissionRationale(activity, Manifest.permission.READ_MEDIA_IMAGES) && ActivityCompat.shouldShowRequestPermissionRationale(activity, Manifest.permission.READ_MEDIA_VIDEO)) {
                     progressBar.setVisibility(View.GONE);
-                    showSnackbar(activity, findViewById(R.id.settingA), R.string.please_allow, R.string.allow, new Runnable() {
+                    showSnackbar(activity, findViewById(R.id.coordinatorA), R.string.please_allow, R.string.allow, new Runnable() {
                         @Override
                         public void run() {
                             openSettingsDialog();
@@ -138,7 +140,7 @@ public class MainActivity extends BaseActivity {
             if (ContextCompat.checkSelfPermission(activity, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
                 if (ActivityCompat.shouldShowRequestPermissionRationale(activity, Manifest.permission.READ_EXTERNAL_STORAGE) && ActivityCompat.shouldShowRequestPermissionRationale(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
                     progressBar.setVisibility(View.GONE);
-                    showSnackbar(activity, findViewById(R.id.settingA), R.string.please_allow, R.string.allow, new Runnable() {
+                    showSnackbar(activity, findViewById(R.id.coordinatorA), R.string.please_allow, R.string.allow, new Runnable() {
                         @Override
                         public void run() {
                             openSettingsDialog();
@@ -397,7 +399,7 @@ public class MainActivity extends BaseActivity {
                 };
                 if (ContextCompat.checkSelfPermission(activity, Manifest.permission.READ_MEDIA_IMAGES) != PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(activity, Manifest.permission.READ_MEDIA_VIDEO) != PackageManager.PERMISSION_GRANTED) {
                     progressBar.setVisibility(View.GONE);
-                    showSnackbar(activity, findViewById(R.id.settingA), R.string.please_allow, R.string.allow, new Runnable() {
+                    showSnackbar(activity, findViewById(R.id.coordinatorA), R.string.please_allow, R.string.allow, new Runnable() {
                         @Override
                         public void run() {
                             openSettingsDialog();
@@ -410,7 +412,7 @@ public class MainActivity extends BaseActivity {
                 permissions = new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE};
                 if (ContextCompat.checkSelfPermission(activity, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
                     progressBar.setVisibility(View.GONE);
-                    showSnackbar(activity, findViewById(R.id.settingA), R.string.please_allow, R.string.allow, new Runnable() {
+                    showSnackbar(activity, findViewById(R.id.coordinatorA   ), R.string.please_allow, R.string.allow, new Runnable() {
                         @Override
                         public void run() {
                             openSettingsDialog();
@@ -471,7 +473,7 @@ public class MainActivity extends BaseActivity {
 
         if (requestCode == CommonClass.REQUEST_PERM_DELETES && resultCode == -1) {
             videoDatabase = VideoDatabase.getInstance(activity);
-            videoDao = videoDatabase.videoDao();
+             videoDao = videoDatabase.videoDao();
             videoDao.delete(videoListItem);
             linearItemBar.setVisibility(View.GONE);
             linearToolBar.setVisibility(View.VISIBLE);
@@ -618,8 +620,8 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void onBackPressed() {
-        if (videoFragment.videoAdapter.isSelectionEnabledVideo) {
-            videoFragment.videoAdapter.deSelectAll();
+        if (isSelectionEnabledVideo) {
+            deSelectMutableLiveData.postValue("");
         } else {
             new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
                 @Override

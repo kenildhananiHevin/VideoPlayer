@@ -72,10 +72,23 @@
     <string name="security_question">Câu hỏi bảo mật</string>
     <string name="what_is_your_name">Tên của bạn là gì?</string>
     <string name="type_answer_here">Nhập câu trả lời ở đây...</string>
-    <string name="des_lock">Câu hỏi bảo mật được sử dụng khi bạn quên mật khẩu. Bạn có thể thay đổi điều này bất cứ lúc nào.</string>
+    <string name="des_lock">Câu hỏi bảo mật được sử dụng khi bạn quên mật khẩu.</string>
     <string name="please_enter_your_4_digit_passcode">Vui lòng nhập mã số bảo mật 4 chữ số của bạn</string>
     <string name="please_enter_password">Vui lòng nhập mật khẩu</string>
     <string name="no_data_found">Không Tìm Thấy Dữ Liệu</string>
     <string name="enter_password">Nhập Mật Khẩu</string>
-
+    <string name="please_enter_security_question">Vui lòng nhập câu hỏi bảo mật</string>
+    <string name="change_password">Thay đổi mật khẩu</string>
+    <string name="loading_ads">Đang tải quảng cáo...</string>
+    <string name="next">Tiếp theo</string>
+    <string name="ads_dsc">Hành động này có thể chứa quảng cáo</string>
+    <string name="details">Chi tiết</string>
+    <string name="video_info">Thông tin video</string>
+    <string name="file">Tệp</string>
+    <string name="location">Vị trí</string>
+    <string name="length">Độ dài</string>
+    <string name="size">Kích thước</string>
+    <string name="resolution">Độ phân giải</string>
+    <string name="date">Ngày</string>
+    <string name="hide_desc">Nếu bạn ẩn video, nó sẽ được chuyển từ thư mục gốc. Khi bạn hiển thị lại video, nó sẽ được tái tạo trong thư mục phim</string>
 </resources>

@@ -29,9 +29,9 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/_10sdp"
             android:layout_weight="1"
+            android:textColor="@color/black"
             android:fontFamily="@font/inter_medium"
             android:text="English"
-            android:textColor="@color/black"
             android:textSize="@dimen/_14sdp" />
 
 

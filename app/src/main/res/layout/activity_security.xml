@@ -9,9 +9,9 @@
         android:id="@+id/linearToolBar"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
+        android:layout_marginHorizontal="@dimen/_10sdp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:layout_marginHorizontal="@dimen/_10sdp"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
@@ -23,14 +23,14 @@
 
         <TextView
             android:id="@+id/txtShowVideoName"
-            android:singleLine="true"
-            android:marqueeRepeatLimit="marquee_forever"
-            android:ellipsize="marquee"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/_10sdp"
             android:layout_weight="1"
+            android:ellipsize="marquee"
             android:fontFamily="@font/inter_semibold"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:singleLine="true"
             android:text="@string/security_question"
             android:textColor="@color/black"
             android:textSize="@dimen/_13sdp" />
@@ -41,10 +41,10 @@
         android:id="@+id/txtWName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/inter_bold"
-        android:text="@string/what_is_your_name"
         android:layout_marginHorizontal="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_7sdp"
+        android:fontFamily="@font/inter_bold"
+        android:text="@string/what_is_your_name"
         android:textColor="@color/black"
         android:textSize="@dimen/_14sdp"
         app:layout_constraintTop_toBottomOf="@id/linearToolBar" />
@@ -55,13 +55,15 @@
         android:layout_height="@dimen/_40sdp"
         android:layout_marginHorizontal="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_10sdp"
-        android:hint="@string/type_answer_here"
-        android:paddingHorizontal="@dimen/_10sdp"
         android:background="@drawable/rename_border"
-        android:textColor="@color/black"
-        android:textSize="@dimen/_13sdp"
         android:fontFamily="@font/inter_medium"
+        android:hint="@string/type_answer_here"
+        android:imeOptions="actionDone"
+        android:paddingHorizontal="@dimen/_10sdp"
+        android:singleLine="true"
+        android:textColor="@color/black"
         android:textColorHint="@color/lock_s_color"
+        android:textSize="@dimen/_13sdp"
         app:layout_constraintTop_toBottomOf="@+id/txtWName" />
 
     <TextView
@@ -70,9 +72,9 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_8sdp"
+        android:fontFamily="@font/inter_medium"
         android:text="@string/des_lock"
         android:textColor="@color/txt_color"
-        android:fontFamily="@font/inter_medium"
         android:textSize="@dimen/_11sdp"
         app:layout_constraintTop_toBottomOf="@id/edtQuestion" />
 
@@ -82,14 +84,14 @@
         android:layout_width="@dimen/_180sdp"
         android:layout_height="@dimen/_42sdp"
         android:layout_marginTop="@dimen/_25sdp"
-        android:fontFamily="@font/inter_semibold"
-        android:text="Next"
-        android:gravity="center_vertical|center_horizontal"
         android:background="@drawable/rename_border"
-        app:layout_constraintTop_toBottomOf="@id/txtSecurityDes"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:fontFamily="@font/inter_semibold"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="@string/next"
         android:textColor="@color/black"
-        android:textSize="@dimen/_14sdp" />
+        android:textSize="@dimen/_14sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtSecurityDes" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

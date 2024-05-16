@@ -72,11 +72,25 @@
     <string name="security_question">Вопрос безопасности</string>
     <string name="what_is_your_name">Как вас зовут?</string>
     <string name="type_answer_here">Введите ответ здесь...</string>
-    <string name="des_lock">Вопрос безопасности используется, когда вы забываете свой пароль. Вы можете изменить его в любое время.</string>
+    <string name="des_lock">Вопрос безопасности используется, когда вы забываете свой пароль.</string>
     <string name="please_enter_your_4_digit_passcode">Пожалуйста, введите свой 4-значный код доступа</string>
     <string name="please_enter_password">Пожалуйста, введите пароль</string>
     <string name="no_data_found">Данные не найдены</string>
     <string name="enter_password">Введите пароль</string>
+    <string name="please_enter_security_question">Пожалуйста, введите вопрос безопасности</string>
+    <string name="change_password">Изменить пароль</string>
+    <string name="loading_ads">Загрузка рекламы...</string>
+    <string name="next">Следующий</string>
+    <string name="ads_dsc">Это действие может содержать рекламу</string>
+    <string name="details">Детали</string>
+    <string name="video_info">Информация о видео</string>
+    <string name="file">Файл</string>
+    <string name="location">Местоположение</string>
+    <string name="length">Продолжительность</string>
+    <string name="size">Размер</string>
+    <string name="resolution">Разрешение</string>
+    <string name="date">Дата</string>
+    <string name="hide_desc">Если вы скроете видео, оно будет перемещено из его оригинального каталога. Когда вы восстановите видео, оно будет воссоздано в каталоге фильмов</string>
 
 
 </resources>

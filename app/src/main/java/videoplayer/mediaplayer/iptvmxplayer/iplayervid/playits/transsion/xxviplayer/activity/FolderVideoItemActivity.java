@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
+import plugin.adsdk.service.BaseCallback;
 import plugin.adsdk.service.NativeAdsAdapter;
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.R;
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.adapter.VideoAdapter;
@@ -31,6 +32,7 @@ import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxvipla
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.database.VideoDatabase;
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.model.video.VideoItem;
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.other.CommonClass;
+import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.other.LocaleHelper;
 
 public class FolderVideoItemActivity extends BaseActivity implements VideoAdapter.DeleteData {
 
@@ -53,8 +55,6 @@ public class FolderVideoItemActivity extends BaseActivity implements VideoAdapte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_folder_video_item);
 
-        nativeAdMedium();
-
         activity = this;
         videoDatabase = VideoDatabase.getInstance(activity);
         videoDao = videoDatabase.videoDao();
@@ -74,9 +74,9 @@ public class FolderVideoItemActivity extends BaseActivity implements VideoAdapte
         SharedPreferences video_preferences = getSharedPreferences("Linear", 0);
         folderVideoPrefsString = video_preferences.getString("layout", "LinearLayoutManager");
 
-        if (videoDao.getAllListFolderVideo(paths).size()>=5){
+        if (videoDao.getAllListFolderVideo(paths).size() >= 5) {
             nativeAdMedium();
-        }else {
+        } else {
             findViewById(R.id.native_ad_container).setVisibility(View.GONE);
         }
 
@@ -223,7 +223,6 @@ public class FolderVideoItemActivity extends BaseActivity implements VideoAdapte
             file.delete();
             removeAt(pos);
             videoDao.deleteByPath(file.getAbsolutePath());
-            CommonClass.showToast(activity, getString(R.string.fileDeletedSuccessfully));
         }
     }
 
@@ -296,7 +295,16 @@ public class FolderVideoItemActivity extends BaseActivity implements VideoAdapte
         if (videoAdapter.isSelectionEnabledVideo) {
             videoAdapter.deSelectAll();
         } else {
-            backPressed();
+            SharedPreferences preferences = getSharedPreferences("Language", 0);
+            prefsString = preferences.getString("language_code", "en");
+            LocaleHelper.setLocale(activity, prefsString);
+//            backPressed();
+            showInterstitial(new BaseCallback() {
+                @Override
+                public void completed() {
+                    finish();
+                }
+            });
         }
     }
 }

@@ -15,7 +15,7 @@
     <string name="cancle">CANCELAR</string>
     <string name="r_rename">REBAUTIZAR</string>
     <string name="d_delete">BORRAR</string>
-    <string name="enter_a_name">Ingrese un nombre</string>
+    <string name="enter_a_name">Ingrese nombre</string>
     <string name="please_enter_a_valid_text">Ingrese un texto válido</string>
     <string name="ok">OK</string>
     <string name="video_orientation_auto">Rotación automática</string>
@@ -72,12 +72,25 @@
     <string name="security_question">Pregunta de seguridad</string>
     <string name="what_is_your_name">Cuál es tu nombre?</string>
     <string name="type_answer_here">Escribe la respuesta aquí...</string>
-    <string name="des_lock">La pregunta de seguridad se utiliza cuando olvidas tu contraseña. Puedes cambiarla en cualquier momento.</string>
+    <string name="des_lock">La pregunta de seguridad se usa cuando olvidas tu contraseña.</string>
     <string name="please_enter_your_4_digit_passcode">Por favor ingresa tu código de 4 dígitos</string>
     <string name="please_enter_password">Por favor ingresa la contraseña</string>
     <string name="no_data_found">No se encontraron datos</string>
     <string name="enter_password">Ingrese la contraseña</string>
-
+    <string name="please_enter_security_question">Por favor, ingrese la pregunta de seguridad</string>
+    <string name="change_password">Cambiar contraseña</string>
+    <string name="loading_ads">Cargando anuncios...</string>
+    <string name="next">Siguiente</string>
+    <string name="ads_dsc">Esta acción puede contener anuncios</string>
+    <string name="details">Detalles</string>
+    <string name="video_info">Información del video</string>
+    <string name="file">Archivo</string>
+    <string name="location">Ubicación</string>
+    <string name="length">Duración</string>
+    <string name="size">Tamaño</string>
+    <string name="resolution">Resolución</string>
+    <string name="date">Fecha</string>
+    <string name="hide_desc">Si ocultas el video, se moverá de su directorio original. Cuando vuelvas a mostrar el video, se recreará en el directorio de películas</string>
 
 
 </resources>

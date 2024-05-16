@@ -18,23 +18,24 @@ import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxvipla
 
 public class BaseActivity extends plugin.adsdk.service.BaseActivity {
     public String prefsString;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         handleLanguageChange();
         SharedPreferences mPrefs = getSharedPreferences("THEME", 0);
         boolean theme_boolean = mPrefs.getBoolean("iscustom", true);
-        if (theme_boolean){
-            UiModeManager currentNightMode = (UiModeManager)getSystemService(Context.UI_MODE_SERVICE);
+        if (theme_boolean) {
+            UiModeManager currentNightMode = (UiModeManager) getSystemService(Context.UI_MODE_SERVICE);
             if (currentNightMode.getNightMode() == UiModeManager.MODE_NIGHT_YES) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
             } else {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
             }
-        }else {
+        } else {
             theme_boolean = mPrefs.getBoolean("islight", true);
-            if (theme_boolean){
+            if (theme_boolean) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-            }else {
+            } else {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
             }
         }
@@ -65,22 +66,18 @@ public class BaseActivity extends plugin.adsdk.service.BaseActivity {
             window.setStatusBarColor(getResources().getColor(R.color.white));
             window.setNavigationBarColor(getResources().getColor(R.color.white));
         }
-        if (theme_boolean){
-
-            UiModeManager currentNightMode = (UiModeManager)getSystemService(Context.UI_MODE_SERVICE);
+        if (theme_boolean) {
+            UiModeManager currentNightMode = (UiModeManager) getSystemService(Context.UI_MODE_SERVICE);
             if (currentNightMode.getNightMode() == UiModeManager.MODE_NIGHT_YES) {
-
                 clearLightStatusBar(this);
             } else {
-
                 setLightStatusBar(this);
             }
-        }else {
-
+        } else {
             theme_boolean = mPrefs.getBoolean("islight", true);
-            if (theme_boolean){
+            if (theme_boolean) {
                 setLightStatusBar(this);
-            }else {
+            } else {
                 clearLightStatusBar(this);
             }
         }

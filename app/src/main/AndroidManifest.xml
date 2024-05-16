@@ -23,15 +23,6 @@
         android:theme="@style/Theme.VideoPlayer"
         tools:targetApi="31">
         <activity
-            android:name=".intro.PasteActivity"
-            android:exported="false" />
-        <activity
-            android:name=".intro.CopyActivity"
-            android:exported="false" />
-        <activity
-            android:name=".intro.SearchActivity"
-            android:exported="false" />
-        <activity
             android:name=".easypasscodelock.Activities.SecurityActivity"
             android:exported="false"
             android:screenOrientation="portrait" />

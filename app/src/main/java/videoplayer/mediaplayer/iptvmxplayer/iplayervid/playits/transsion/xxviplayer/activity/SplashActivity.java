@@ -1,9 +1,18 @@
 package videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.activity;
 
 
+import static videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.activity.BaseActivity.clearLightStatusBar;
+import static videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.activity.BaseActivity.setLightStatusBar;
+
+import android.app.UiModeManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
+import android.view.Window;
+
+import androidx.appcompat.app.AppCompatDelegate;
 
 import plugin.adsdk.extras.BaseLauncherActivity;
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.R;
@@ -15,7 +24,25 @@ public class SplashActivity extends BaseLauncherActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         handleLanguageChange();
+        SharedPreferences mPrefs = getSharedPreferences("THEME", 0);
+        boolean theme_boolean = mPrefs.getBoolean("iscustom", true);
+        if (theme_boolean){
+            UiModeManager currentNightMode = (UiModeManager)getSystemService(Context.UI_MODE_SERVICE);
+            if (currentNightMode.getNightMode() == UiModeManager.MODE_NIGHT_YES) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            }
+        }else {
+            theme_boolean = mPrefs.getBoolean("islight", true);
+            if (theme_boolean){
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            }else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            }
+        }
         super.onCreate(savedInstanceState);
+
     }
 
     @Override

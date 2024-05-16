@@ -86,6 +86,16 @@
                 android:src="@drawable/player_more" />
 
             <ImageView
+                android:id="@+id/un_hide"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:src="@drawable/un_hide_video"
+                android:layout_alignParentEnd="true"
+                android:visibility="gone"
+                android:layout_centerVertical="true"
+                android:adjustViewBounds="true"/>
+
+            <ImageView
                 android:id="@+id/selectImg"
                 android:layout_width="@dimen/_17sdp"
                 android:layout_height="@dimen/_17sdp"

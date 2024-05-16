@@ -7,11 +7,8 @@ import android.util.Log;
 
 import java.util.List;
 
-import plugin.adsdk.service.BaseActivity;
+import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.activity.BaseActivity;
 
-/**
- * Created by p32929 on 11/16/17.
- */
 
 public class LockscreenHandler extends BaseActivity implements ComponentCallbacks2 {
     private static boolean WentToBackground = false;

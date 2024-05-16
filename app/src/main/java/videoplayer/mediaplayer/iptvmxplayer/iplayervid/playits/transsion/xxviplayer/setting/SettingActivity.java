@@ -24,6 +24,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import plugin.adsdk.service.AdsUtility;
+import plugin.adsdk.service.AppOpenManager;
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.R;
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.activity.BaseActivity;
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.language.LanguageActivity;
@@ -77,21 +79,21 @@ public class SettingActivity extends BaseActivity {
         rate_click.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                rateUs(activity);
+                AdsUtility.rateUs(activity);
             }
         });
 
         share_click.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                shareApp(activity);
+                AdsUtility.shareApp(activity);
             }
         });
 
         privacy_click.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                privacyPolicy(activity);
+                AdsUtility.privacyPolicy(activity);
             }
         });
 
@@ -221,33 +223,6 @@ public class SettingActivity extends BaseActivity {
         setting_share_text.setSelected(true);
         setting_privacy_text.setSelected(true);
         setting_theme_text.setSelected(true);
-    }
-    public void rateUs(Activity activity) {
-        Uri uri = Uri.parse("market://details?id=" + activity.getPackageName());
-        Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
-        goToMarket.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY | Intent.FLAG_ACTIVITY_NEW_DOCUMENT | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
-        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://play.google.com/store/apps/details?id=" + activity.getPackageName())));
-    }
-
-    public void shareApp(Activity activity) {
-        try {
-            Intent shareIntent = new Intent(Intent.ACTION_SEND);
-            shareIntent.setType("text/plain");
-            shareIntent.putExtra(Intent.EXTRA_SUBJECT, activity.getString(R.string.app_name));
-            String shareMessage = "\nPlease try this application\n\n" + "https://play.google.com/store/apps/details?id=" + activity.getPackageName() + "\n";
-            shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
-            startActivity(Intent.createChooser(shareIntent, "choose one"));
-        } catch (Exception ignored) {
-        }
-    }
-
-    public void privacyPolicy(Activity activity) {
-        try {
-            Intent browserIntent;
-            browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://sites.google.com/view/blue-point-tool/home"));
-            startActivity(browserIntent);
-        } catch (Exception ignored) {
-        }
     }
 
     @Override

@@ -15,7 +15,7 @@
     <string name="cancle">İPTAL</string>
     <string name="r_rename">YENİDEN ADL</string>
     <string name="d_delete">SİL</string>
-    <string name="enter_a_name">Bir ad girin</string>
+    <string name="enter_a_name">Bir girin</string>
     <string name="please_enter_a_valid_text">Lütfen geçerli bir metin girin</string>
     <string name="ok">Tamam</string>
     <string name="video_orientation_auto">Otomatik döndürme</string>
@@ -72,11 +72,25 @@
     <string name="security_question">Güvenlik Sorusu</string>
     <string name="what_is_your_name">Adınız nedir?</string>
     <string name="type_answer_here">Cevabı buraya yazın...</string>
-    <string name="des_lock">Güvenlik sorusu, şifrenizi unuttuğunuzda kullanılır. Her zaman değiştirebilirsiniz.</string>
+    <string name="des_lock">Güvenlik sorusu, şifrenizi unuttuğunuzda kullanılır.</string>
     <string name="please_enter_your_4_digit_passcode">Lütfen 4 haneli kodunuzu girin</string>
     <string name="please_enter_password">Lütfen şifreyi girin</string>
     <string name="no_data_found">Veri Bulunamadı</string>
     <string name="enter_password">Şifreyi Girin</string>
+    <string name="please_enter_security_question">Lütfen güvenlik sorusunu girin</string>
+    <string name="change_password">Şifre değiştir</string>
+    <string name="loading_ads">Reklamlar yükleniyor...</string>
+    <string name="next">Sonraki</string>
+    <string name="ads_dsc">Bu eylem reklam içerebilir</string>
+    <string name="details">Detaylar</string>
+    <string name="video_info">Video Bilgisi</string>
+    <string name="file">Dosya</string>
+    <string name="location">Konum</string>
+    <string name="length">Uzunluk</string>
+    <string name="size">Boyut</string>
+    <string name="resolution">Çözünürlük</string>
+    <string name="date">Tarih</string>
+    <string name="hide_desc">Videoyu gizlerseniz, orijinal dizininden taşınacaktır. Videoyu gizlilikten çıkardığınızda, film dizininde yeniden oluşturulacaktır</string>
 
 
 </resources>

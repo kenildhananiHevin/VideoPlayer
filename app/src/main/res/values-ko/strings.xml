@@ -72,11 +72,25 @@
     <string name="security_question">보안 질문</string>
     <string name="what_is_your_name">당신의 이름은 무엇입니까?</string>
     <string name="type_answer_here">여기에 답변을 입력하세요...</string>
-    <string name="des_lock">보안 질문은 비밀번호를 잊었을 때 사용됩니다. 언제든지 변경할 수 있습니다.</string>
+    <string name="des_lock">보안 질문은 비밀번호를 잊었을 때 사용됩니다.</string>
     <string name="please_enter_your_4_digit_passcode">4 자리 비밀번호를 입력하세요</string>
     <string name="please_enter_password">비밀번호를 입력하세요</string>
     <string name="no_data_found">데이터를 찾을 수 없습니다</string>
     <string name="enter_password">비밀번호 입력</string>
+    <string name="please_enter_security_question">보안 질문을 입력하십시오</string>
+    <string name="change_password">비밀번호 변경</string>
+    <string name="loading_ads">광고를 불러오는 중...</string>
+    <string name="next">다음</string>
+    <string name="ads_dsc">이 작업에는 광고가 포함될 수 있습니다</string>
+    <string name="details">세부 정보</string>
+    <string name="video_info">비디오 정보</string>
+    <string name="file">파일</string>
+    <string name="location">위치</string>
+    <string name="length">길이</string>
+    <string name="size">크기</string>
+    <string name="resolution">해상도</string>
+    <string name="date">날짜</string>
+    <string name="hide_desc">동영상을 숨기면 원래 디렉토리에서 이동됩니다. 동영상 숨기기를 해제하면 동영상이 영화 디렉토리에 다시 생성됩니다</string>
 
 
 </resources>

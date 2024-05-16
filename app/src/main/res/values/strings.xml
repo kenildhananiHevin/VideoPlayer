@@ -15,7 +15,7 @@
     <string name="cancle">CANCEL</string>
     <string name="r_rename">RENAME</string>
     <string name="d_delete">DELETE</string>
-    <string name="enter_a_name">Enter a name</string>
+    <string name="enter_a_name">Enter name</string>
     <string name="please_enter_a_valid_text">Please enter a valid text</string>
     <string name="ok">OK</string>
     <string name="video_orientation_auto">Auto rotate</string>
@@ -73,9 +73,23 @@
     <string name="security_question">Security Question</string>
     <string name="what_is_your_name">What is your name ?</string>
     <string name="type_answer_here">Type answer here...</string>
-    <string name="des_lock">Security question is used when you forget your password. you can change this at any time.</string>
+    <string name="des_lock">Security question is used when you forget your password.</string>
     <string name="please_enter_your_4_digit_passcode">Please enter your 4 digit passcode</string>
     <string name="please_enter_password">Please Enter Password</string>
     <string name="no_data_found">No Data Found</string>
     <string name="enter_password">Enter Password</string>
+    <string name="please_enter_security_question">Please enter security question</string>
+    <string name="change_password">Change Password</string>
+    <string name="loading_ads">Loading ads...</string>
+    <string name="next">Next</string>
+    <string name="ads_dsc">This action might contain ads</string>
+    <string name="details">Details</string>
+    <string name="video_info">Video Info</string>
+    <string name="file">File</string>
+    <string name="location">Location</string>
+    <string name="length">Length</string>
+    <string name="size">Size</string>
+    <string name="resolution">Resolution</string>
+    <string name="date">Date</string>
+    <string name="hide_desc">If you hide the video, it will be moved from its original directory. When you unhide the video, it will be recreated in the movies directory</string>
 </resources>

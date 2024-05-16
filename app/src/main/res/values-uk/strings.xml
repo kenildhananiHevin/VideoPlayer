@@ -72,11 +72,25 @@
     <string name="security_question">Запитання безпеки</string>
     <string name="what_is_your_name">Як вас звати?</string>
     <string name="type_answer_here">Введіть відповідь тут...</string>
-    <string name="des_lock">Запитання безпеки використовується, коли ви забули свій пароль. Ви можете змінити його в будь-який час.</string>
+    <string name="des_lock">Питання безпеки використовується, коли ви забуваєте свій пароль.</string>
     <string name="please_enter_your_4_digit_passcode">Будь ласка, введіть свій 4-значний код доступу</string>
     <string name="please_enter_password">Будь ласка, введіть пароль</string>
     <string name="no_data_found">Дані не знайдені</string>
     <string name="enter_password">Введіть пароль</string>
+    <string name="please_enter_security_question">Будь ласка, введіть питання безпеки</string>
+    <string name="change_password">Змінити пароль</string>
+    <string name="loading_ads">Завантаження реклами...</string>
+    <string name="next">Наступний</string>
+    <string name="ads_dsc">Ця дія може містити рекламу</string>
+    <string name="details">Деталі</string>
+    <string name="video_info">Інформація про відео</string>
+    <string name="file">Файл</string>
+    <string name="location">Місцезнаходження</string>
+    <string name="length">Довжина</string>
+    <string name="size">Розмір</string>
+    <string name="resolution">Роздільна здатність</string>
+    <string name="date">Дата</string>
+    <string name="hide_desc">Якщо ви приховаєте відео, воно буде переміщене з оригінального каталогу. Коли ви відновите відео, воно буде відтворене у каталозі фільмів</string>
 
 
 </resources>

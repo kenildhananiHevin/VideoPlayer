@@ -1,5 +1,6 @@
 package videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.adapter;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.PendingIntent;
 import android.content.ActivityNotFoundException;
@@ -52,7 +53,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
     public List<VideoItem> videoItems;
     public String list;
     DeleteData deleteData;
-    LinearLayout play, rename, share, delete,hide;
+    LinearLayout play, rename, share, delete, hide, details;
     ImageView close;
     TextView txtVideoName;
     public static VideoItem VideoItems;
@@ -62,11 +63,12 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
     VideoDatabase videoDatabase;
     VideoDao videoDao;
     HideVideoDao hideVideoDao;
-    public boolean isSelectionEnabledVideo = false;
+    public static boolean isSelectionEnabledVideo = false;
     SelectionModelVideo selectionModelVideo = new SelectionModelVideo();
+    TextView txtFullPath, txtFileName, txtQuality, txtVideoSize, txtVideoDuration, txtInfoVPath, txtInfoVFName, txtInfoVSize, txtInfoVDurat, txtInfoVResolution, txtDate, txtVideoDate;
 
 
-    public VideoAdapter(BaseActivity activity, List<VideoItem> videoItems, DeleteData deleteData, String from, String list,View viewById) {
+    public VideoAdapter(BaseActivity activity, List<VideoItem> videoItems, DeleteData deleteData, String from, String list, View viewById) {
         this.activity = activity;
         this.videoItems = videoItems;
         this.deleteData = deleteData;
@@ -86,7 +88,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
         try {
             activity.findViewById(R.id.tabLayout).setVisibility(View.VISIBLE);
             activity.findViewById(R.id.tabLineView).setVisibility(View.VISIBLE);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.getMessage();
         }
 
@@ -110,7 +112,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
 
 
     @Override
-    public void onBindViewHolder(@NonNull VideoAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull VideoAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         VideoItem videoItem = videoItems.get(position);
         String durations = CommonClass.millisecToTime((int) videoItem.getDuration_milis());
         String dates = CommonClass.convertMillisToTime(new File(videoItem.getVideopath()).lastModified(), "dd/MM/yyyy");
@@ -120,10 +122,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
         String videoSize = videofinalduration;
 
 
-        Glide.with(activity)
-                .load(videoPath)
-                .override(200, 200)
-                .into(holder.img_video_preview);
+        Glide.with(activity).load(videoPath).override(200, 200).into(holder.img_video_preview);
 
         holder.text_video_name.setText("" + videoName);
         holder.txt_video_duration.setText("" + durations);
@@ -175,7 +174,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
                 try {
                     activity.findViewById(R.id.tabLayout).setVisibility(View.GONE);
                     activity.findViewById(R.id.tabLineView).setVisibility(View.GONE);
-                }catch (Exception e){
+                } catch (Exception e) {
                     e.getMessage();
                 }
 
@@ -195,13 +194,13 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
             try {
                 activity.findViewById(R.id.tabLayout).setVisibility(View.GONE);
                 activity.findViewById(R.id.tabLineView).setVisibility(View.GONE);
-            }catch (Exception e){
+            } catch (Exception e) {
                 e.getMessage();
             }
 
             holder.selectImg.setVisibility(View.VISIBLE);
             holder.more.setVisibility(View.GONE);
-        }else {
+        } else {
             holder.more.setVisibility(View.VISIBLE);
             holder.selectImg.setVisibility(View.GONE);
         }
@@ -251,17 +250,16 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
             }
         });
 
-        ((TextView)activity.findViewById(R.id.txtSelected)).setText(activity.getString(R.string.selected,
-                selectionModelVideo.getSelectedVideo().size()));
+        ((TextView) activity.findViewById(R.id.txtSelected)).setText(activity.getString(R.string.selected, selectionModelVideo.getSelectedVideo().size()));
 
-        ((ImageView)activity.findViewById(R.id.imgSelect)).setOnClickListener(new View.OnClickListener() {
+        ((ImageView) activity.findViewById(R.id.imgSelect)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (isAllSelected()){
+                if (isAllSelected()) {
                     ((ImageView) activity.findViewById(R.id.imgSelect)).setImageResource(R.drawable.selecte_player);
                     deSelectAll();
                     notifyDataSetChanged();
-                }else {
+                } else {
                     ((ImageView) activity.findViewById(R.id.imgSelect)).setImageResource(R.drawable.unselect_de_player);
                     selectionModelVideo.selectAll((ArrayList<VideoItem>) videoItems);
                     notifyDataSetChanged();
@@ -270,7 +268,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
             }
         });
 
-        ((ImageView)activity.findViewById(R.id.imgDeleteBack)).setOnClickListener(new View.OnClickListener() {
+        ((ImageView) activity.findViewById(R.id.imgDeleteBack)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 deSelectAll();
@@ -296,6 +294,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
                 delete = view1.findViewById(R.id.delete);
                 close = view1.findViewById(R.id.close);
                 hide = view1.findViewById(R.id.hide);
+                details = view1.findViewById(R.id.details);
                 txtVideoName = view1.findViewById(R.id.txtVideoName);
                 txtVideoName.setText("" + videoName);
                 txtVideoName.setSelected(true);
@@ -303,18 +302,71 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
                 hide.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        String sourcePath = videoItem.getVideopath();
-                        String destinationPath = activity.getFilesDir().getAbsolutePath() + File.separator + "videos" + File.separator + videoItem.getVideodisplayname();
+                        SharedPreferences preferences = activity.getSharedPreferences("Hide", 0);
+                        boolean hidePrefsString = preferences.getBoolean("hide_video", false);
 
-                        VideoCopy.copyVideo(sourcePath, destinationPath);
-                        deleteData.moveFiles(new File(videoItem.getVideopath()), 0, videoItem);
-                        HideVideoItem hideVideoItemShow = new HideVideoItem(videoItem.getId(),destinationPath,videoItem.getVideodisplayname(),
-                                videoItem.getDuration_milis(),videoItem.getVideosize(),videoItem.getVideofoldername(),videoItem.getVideoquality(),
-                                videoItem.getVideomimetype(),videoItem.getDateAdded());
-                        List<HideVideoItem> items = new ArrayList<>();
-                        items.add(hideVideoItemShow);
-                        hideVideoDao.insertVideo(items);
-                        dialog.dismiss();
+                        if (!hidePrefsString) {
+                            AlertDialog hideVideoDialog = new AlertDialog.Builder(activity, R.style.MyTransparentBottomSheetDialogTheme).create();
+                            LayoutInflater layoutInflater = activity.getLayoutInflater();
+                            View view1 = layoutInflater.inflate(R.layout.delete_layout, null);
+                            hideVideoDialog.setView(view1);
+                            hideVideoDialog.setCanceledOnTouchOutside(false);
+                            TextView cancel = view1.findViewById(R.id.delete_cancel);
+                            TextView deleteHide = view1.findViewById(R.id.delete_ok);
+                            TextView txtHide = view1.findViewById(R.id.delete);
+                            TextView txtHideDesc = view1.findViewById(R.id.delete_txt);
+
+                            txtHide.setText(activity.getString(R.string.hide_video));
+                            txtHideDesc.setText(activity.getString(R.string.hide_desc));
+                            deleteHide.setText(activity.getString(R.string.ok));
+
+                            cancel.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    hideVideoDialog.dismiss();
+                                }
+                            });
+
+                            deleteHide.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    preferences.edit().putBoolean("hide_video",true).apply();
+
+                                    String sourcePath = videoItem.getVideopath();
+                                    String destinationPath = activity.getFilesDir().getAbsolutePath() + File.separator + "videos" + File.separator + videoItem.getVideodisplayname();
+
+                                    VideoCopy.copyVideo(sourcePath, destinationPath);
+                                    deleteData.moveFiles(new File(videoItem.getVideopath()), 0, videoItem);
+                                    HideVideoItem hideVideoItemShow = new HideVideoItem(videoItem.getId(), destinationPath, videoItem.getVideodisplayname(), videoItem.getDuration_milis(), videoItem.getVideosize(), videoItem.getVideofoldername(), videoItem.getVideoquality(), videoItem.getVideomimetype(), videoItem.getDateAdded());
+                                    List<HideVideoItem> items = new ArrayList<>();
+                                    items.add(hideVideoItemShow);
+                                    hideVideoDao.insertVideo(items);
+                                    hideVideoDialog.dismiss();
+                                }
+                            });
+
+
+                            hideVideoDialog.show();
+                            Window window = hideVideoDialog.getWindow();
+                            DisplayMetrics displayMetrics = new DisplayMetrics();
+                            activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+                            int screenWidth = displayMetrics.widthPixels;
+                            int dialogWidth = (int) (screenWidth * 0.88);
+                            window.setLayout(dialogWidth, ViewGroup.LayoutParams.WRAP_CONTENT);
+                            window.setGravity(Gravity.CENTER);
+                            dialog.dismiss();
+                        } else {
+                            String sourcePath = videoItem.getVideopath();
+                            String destinationPath = activity.getFilesDir().getAbsolutePath() + File.separator + "videos" + File.separator + videoItem.getVideodisplayname();
+
+                            VideoCopy.copyVideo(sourcePath, destinationPath);
+                            deleteData.moveFiles(new File(videoItem.getVideopath()), 0, videoItem);
+                            HideVideoItem hideVideoItemShow = new HideVideoItem(videoItem.getId(), destinationPath, videoItem.getVideodisplayname(), videoItem.getDuration_milis(), videoItem.getVideosize(), videoItem.getVideofoldername(), videoItem.getVideoquality(), videoItem.getVideomimetype(), videoItem.getDateAdded());
+                            List<HideVideoItem> items = new ArrayList<>();
+                            items.add(hideVideoItemShow);
+                            hideVideoDao.insertVideo(items);
+                            dialog.dismiss();
+                        }
                     }
                 });
 
@@ -336,6 +388,10 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
                 play.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        if (new File(videoItem.getVideopath()).length() <= 0) {
+                            Toast.makeText(activity, R.string.video_not_supported, Toast.LENGTH_SHORT).show();
+                            return;
+                        }
                         try {
                             VideoPlayerActivity.activity.finish();
                         } catch (Exception e) {
@@ -345,6 +401,9 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
                         intent.putExtra("position", position);
                         intent.putExtra("from", from);
                         intent.putExtra("name", videoName);
+                        SharedPreferences video_preferences = activity.getSharedPreferences("Sorting", 0);
+                        String videoPrefsSorting = video_preferences.getString("nameSort", "AtoZ");
+                        intent.putExtra("sorting", videoPrefsSorting);
                         activity.startActivity(intent);
                         dialog.dismiss();
                     }
@@ -485,6 +544,14 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
                     }
                 });
 
+                details.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        videoInfoDialog(videoItem.getVideopath(), videoItem.getVideodisplayname(), videoItem.getVideoquality(), videoSize, durations, dates);
+                        dialog.dismiss();
+                    }
+                });
+
                 dialog.show();
                 Window window = dialog.getWindow();
                 DisplayMetrics displayMetrics = new DisplayMetrics();
@@ -495,14 +562,77 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
                 window.setGravity(Gravity.CENTER);
             }
         });
-        if (isAllSelected()){
+        if (isAllSelected()) {
             ((ImageView) activity.findViewById(R.id.imgSelect)).setImageResource(R.drawable.unselect_de_player);
-        }else {
+        } else {
             ((ImageView) activity.findViewById(R.id.imgSelect)).setImageResource(R.drawable.selecte_player);
         }
 
 
+    }
 
+    private void videoInfoDialog(String videopath, String videodisplayname, String videoquality, String videosize, String duration_milis, String dateAdded) {
+        SharedPreferences preferences = activity.getSharedPreferences("Language", 0);
+        String prefsString = preferences.getString("language_code", "en");
+        LocaleHelper.setLocale(activity, prefsString);
+
+
+        AlertDialog information_dialog_video = new AlertDialog.Builder(activity, R.style.MyTransparentBottomSheetDialogTheme).create();
+        LayoutInflater layoutInflater = activity.getLayoutInflater();
+        View view1 = layoutInflater.inflate(R.layout.information_layout, null);
+        information_dialog_video.setView(view1);
+        information_dialog_video.setCanceledOnTouchOutside(false);
+
+        txtFullPath = view1.findViewById(R.id.text_full_path);
+        txtFileName = view1.findViewById(R.id.file_name);
+        txtQuality = view1.findViewById(R.id.text_quality);
+        txtVideoSize = view1.findViewById(R.id.text_video_size);
+        txtVideoDuration = view1.findViewById(R.id.text_video_duartion);
+        ImageView information_close = view1.findViewById(R.id.information_close);
+
+        txtInfoVPath = view1.findViewById(R.id.info_v_path);
+        txtInfoVFName = view1.findViewById(R.id.info_v_f_name);
+        txtInfoVSize = view1.findViewById(R.id.info_v_size);
+        txtInfoVDurat = view1.findViewById(R.id.info_v_durat);
+        txtInfoVResolution = view1.findViewById(R.id.info_v_resolution);
+        txtDate = view1.findViewById(R.id.info_v_date);
+        txtVideoDate = view1.findViewById(R.id.text_video_date);
+
+        txtFullPath.setSelected(true);
+        txtFileName.setSelected(true);
+        txtQuality.setSelected(true);
+        txtVideoSize.setSelected(true);
+        txtVideoDuration.setSelected(true);
+        txtInfoVPath.setSelected(true);
+        txtInfoVFName.setSelected(true);
+        txtInfoVSize.setSelected(true);
+        txtInfoVDurat.setSelected(true);
+        txtInfoVResolution.setSelected(true);
+        txtDate.setSelected(true);
+        txtVideoDate.setSelected(true);
+
+        txtFullPath.setText("" + videopath);
+        txtFileName.setText("" + videodisplayname);
+        txtQuality.setText("" + videoquality);
+        txtVideoSize.setText("" + videosize);
+        txtVideoDuration.setText("" + duration_milis);
+        txtVideoDate.setText("" + dateAdded);
+
+        information_close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                information_dialog_video.dismiss();
+            }
+        });
+
+        information_dialog_video.show();
+        Window window = information_dialog_video.getWindow();
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        int screenWidth = displayMetrics.widthPixels;
+        int dialogWidth = (int) (screenWidth * 0.88);
+        window.setLayout(dialogWidth, ViewGroup.LayoutParams.WRAP_CONTENT);
+        window.setGravity(Gravity.CENTER);
     }
 
     public boolean isAllSelected() {
@@ -517,13 +647,15 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
 
     public interface DeleteData {
         void deleteclick(File str, int i, VideoItem videoItem);
+
         void moveFiles(File str, int i, VideoItem videoItem);
+
         void deleteclicks(ArrayList<VideoItem> videoItem);
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView txt_video_duration, text_video_name, txt_video_size, txt_video_date;
-        ImageView img_video_preview, more,selectImg;
+        ImageView img_video_preview, more, selectImg;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

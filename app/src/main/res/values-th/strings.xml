@@ -72,11 +72,25 @@
     <string name="security_question">คำถามเกี่ยวกับความปลอดภัย</string>
     <string name="what_is_your_name">ชื่อของคุณคืออะไร?</string>
     <string name="type_answer_here">พิมพ์คำตอบที่นี่...</string>
-    <string name="des_lock">คำถามเกี่ยวกับความปลอดภัยใช้เมื่อคุณลืมรหัสผ่าน คุณสามารถเปลี่ยนแปลงได้ตลอดเวลา</string>
+    <string name="des_lock">คำถามเกี่ยวกับความปลอดภัยใช้เมื่อลืมรหัสผ่าน ฉันสามารถเปลี่ยนอ</string>
     <string name="please_enter_your_4_digit_passcode">โปรดใส่รหัสผ่านของคุณที่มี 4 หลัก</string>
     <string name="please_enter_password">โปรดใส่รหัสผ่าน</string>
     <string name="no_data_found">ไม่พบข้อมูล</string>
     <string name="enter_password">ป้อนรหัสผ่าน</string>
+    <string name="please_enter_security_question">โปรดใส่คำถามเกี่ยวกับความปลอดภัย</string>
+    <string name="change_password">เปลี่ยนรหัสผ่าน</string>
+    <string name="loading_ads">กำลังโหลดโฆษณา...</string>
+    <string name="next">ถัดไป</string>
+    <string name="ads_dsc">การดำเนินการนี้อาจมีโฆษณา</string>
+    <string name="details">รายละเอียด</string>
+    <string name="video_info">ข้อมูลวิดีโอ</string>
+    <string name="file">ไฟล์</string>
+    <string name="location">ตำแหน่ง</string>
+    <string name="length">ความยาว</string>
+    <string name="size">ขนาด</string>
+    <string name="resolution">ความละเอียด</string>
+    <string name="date">วันที่</string>
+    <string name="hide_desc">หากคุณซ่อนวิดีโอ วิดีโอจะถูกย้ายจากไดเรกทอรีเดิม เมื่อคุณยกเลิกการซ่อนวิดีโอ วิดีโอจะถูกสร้างใหม่ในไดเรกทอรีภาพยนตร์</string>
 
 
 </resources>

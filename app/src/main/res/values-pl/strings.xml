@@ -72,11 +72,25 @@
     <string name="security_question">Pytanie zabezpieczające</string>
     <string name="what_is_your_name">Jak masz na imię?</string>
     <string name="type_answer_here">Wprowadź odpowiedź tutaj...</string>
-    <string name="des_lock">Pytanie zabezpieczające jest używane, gdy zapomnisz hasła. Możesz je zmienić w dowolnym momencie.</string>
+    <string name="des_lock">Pytanie bezpieczeństwa jest używane, gdy zapomnisz hasła.</string>
     <string name="please_enter_your_4_digit_passcode">Proszę podać swój 4-cyfrowy kod dostępu</string>
     <string name="please_enter_password">Proszę podać hasło</string>
     <string name="no_data_found">Nie znaleziono danych</string>
     <string name="enter_password">Wprowadź hasło</string>
+    <string name="please_enter_security_question">Proszę wprowadzić pytanie bezpieczeństwa</string>
+    <string name="change_password">Zmień hasło</string>
+    <string name="loading_ads">Ładowanie reklam...</string>
+    <string name="next">Następny</string>
+    <string name="ads_dsc">Ta czynność może zawierać reklamy</string>
+    <string name="details">Szczegóły</string>
+    <string name="video_info">Informacje o wideo</string>
+    <string name="file">Plik</string>
+    <string name="location">Lokalizacja</string>
+    <string name="length">Długość</string>
+    <string name="size">Rozmiar</string>
+    <string name="resolution">Rozdzielczość</string>
+    <string name="date">Data</string>
+    <string name="hide_desc">Jeśli ukryjesz wideo, zostanie ono przeniesione z oryginalnego katalogu. Kiedy odblokujesz wideo, zostanie ono ponownie utworzone w katalogu filmów</string>
 
 
 </resources>

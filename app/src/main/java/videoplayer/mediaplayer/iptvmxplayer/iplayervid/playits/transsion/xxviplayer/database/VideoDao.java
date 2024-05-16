@@ -28,6 +28,9 @@ public interface VideoDao {
     @Query("SELECT videofoldername AS folderName, COUNT(*) AS folderSize FROM VideoItem GROUP BY videofoldername")
     LiveData<List<VideoFolderSize>> getFolderSizes();
 
+    @Query("SELECT videofoldername AS folderName, COUNT(*) AS folderSize FROM VideoItem GROUP BY videofoldername")
+    List<VideoFolderSize> getListFolderSizes();
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertVideo(List<VideoItem> video);
 

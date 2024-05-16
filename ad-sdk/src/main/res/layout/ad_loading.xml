@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/_10sdp"
             android:gravity="center_vertical"
-            android:text="Loading ads..."
+            android:text="@string/loading_ads"
             android:paddingHorizontal="@dimen/_10sdp"
             android:textColor="@color/ad_ad_text_color"
             android:textSize="@dimen/_11ssp"

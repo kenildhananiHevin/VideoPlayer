@@ -15,7 +15,7 @@
     <string name="cancle">CANCELAR</string>
     <string name="r_rename">RENOMEAR</string>
     <string name="d_delete">EXCLUIR</string>
-    <string name="enter_a_name">Digite um nome</string>
+    <string name="enter_a_name">Digite nome</string>
     <string name="please_enter_a_valid_text">Insira um texto válido</string>
     <string name="ok">OK</string>
     <string name="video_orientation_auto">Rotação automática</string>
@@ -72,11 +72,25 @@
     <string name="security_question">Pergunta de segurança</string>
     <string name="what_is_your_name">Qual é o seu nome?</string>
     <string name="type_answer_here">Digite a resposta aqui...</string>
-    <string name="des_lock">A pergunta de segurança é usada quando você esquece sua senha. Você pode alterá-la a qualquer momento.</string>
+    <string name="des_lock">A pergunta de segurança é usada quando você esquece sua senha.</string>
     <string name="please_enter_your_4_digit_passcode">Por favor, insira seu código de 4 dígitos</string>
     <string name="please_enter_password">Por favor, insira a senha</string>
     <string name="no_data_found">Dados não encontrados</string>
     <string name="enter_password">Digite a senha</string>
+    <string name="please_enter_security_question">Por favor, insira a pergunta de segurança</string>
+    <string name="change_password">Alterar senha</string>
+    <string name="loading_ads">Carregando anúncios...</string>
+    <string name="next">Próximo</string>
+    <string name="ads_dsc">Esta ação pode conter anúncios</string>
+    <string name="details">Detalhes</string>
+    <string name="video_info">Informações do vídeo</string>
+    <string name="file">Arquivo</string>
+    <string name="location">Localização</string>
+    <string name="length">Duração</string>
+    <string name="size">Tamanho</string>
+    <string name="resolution">Resolução</string>
+    <string name="date">Data</string>
+    <string name="hide_desc">Se você ocultar o vídeo, ele será movido do seu diretório original. Quando você mostrar o vídeo novamente, ele será recriado no diretório de filmes</string>
 
 
 </resources>

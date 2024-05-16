@@ -11,12 +11,13 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.R;
+import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.activity.BaseActivity;
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.activity.ShowVideoActivity;
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.easypasscodelock.Interfaces.ActivityChanger;
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.easypasscodelock.Utils.EasylockSP;
 
 
-public class SecurityActivity extends AppCompatActivity {
+public class SecurityActivity extends BaseActivity {
 
     TextView txtNext,txtShowVideoName,txtWName;
     SecurityActivity activity;
@@ -51,21 +52,26 @@ public class SecurityActivity extends AppCompatActivity {
         txtNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (status.equals("change")) {
-                    if (EasylockSP.getString("Security", null).equals(edtQuestion.getText().toString())) {
-                        activityChanger.activityClass(ShowVideoActivity.class);
-                        Intent intent = new Intent(activity, LockscreenActivity.class);
-                        intent.putExtra("passStatus", "set");
-                        startActivity(intent);
+                if (edtQuestion.getText().toString().isEmpty()){
+                    Toast.makeText(activity, R.string.please_enter_security_question, Toast.LENGTH_SHORT).show();
+                }else {
+                    if (status.equals("change")) {
+                        if (EasylockSP.getString("Security", null).equals(edtQuestion.getText().toString())) {
+                            activity.finish();
+                            activityChanger.activityClass(ShowVideoActivity.class);
+                            Intent intent = new Intent(activity, LockscreenActivity.class);
+                            intent.putExtra("passStatus", "set");
+                            intent.putExtra("passStatus2", "changes");
+                            startActivity(intent);
+                            finish();
+                        }else {
+                            Toast.makeText(activity, R.string.wrong_answer, Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        EasylockSP.put("Security", edtQuestion.getText().toString());
+                        setResult(RESULT_OK);
                         finish();
-                    }else {
-                        Toast.makeText(activity, R.string.wrong_answer, Toast.LENGTH_SHORT).show();
                     }
-
-                } else {
-                    EasylockSP.put("Security", edtQuestion.getText().toString());
-                    setResult(RESULT_OK);
-                    finish();
                 }
             }
         });

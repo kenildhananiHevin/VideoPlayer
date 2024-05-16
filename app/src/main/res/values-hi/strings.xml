@@ -72,11 +72,25 @@
     <string name="security_question">सुरक्षा प्रश्न</string>
     <string name="what_is_your_name">आपका नाम क्या है?</string>
     <string name="type_answer_here">यहाँ उत्तर लिखें...</string>
-    <string name="des_lock">सुरक्षा प्रश्न का उपयोग तब किया जाता है जब आप अपना पासवर्ड भूल जाते हैं। आप किसी भी समय इसे बदल सकते हैं।</string>
+    <string name="des_lock">सुरक्षा प्रश्न का उपयोग जब आप अपना पासवर्ड भूल जाते हैं किया जाता है।</string>
     <string name="please_enter_your_4_digit_passcode">कृपया अपना 4 अंकों का पासकोड दर्ज करें</string>
     <string name="please_enter_password">कृपया पासवर्ड दर्ज करें</string>
     <string name="no_data_found">कोई डेटा नहीं मिला</string>
     <string name="enter_password">पासवर्ड दर्ज करें</string>
+    <string name="please_enter_security_question">कृपया सुरक्षा प्रश्न दर्ज करें</string>
+    <string name="change_password">पासवर्ड बदलें</string>
+    <string name="loading_ads">विज्ञापन लोड हो रहे हैं...</string>
+    <string name="next">अगला</string>
+    <string name="ads_dsc">इस क्रिया में विज्ञापन हो सकते हैं</string>
+    <string name="details">विवरण</string>
+    <string name="video_info">वीडियो जानकारी</string>
+    <string name="file">फ़ाइल</string>
+    <string name="location">स्थान</string>
+    <string name="length">लंबाई</string>
+    <string name="size">आकार</string>
+    <string name="resolution">संकल्प</string>
+    <string name="date">तिथि</string>
+    <string name="hide_desc">यदि आप वीडियो को छिपाते हैं, तो इसे अपनी मूल निर्देशिका से हटा दिया जाएगा। जब आप वीडियो को अनहाइड करते हैं, तो इसे मूवीज निर्देशिका में फिर से बनाया जाएगा</string>
 
 
 </resources>

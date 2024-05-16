@@ -11,7 +11,7 @@ android {
     compileSdk 33
 
     defaultConfig {
-        applicationId "videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer"
+        applicationId "videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.test"
         minSdk 24
         targetSdk 33
         versionCode 4

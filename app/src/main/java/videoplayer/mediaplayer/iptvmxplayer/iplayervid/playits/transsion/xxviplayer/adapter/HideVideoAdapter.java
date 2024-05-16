@@ -1,10 +1,16 @@
 package videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.adapter;
 
+
+import static videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.activity.ShowVideoActivity.item;
+import static videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.activity.ShowVideoActivity.pathsItem;
+
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -53,11 +60,11 @@ public class HideVideoAdapter extends RecyclerView.Adapter<HideVideoAdapter.View
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(activity).inflate(R.layout.video_item,parent,false));
+        return new ViewHolder(LayoutInflater.from(activity).inflate(R.layout.video_item, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull HideVideoAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull HideVideoAdapter.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         HideVideoItem hideVideoItem = hideVideoItems.get(position);
         String durations = CommonClass.millisecToTime((int) hideVideoItem.getDuration_milis());
         String dates = CommonClass.convertMillisToTime(new File(hideVideoItem.getVideopath()).lastModified(), "dd/MM/yyyy");
@@ -76,38 +83,62 @@ public class HideVideoAdapter extends RecyclerView.Adapter<HideVideoAdapter.View
         holder.txt_video_size.setText("" + hideVideoSize);
         holder.txt_video_date.setText("" + dates);
 
-        int width = 50;
-        int height = 50;
+        holder.unHideVideo.setVisibility(View.VISIBLE);
+        holder.more.setVisibility(View.GONE);
 
-        holder.more.getLayoutParams().width = width;
-        holder.more.getLayoutParams().height = height;
 
-        holder.more.setImageResource(R.drawable.un_hide_video);
-
-        holder.more.setOnClickListener(new View.OnClickListener() {
+        holder.unHideVideo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                item = hideVideoItem;
                 String sourcePath = hideVideoItem.getVideopath();
-                String destinationPath = hideVideoItem.getVideofoldername() + File.separator + hideVideoItem.getVideodisplayname();
+                /*String destinationPath = hideVideoItem.getVideofoldername() + File.separator + hideVideoItem.getVideodisplayname();*/
+                String destinationPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MOVIES).getAbsolutePath() + File.separator + hideVideoItem.getVideodisplayname();
+                pathsItem = destinationPath;
 
-                VideoCopy.copyVideo(sourcePath, destinationPath);
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-                    MediaScannerConnection.scanFile(activity, new String[]{destinationPath}, null, new MediaScannerConnection.OnScanCompletedListener() {
-                        @Override
-                        public void onScanCompleted(String path, Uri uri) {
-                            VideoItem videoItem = new VideoItem(hideVideoItem.getId(),destinationPath,hideVideoItem.getVideodisplayname(),
-                                    hideVideoItem.getDuration_milis(),hideVideoItem.getVideosize(),hideVideoItem.getVideofoldername(),hideVideoItem.getVideoquality(),
-                                    hideVideoItem.getVideomimetype(),hideVideoItem.getDateAdded());
-                            List<VideoItem> items = new ArrayList<>();
-                            items.add(videoItem);
-                            videoDao.insertVideo(items);
-                            hideVideoDao.delete(hideVideoItem);
-                            new File(hideVideoItem.getVideopath()).delete();
-                        }
-                    });
+                if (VideoCopy.copyVideo(sourcePath, destinationPath,activity,hideVideoItem)){
+//                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                        MediaScannerConnection.scanFile(activity, new String[]{destinationPath}, null, new MediaScannerConnection.OnScanCompletedListener() {
+                            @Override
+                            public void onScanCompleted(String path, Uri uri) {
+                                VideoItem videoItem = new VideoItem(hideVideoItem.getId(),destinationPath,hideVideoItem.getVideodisplayname(),
+                                        hideVideoItem.getDuration_milis(),hideVideoItem.getVideosize(),hideVideoItem.getVideofoldername(),hideVideoItem.getVideoquality(),
+                                        hideVideoItem.getVideomimetype(),hideVideoItem.getDateAdded());
+                                List<VideoItem> items = new ArrayList<>();
+                                items.add(videoItem);
+                                videoDao.insertVideo(items);
+                                hideVideoDao.delete(hideVideoItem);
+                                new File(hideVideoItem.getVideopath()).delete();
+                            }
+                        });
+//                    }
                 }
             }
         });
+
+
+       /* holder.more.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                item = hideVideoItem;
+                String vfile = hideVideoItem.getVideodisplayname();
+                Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
+                intent.addCategory(Intent.CATEGORY_OPENABLE);
+                if (Build.VERSION.SDK_INT >= 29) {
+                    intent.setType("video/*");
+                } else {
+                    intent.setType("video/*");
+                }
+                intent.putExtra(Intent.EXTRA_TITLE, vfile);
+                Log.d("TAGhj", "onClick: Main " + hideVideoItem.getVideofoldername());
+                String path = hideVideoItem.getVideofoldername();
+                Uri loc_pickerInitialUri = Uri.parse(path);
+                intent.putExtra(DocumentsContract.EXTRA_INITIAL_URI, loc_pickerInitialUri);
+                activity.startActivityForResult(intent, 108);
+            }
+        });*/
+
+
 
         holder.text_video_name.setSelected(true);
         holder.txt_video_duration.setSelected(true);
@@ -148,16 +179,17 @@ public class HideVideoAdapter extends RecyclerView.Adapter<HideVideoAdapter.View
         });
     }
 
-
     @Override
     public int getItemCount() {
         return hideVideoItems.size();
     }
 
+
+
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView txt_video_duration, text_video_name, txt_video_size, txt_video_date;
-        ImageView img_video_preview, more,selectImg,unHideVideo;
+        ImageView img_video_preview, unHideVideo,more;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -166,8 +198,8 @@ public class HideVideoAdapter extends RecyclerView.Adapter<HideVideoAdapter.View
             txt_video_size = itemView.findViewById(R.id.txt_video_size);
             img_video_preview = itemView.findViewById(R.id.img_video_preview);
             txt_video_date = itemView.findViewById(R.id.txt_video_date);
+            unHideVideo = itemView.findViewById(R.id.un_hide);
             more = itemView.findViewById(R.id.more);
-            selectImg = itemView.findViewById(R.id.selectImg);
         }
     }
 }

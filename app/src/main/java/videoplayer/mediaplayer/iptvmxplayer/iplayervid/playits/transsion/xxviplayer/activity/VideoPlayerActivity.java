@@ -55,6 +55,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
+import plugin.adsdk.service.AppOpenManager;
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.R;
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.database.HideVideoDao;
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.database.VideoDao;
@@ -68,7 +69,7 @@ import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxvipla
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.other.VerticalSeekBar;
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.other.VideoPlayerUtils;
 
-public class VideoPlayerActivity extends AppCompatActivity {
+public class VideoPlayerActivity extends plugin.adsdk.service.BaseActivity {
     public static VideoPlayerActivity activity;
     public static StyledPlayerView videoPlayerView;
     private ExoPlayer videoPlayers;
@@ -132,6 +133,7 @@ public class VideoPlayerActivity extends AppCompatActivity {
     @SuppressLint({"MissingInflatedId", "ClickableViewAccessibility"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        AppOpenManager.blockAppOpen(VideoPlayerActivity.this);
         handleLanguageChange();
         SharedPreferences preferences = getSharedPreferences("Language", 0);
         prefsString = preferences.getString("language_code", "en");
@@ -160,9 +162,9 @@ public class VideoPlayerActivity extends AppCompatActivity {
         }
         else if (froms.equals("all")) {
             videoItems = videoDao.getAllVideos();
-
         } else {
             videoItems = videoDao.getAllFolder(froms);
+            Log.e("TAGGG", "videoItems: > "+ videoItems);
         }
 
         if (sort.equals("AtoZ")) {
@@ -408,7 +410,9 @@ public class VideoPlayerActivity extends AppCompatActivity {
         player_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                enterPiP();
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    onBackPressed();
+                }
             }
         });
 
@@ -591,7 +595,7 @@ public class VideoPlayerActivity extends AppCompatActivity {
         });
     }
 
-    private void handleLanguageChange() {
+    protected void handleLanguageChange() {
         SharedPreferences preferences = getSharedPreferences("Language", 0);
         String languageCode = preferences.getString("language_code", "en");
         LocaleHelper.setLocale(VideoPlayerActivity.this, languageCode);
@@ -649,6 +653,7 @@ public class VideoPlayerActivity extends AppCompatActivity {
     }
 
     private void enterPiP() {
+        linearSpeed.setVisibility(GONE);
         if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_PICTURE_IN_PICTURE)) {
             Toast.makeText(activity, "Pip mode not support", Toast.LENGTH_SHORT).show();
             finish();
@@ -789,7 +794,13 @@ public class VideoPlayerActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            enterPiP();
+            if (isPiPSupported() && hasPiPPermission()){
+                enterPiP();
+            }else {
+                super.onBackPressed();
+            }
+        }else {
+            super.onBackPressed();
         }
     }
 

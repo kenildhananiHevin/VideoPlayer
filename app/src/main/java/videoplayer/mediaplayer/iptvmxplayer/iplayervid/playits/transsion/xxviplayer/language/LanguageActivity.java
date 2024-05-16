@@ -1,5 +1,7 @@
 package videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.language;
 
+import android.app.UiModeManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
@@ -12,6 +14,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -37,7 +40,7 @@ public class LanguageActivity extends BaseActivity {
     boolean prefsStrings;
     boolean backClick = false;
     ProgressBar pbLoading;
-    LanguageActivity activity;
+//    LanguageActivity activity;
     TextView txtSelectedLanguage;
     String prefsString;
 
@@ -45,11 +48,9 @@ public class LanguageActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_language);
-
-
         nativeAd();
 
-        activity = this;
+//        activity = this;
         SharedPreferences preferences = getSharedPreferences("Language", 0);
         prefsString = preferences.getString("language_code", "en");
 
@@ -142,7 +143,7 @@ public class LanguageActivity extends BaseActivity {
         }
 
         languageList.setLayoutManager(new LinearLayoutManager(this));
-        languageAdapter = new LanguageAdapter(activity, languages);
+        languageAdapter = new LanguageAdapter(this, languages);
         languageList.setAdapter(languageAdapter);
 
 
@@ -162,7 +163,12 @@ public class LanguageActivity extends BaseActivity {
     @Override
     public void onBackPressed() {
         if (prefsStrings) {
-            backPressed();
+            showInterstitial(new BaseCallback() {
+                @Override
+                public void completed() {
+                    finish();
+                }
+            });
         } else {
             new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
                 @Override
@@ -178,6 +184,5 @@ public class LanguageActivity extends BaseActivity {
             }
         }
     }
-
 
 }

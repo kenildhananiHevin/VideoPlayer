@@ -2,6 +2,7 @@ package videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxvipl
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,7 @@ import java.util.Comparator;
 import java.util.List;
 
 import plugin.adsdk.service.BaseActivity;
+import plugin.adsdk.service.BaseApp;
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.R;
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.adapter.FolderAdapter;
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.database.VideoDao;
@@ -30,12 +32,12 @@ public class FolderFragment extends Fragment {
     VideoDao videoDao;
     public FolderAdapter folderAdapter;
     public String folderPrefsString;
+    boolean isAddLoader = false;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_folder, container, false);
 
-        ((BaseActivity) getActivity()).bannerAd(view.findViewById(R.id.banner_ad_container));
 
         videoDatabase = VideoDatabase.getInstance(requireActivity());
         videoDao = videoDatabase.videoDao();
@@ -57,6 +59,15 @@ public class FolderFragment extends Fragment {
         videoDao.getFolderSizes().observe(requireActivity(), new Observer<List<VideoFolderSize>>() {
             @Override
             public void onChanged(List<VideoFolderSize> videoFolderSizes) {
+                if (!isAddLoader) {
+                    if (videoFolderSizes.size()>0) {
+                        isAddLoader = true;
+                        requireActivity().findViewById(R.id.banner_ad_container).setVisibility(View.VISIBLE);
+                        ((BaseActivity)requireActivity()).bannerAd(requireActivity().findViewById(R.id.banner_ad_container));
+                    } else {
+                        requireActivity().findViewById(R.id.banner_ad_container).setVisibility(View.GONE);
+                    }
+                }
                 folderName(videoFolderSizes);
             }
         });

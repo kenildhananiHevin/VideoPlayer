@@ -26,15 +26,20 @@ public class LockscreenActivity extends LockscreenHandler implements ActivityCha
     private final String changeStatus1 = "change1";
     private final String changeStatus2 = "change2";
     String tempPass = "";
-    public ImageView img_select, img_select_one, img_select_two, img_select_three;
+    public ImageView img_select, img_select_one, img_select_two, img_select_three, imgBack;
     private String passString = "", realPass = "";
     private String status = "";
+    private String status2 = "";
+    TextView txtEnterName,textViewForgotPassword;
+    public static LockscreenActivity activity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_easy_lockscreen);
 
+
+        activity = this;
 
         nativeAdMedium();
 
@@ -43,6 +48,16 @@ public class LockscreenActivity extends LockscreenHandler implements ActivityCha
         initViews();
 
         status = getIntent().getExtras().getString("passStatus", "check");
+        status2 = getIntent().getExtras().getString("passStatus2", "");
+        if (status2.equals("changes")) {
+            txtEnterName.setText(getString(R.string.change_password));
+            textViewForgotPassword.setVisibility(View.GONE);
+        }
+
+        if (status.equals("set")) {
+            textViewForgotPassword.setVisibility(View.GONE);
+        }
+
 //        if (status.equals(setStatus)) textViewHAHA.setText(R.string.enter_a_new_password_txt);
         String disableStatus = "disable";
         if (status.equals(disableStatus)) {
@@ -57,9 +72,18 @@ public class LockscreenActivity extends LockscreenHandler implements ActivityCha
         img_select_one = findViewById(R.id.img_select_one);
         img_select_two = findViewById(R.id.img_select_two);
         img_select_three = findViewById(R.id.img_select_three);
-        TextView textViewForgotPassword = findViewById(R.id.forgot_pass_textview);
+        txtEnterName = findViewById(R.id.txtEnterName);
+        imgBack = findViewById(R.id.imgBack);
+        textViewForgotPassword = findViewById(R.id.forgot_pass_textview);
         ImageView buttonEnter = findViewById(R.id.lbtnEnter);
         ImageView imageButtonDelete = findViewById(R.id.lbtnDelete);
+
+        imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         textViewForgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,6 +108,7 @@ public class LockscreenActivity extends LockscreenHandler implements ActivityCha
         buttonEnter.setOnClickListener(view -> {
             switch (status) {
                 case checkStatus:
+                    realPass = getPassword();
                     if (passString.isEmpty()) {
                         Toast.makeText(LockscreenActivity.this, R.string.please_enter_password, Toast.LENGTH_SHORT).show();
                         return;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <color name="black">#FFFFFF</color>
     <color name="white">#121318</color>
 
@@ -17,12 +17,16 @@
     <color name="st_bg">#1C1C1C</color>
     <color name="exo_white">#FFFFFF</color>
     <color name="exo_white_opacity_70">#FFFFFF</color>
-    <color name="ad_native_background">#1C1C1C</color>
-    <color name="colorAccent">#2E5CFF</color>
     <color name="ic_new_launcher_background">#587DFE</color>
     <color name="night_mode_bg">#98000000</color>
     <color name="folder_color">#121318</color>
     <color name="lock_s_color">#AFAFAF</color>
     <color name="vie_color">#2E2F34</color>
+    <color name="ad_native_content_text">#FFFFFF</color>
+    <color name="ad_ad_text_color">#FFFFFF</color>
+    <color name="ad_native_background">#1F2025</color>
+    <color name="colorAccent">#2E5CFF</color>
+    <color name="day_black">#1C1C1C</color>
+    <color name="night_black" >#EBEBEB</color>
 
 </resources>

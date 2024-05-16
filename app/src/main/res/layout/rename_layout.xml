@@ -27,7 +27,7 @@
         android:layout_marginEnd="@dimen/_15sdp"
         android:background="@drawable/rename_border"
         android:fontFamily="@font/inter_medium"
-        android:hint="Video_player_25541545"
+        android:hint="@string/enter_a_name"
         android:inputType="text"
         android:paddingHorizontal="@dimen/_10sdp"
         android:singleLine="true"

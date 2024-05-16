@@ -72,11 +72,25 @@
     <string name="security_question">Pertanyaan Keamanan</string>
     <string name="what_is_your_name">Siapa nama Anda?</string>
     <string name="type_answer_here">Ketik jawaban di sini...</string>
-    <string name="des_lock">Pertanyaan keamanan digunakan ketika Anda lupa kata sandi Anda. Anda dapat mengubahnya kapan saja.</string>
+    <string name="des_lock">Pertanyaan keamanan digunakan ketika Anda lupa kata sandi Anda.</string>
     <string name="please_enter_your_4_digit_passcode">Silakan masukkan kode akses 4 digit Anda</string>
     <string name="please_enter_password">Silakan Masukkan Kata Sandi</string>
     <string name="no_data_found">Tidak Ada Data Ditemukan</string>
     <string name="enter_password">Masukkan Kata Sandi</string>
+    <string name="please_enter_security_question">Silakan masukkan pertanyaan keamanan</string>
+    <string name="change_password">Ubah kata sandi</string>
+    <string name="loading_ads">Memuat iklan...</string>
+    <string name="next">Berikutnya</string>
+    <string name="ads_dsc">Tindakan ini mungkin berisi iklan</string>
+    <string name="details">Rincian</string>
+    <string name="video_info">Info Video</string>
+    <string name="file">Berkas</string>
+    <string name="location">Lokasi</string>
+    <string name="length">Durasi</string>
+    <string name="size">Ukuran</string>
+    <string name="resolution">Resolusi</string>
+    <string name="date">Tanggal</string>
+    <string name="hide_desc">Jika Anda menyembunyikan video, video tersebut akan dipindahkan dari direktori aslinya. Ketika Anda menampilkan kembali video tersebut, video itu akan dibuat ulang di direktori film</string>
 
 
 </resources>

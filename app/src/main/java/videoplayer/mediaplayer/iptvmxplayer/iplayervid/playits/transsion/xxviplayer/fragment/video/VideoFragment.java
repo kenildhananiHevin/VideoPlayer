@@ -44,10 +44,11 @@ public class VideoFragment extends Fragment implements VideoAdapter.DeleteData {
     public static ArrayList<VideoItem> videoListItem;
     public String videoPrefsString;
 
+    boolean isAddLoader = false;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_video, container, false);
-
 
         videoDatabase = VideoDatabase.getInstance(requireActivity());
         videoDao = videoDatabase.videoDao();
@@ -57,15 +58,18 @@ public class VideoFragment extends Fragment implements VideoAdapter.DeleteData {
         SharedPreferences video_preferences = requireActivity().getSharedPreferences("Linear", 0);
         videoPrefsString = video_preferences.getString("layout", "LinearLayoutManager");
 
-        if (videoDao.getAllListVideosSortedByDate().size()>=5){
-            ((BaseActivity) getActivity()).nativeAdMedium(view.findViewById(R.id.native_ad_container));
-        }else {
-            requireActivity().findViewById(R.id.native_ad_container).setVisibility(View.GONE);
+        Log.d("TAG", "adsdf2: "+videoDao.getAllListVideosSortedByDate().size());
+        if (videoDao.getAllListVideosSortedByDate().size() >= 5) {
+            Log.d("TAG", "adsdf: ");
+            ((videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.activity.BaseActivity) getActivity()).nativeAdMedium(view.findViewById(R.id.native_ad_container));
+        } else {
+            Log.d("TAG", "adsdf1: ");
+            view.findViewById(R.id.native_ad_container).setVisibility(View.GONE);
         }
 
         if (videoPrefsString.equals("LinearLayoutManager")) {
             recycleVideo.setLayoutManager(new LinearLayoutManager(requireActivity()));
-            videoAdapter = new VideoAdapter((BaseActivity) requireActivity(), new ArrayList<>(), VideoFragment.this, "all", videoPrefsString, requireActivity().findViewById(R.id.linearItemBar));
+            videoAdapter = new VideoAdapter((videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.activity.BaseActivity) requireActivity(), new ArrayList<>(), VideoFragment.this, "all", videoPrefsString, requireActivity().findViewById(R.id.linearItemBar));
             recycleVideo.setAdapter(videoAdapter);
         } else {
             GridLayoutManager gridLayoutManager = new GridLayoutManager(requireActivity(), 2);
@@ -80,7 +84,7 @@ public class VideoFragment extends Fragment implements VideoAdapter.DeleteData {
                 }
             });
             recycleVideo.setLayoutManager(gridLayoutManager);
-            videoAdapter = new VideoAdapter((BaseActivity) requireActivity(), new ArrayList<>(), VideoFragment.this, "all", videoPrefsString, requireActivity().findViewById(R.id.linearItemBar));
+            videoAdapter = new VideoAdapter((videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.activity.BaseActivity) requireActivity(), new ArrayList<>(), VideoFragment.this, "all", videoPrefsString, requireActivity().findViewById(R.id.linearItemBar));
             recycleVideo.setAdapter(videoAdapter);
         }
 
@@ -88,6 +92,17 @@ public class VideoFragment extends Fragment implements VideoAdapter.DeleteData {
         videoDao.getAllVideosSortedByDate().observe(requireActivity(), new Observer<List<VideoItem>>() {
             @Override
             public void onChanged(List<VideoItem> videoItems) {
+                if (!isAddLoader) {
+                    if (videoItems.size() >= 5) {
+                        Log.d("TAG", "adsdf: ");
+                        isAddLoader = true;
+                        view.findViewById(R.id.native_ad_container).setVisibility(View.VISIBLE);
+                        ((videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.activity.BaseActivity) getActivity()).nativeAdMedium(view.findViewById(R.id.native_ad_container));
+                    } else {
+                        Log.d("TAG", "adsdf1: ");
+                        view.findViewById(R.id.native_ad_container).setVisibility(View.GONE);
+                    }
+                }
                 nameSorting(videoItems);
             }
         });
@@ -95,6 +110,7 @@ public class VideoFragment extends Fragment implements VideoAdapter.DeleteData {
         stringMutableLiveDataSmallAndLargeAndOldDateAndNewDateSize.observe(requireActivity(), new Observer<String>() {
             @Override
             public void onChanged(String s) {
+
                 smallAndLargeAndOldDateAndNewDateSize();
             }
         });
@@ -120,6 +136,13 @@ public class VideoFragment extends Fragment implements VideoAdapter.DeleteData {
             }
         });
 
+        deSelectMutableLiveData.observe(requireActivity(), new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                videoAdapter.deSelectAll();
+            }
+        });
+
         return view;
     }
 
@@ -127,16 +150,17 @@ public class VideoFragment extends Fragment implements VideoAdapter.DeleteData {
     public static MutableLiveData<String> stringMutableLiveDataAscendingAndDescending = new MutableLiveData<>();
     public static MutableLiveData<String> stringMutableLiveDataGridVideo = new MutableLiveData<>();
     public static MutableLiveData<String> stringMutableLiveDataListVideo = new MutableLiveData<>();
+    public static MutableLiveData<String> deSelectMutableLiveData = new MutableLiveData<>();
 
-    public void smallAndLargeAndOldDateAndNewDateSize(){
+    public void smallAndLargeAndOldDateAndNewDateSize() {
         nameSorting(videoAdapter.videoItems);
     }
 
-    public void ascendingAndDescending(){
+    public void ascendingAndDescending() {
         nameSorting(videoAdapter.videoItems);
     }
 
-    public void gridVideo(){
+    public void gridVideo() {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(requireActivity(), 2);
         gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
             @Override
@@ -149,15 +173,15 @@ public class VideoFragment extends Fragment implements VideoAdapter.DeleteData {
             }
         });
         recycleVideo.setLayoutManager(gridLayoutManager);
-        videoAdapter = new VideoAdapter((BaseActivity) requireActivity(), videoAdapter.videoItems, new VideoAdapter.DeleteData() {
+        videoAdapter = new VideoAdapter((videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.activity.BaseActivity) requireActivity(), videoAdapter.videoItems, new VideoAdapter.DeleteData() {
             @Override
             public void deleteclick(File str, int i, VideoItem videoItem) {
-                deleteclick(str, i, videoItem);
+                VideoFragment.this.deleteclick(str, i, videoItem);
             }
 
             @Override
             public void moveFiles(File str, int i, VideoItem videoItem) {
-                moveFiles(str, i, videoItem);
+                VideoFragment.this.moveFiles(str, i, videoItem);
             }
 
             @Override
@@ -168,17 +192,17 @@ public class VideoFragment extends Fragment implements VideoAdapter.DeleteData {
         recycleVideo.setAdapter(videoAdapter);
     }
 
-    public void listVideo(){
+    public void listVideo() {
         recycleVideo.setLayoutManager(new LinearLayoutManager(requireActivity()));
-        videoAdapter = new VideoAdapter((BaseActivity) requireActivity(), videoAdapter.videoItems, new VideoAdapter.DeleteData() {
+        videoAdapter = new VideoAdapter((videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.activity.BaseActivity) requireActivity(), videoAdapter.videoItems, new VideoAdapter.DeleteData() {
             @Override
             public void deleteclick(File str, int i, VideoItem videoItem) {
-                deleteclick(str, i, videoItem);
+                VideoFragment.this.deleteclick(str, i, videoItem);
             }
 
             @Override
             public void moveFiles(File str, int i, VideoItem videoItem) {
-                moveFiles(str, i, videoItem);
+                VideoFragment.this.moveFiles(str, i, videoItem);
             }
 
             @Override
@@ -295,7 +319,7 @@ public class VideoFragment extends Fragment implements VideoAdapter.DeleteData {
             file.delete();
             removeAt(pos);
             videoDao.deleteByPath(file.getAbsolutePath());
-            CommonClass.showToast(requireActivity(), getString(R.string.fileDeletedSuccessfully));
+//            CommonClass.showToast(requireActivity(), getString(R.string.fileDeletedSuccessfully));
         }
     }
 
