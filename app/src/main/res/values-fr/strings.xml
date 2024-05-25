@@ -91,6 +91,9 @@
     <string name="resolution">Résolution</string>
     <string name="date">Date</string>
     <string name="hide_desc">Si vous cachez la vidéo, elle sera déplacée de son répertoire d\'origine. Lorsque vous réaffichez la vidéo, elle sera recréée dans le répertoire des films</string>
+    <string name="hd_video_player">Lecteur Vidéo HD</string>
+    <string name="all_format_hd_video_player">Lecteur Vidéo HD Tous Formats</string>
+
 
 
 </resources>

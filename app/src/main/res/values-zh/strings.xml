@@ -91,6 +91,9 @@
     <string name="resolution">分辨率</string>
     <string name="date">日期</string>
     <string name="hide_desc">如果你隐藏视频，它将从原始目录中移出。当你取消隐藏视频时，它将在电影目录中重新创建</string>
+    <string name="hd_video_player">高清视频播放器</string>
+    <string name="all_format_hd_video_player">全格式高清视频播放器</string>
+
 
 
 </resources>

@@ -50,7 +50,7 @@ public class SplashActivity extends BaseLauncherActivity {
         SharedPreferences preferences = getSharedPreferences("Language", 0);
         boolean prefsString = preferences.getBoolean("language_set", false);
         if (prefsString) {
-            return new Intent(new Intent(SplashActivity.this, MainActivity.class));
+            return new Intent(new Intent(SplashActivity.this, DashBoardActivity.class));
         } else {
             return new Intent(new Intent(SplashActivity.this, LanguageActivity.class).putExtra("from", true));
         }

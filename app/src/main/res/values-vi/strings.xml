@@ -91,4 +91,7 @@
     <string name="resolution">Độ phân giải</string>
     <string name="date">Ngày</string>
     <string name="hide_desc">Nếu bạn ẩn video, nó sẽ được chuyển từ thư mục gốc. Khi bạn hiển thị lại video, nó sẽ được tái tạo trong thư mục phim</string>
+    <string name="hd_video_player">Trình Phát Video HD</string>
+    <string name="all_format_hd_video_player">Trình Phát Video HD Mọi Định Dạng</string>
+
 </resources>

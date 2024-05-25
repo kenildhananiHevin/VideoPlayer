@@ -91,6 +91,9 @@
     <string name="resolution">Auflösung</string>
     <string name="date">Datum</string>
     <string name="hide_desc">Wenn du das Video versteckst, wird es aus seinem ursprünglichen Verzeichnis verschoben. Wenn du das Video wieder einblendest, wird es im Filme-Verzeichnis neu erstellt</string>
+    <string name="hd_video_player">HD-Videoplayer</string>
+    <string name="all_format_hd_video_player">HD-Videoplayer für alle Formate</string>
+
 
 
 </resources>

@@ -91,6 +91,9 @@
     <string name="resolution">Çözünürlük</string>
     <string name="date">Tarih</string>
     <string name="hide_desc">Videoyu gizlerseniz, orijinal dizininden taşınacaktır. Videoyu gizlilikten çıkardığınızda, film dizininde yeniden oluşturulacaktır</string>
+    <string name="hd_video_player">HD Video Oynatıcı</string>
+    <string name="all_format_hd_video_player">Tüm Formatlar HD Video Oynatıcı</string>
+
 
 
 </resources>

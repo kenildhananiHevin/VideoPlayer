@@ -91,6 +91,8 @@
     <string name="resolution">संकल्प</string>
     <string name="date">तिथि</string>
     <string name="hide_desc">यदि आप वीडियो को छिपाते हैं, तो इसे अपनी मूल निर्देशिका से हटा दिया जाएगा। जब आप वीडियो को अनहाइड करते हैं, तो इसे मूवीज निर्देशिका में फिर से बनाया जाएगा</string>
+    <string name="hd_video_player">एचडी वीडियो प्लेयर</string>
+    <string name="all_format_hd_video_player">सभी फॉर्मेट एचडी वीडियो प्लेयर</string>
 
 
 </resources>

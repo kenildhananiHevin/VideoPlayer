@@ -91,6 +91,9 @@
     <string name="resolution">Resolusyon</string>
     <string name="date">Petsa</string>
     <string name="hide_desc">Kapag itinago mo ang video, ito ay ililipat mula sa orihinal na direktoryo. Kapag ibinalik mo ang video, muling lilikhain ito sa direktoryo ng mga pelikula</string>
+    <string name="hd_video_player">HD Video Player</string>
+    <string name="all_format_hd_video_player">HD Video Player ng Lahat ng Format</string>
+
 
 
 </resources>

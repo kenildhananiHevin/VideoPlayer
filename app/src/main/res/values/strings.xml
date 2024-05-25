@@ -92,4 +92,6 @@
     <string name="resolution">Resolution</string>
     <string name="date">Date</string>
     <string name="hide_desc">If you hide the video, it will be moved from its original directory. When you unhide the video, it will be recreated in the movies directory</string>
+    <string name="hd_video_player">HD Video Player</string>
+    <string name="all_format_hd_video_player">All Format HD Video Player</string>
 </resources>

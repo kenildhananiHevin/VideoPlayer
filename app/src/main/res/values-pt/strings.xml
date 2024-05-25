@@ -91,6 +91,9 @@
     <string name="resolution">Resolução</string>
     <string name="date">Data</string>
     <string name="hide_desc">Se você ocultar o vídeo, ele será movido do seu diretório original. Quando você mostrar o vídeo novamente, ele será recriado no diretório de filmes</string>
+    <string name="hd_video_player">Reprodutor de Vídeo HD</string>
+    <string name="all_format_hd_video_player">Reprodutor de Vídeo HD Todos os Formatos</string>
+
 
 
 </resources>

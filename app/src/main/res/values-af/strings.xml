@@ -91,6 +91,9 @@
     <string name="resolution">Resolusie</string>
     <string name="date">Datum</string>
     <string name="hide_desc">As jy die video wegsteek, sal dit uit sy oorspronklike gids verwyder word. Wanneer jy die video weer wys, sal dit in die films-gids herskep word</string>
+    <string name="hd_video_player">HD Video Speler</string>
+    <string name="all_format_hd_video_player">Alle Formate HD Video Speler</string>
+
 
 
 </resources>

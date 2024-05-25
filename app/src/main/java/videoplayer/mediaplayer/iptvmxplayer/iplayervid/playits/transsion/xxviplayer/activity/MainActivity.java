@@ -616,28 +616,13 @@ public class MainActivity extends BaseActivity {
         }
     }
 
-    boolean backClick = false;
+
 
     @Override
     public void onBackPressed() {
         if (isSelectionEnabledVideo) {
             deSelectMutableLiveData.postValue("");
         } else {
-            new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    backClick = false;
-                }
-            }, 2000);
-            if (backClick) {
-                finishAffinity();
-            } else {
-                backClick = true;
-                SharedPreferences preferences = getSharedPreferences("Language", 0);
-                String languageCode = preferences.getString("language_code", "en");
-                LocaleHelper.setLocale(activity, languageCode);
-                Toast.makeText(this, R.string.press, Toast.LENGTH_SHORT).show();
-            }
         }
     }
 
@@ -659,4 +644,6 @@ public class MainActivity extends BaseActivity {
         Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).setData(uri).putExtra(EXTRA_FRAGMENT_ARG_KEY, EXTRA_SYSTEM_ALERT_WINDOW).putExtra(EXTRA_SHOW_FRAGMENT_ARGUMENTS, bundle);
         startActivityForResult(intent, 102);
     }
+
+
 }

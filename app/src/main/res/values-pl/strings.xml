@@ -91,6 +91,9 @@
     <string name="resolution">Rozdzielczość</string>
     <string name="date">Data</string>
     <string name="hide_desc">Jeśli ukryjesz wideo, zostanie ono przeniesione z oryginalnego katalogu. Kiedy odblokujesz wideo, zostanie ono ponownie utworzone w katalogu filmów</string>
+    <string name="hd_video_player">Odtwarzacz Wideo HD</string>
+    <string name="all_format_hd_video_player">Odtwarzacz Wideo HD Wszystkie Format</string>
+
 
 
 </resources>

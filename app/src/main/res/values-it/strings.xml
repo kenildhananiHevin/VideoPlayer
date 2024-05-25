@@ -91,6 +91,9 @@
     <string name="resolution">Risoluzione</string>
     <string name="date">Data</string>
     <string name="hide_desc">Se nascondi il video, verrà spostato dalla sua directory originale. Quando mostrerai nuovamente il video, verrà ricreato nella directory dei film</string>
+    <string name="hd_video_player">Lettore Video HD</string>
+    <string name="all_format_hd_video_player">Lettore Video HD Tutti i Formati</string>
+
 
 
 </resources>

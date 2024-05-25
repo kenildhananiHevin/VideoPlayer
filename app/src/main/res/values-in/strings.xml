@@ -91,6 +91,9 @@
     <string name="resolution">Resolusi</string>
     <string name="date">Tanggal</string>
     <string name="hide_desc">Jika Anda menyembunyikan video, video tersebut akan dipindahkan dari direktori aslinya. Ketika Anda menampilkan kembali video tersebut, video itu akan dibuat ulang di direktori film</string>
+    <string name="hd_video_player">Pemutar Video HD</string>
+    <string name="all_format_hd_video_player">Pemutar Video HD Semua Format</string>
+
 
 
 </resources>

@@ -25,6 +25,7 @@ import java.util.Random;
 import plugin.adsdk.service.BaseCallback;
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.R;
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.activity.BaseActivity;
+import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.activity.DashBoardActivity;
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.activity.MainActivity;
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.adapter.LanguageAdapter;
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.model.language_model.Languages;
@@ -113,7 +114,7 @@ public class LanguageActivity extends BaseActivity {
                     editor.putBoolean("language_set", true);
                     editor.apply();
                     if (intent) {
-                        startActivity(new Intent(LanguageActivity.this, MainActivity.class));
+                        startActivity(new Intent(LanguageActivity.this, DashBoardActivity.class));
                         finish();
                     } else {
                         if (!prefsString.equals(languages.getLanguageCode())) {

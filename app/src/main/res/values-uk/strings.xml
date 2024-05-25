@@ -91,6 +91,9 @@
     <string name="resolution">Роздільна здатність</string>
     <string name="date">Дата</string>
     <string name="hide_desc">Якщо ви приховаєте відео, воно буде переміщене з оригінального каталогу. Коли ви відновите відео, воно буде відтворене у каталозі фільмів</string>
+    <string name="hd_video_player">HD Відеопрогравач</string>
+    <string name="all_format_hd_video_player">HD Відеопрогравач Всіх Форматів</string>
+
 
 
 </resources>

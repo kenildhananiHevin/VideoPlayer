@@ -330,7 +330,7 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
                             deleteHide.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-                                    preferences.edit().putBoolean("hide_video",true).apply();
+                                    preferences.edit().putBoolean("hide_video", true).apply();
 
                                     String sourcePath = videoItem.getVideopath();
                                     String destinationPath = activity.getFilesDir().getAbsolutePath() + File.separator + "videos" + File.separator + videoItem.getVideodisplayname();
@@ -575,7 +575,6 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
         SharedPreferences preferences = activity.getSharedPreferences("Language", 0);
         String prefsString = preferences.getString("language_code", "en");
         LocaleHelper.setLocale(activity, prefsString);
-
 
         AlertDialog information_dialog_video = new AlertDialog.Builder(activity, R.style.MyTransparentBottomSheetDialogTheme).create();
         LayoutInflater layoutInflater = activity.getLayoutInflater();

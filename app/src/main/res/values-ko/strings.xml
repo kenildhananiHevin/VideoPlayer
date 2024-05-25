@@ -91,6 +91,9 @@
     <string name="resolution">해상도</string>
     <string name="date">날짜</string>
     <string name="hide_desc">동영상을 숨기면 원래 디렉토리에서 이동됩니다. 동영상 숨기기를 해제하면 동영상이 영화 디렉토리에 다시 생성됩니다</string>
+    <string name="hd_video_player">HD 비디오 플레이어</string>
+    <string name="all_format_hd_video_player">모든 형식 HD 비디오 플레이어</string>
+
 
 
 </resources>

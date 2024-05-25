@@ -91,6 +91,9 @@
     <string name="resolution">ความละเอียด</string>
     <string name="date">วันที่</string>
     <string name="hide_desc">หากคุณซ่อนวิดีโอ วิดีโอจะถูกย้ายจากไดเรกทอรีเดิม เมื่อคุณยกเลิกการซ่อนวิดีโอ วิดีโอจะถูกสร้างใหม่ในไดเรกทอรีภาพยนตร์</string>
+    <string name="hd_video_player">เครื่องเล่นวิดีโอ HD</string>
+    <string name="all_format_hd_video_player">เครื่องเล่นวิดีโอ HD ทุกฟอร์แมต</string>
+
 
 
 </resources>

@@ -91,6 +91,9 @@
     <string name="resolution">解像度</string>
     <string name="date">日付</string>
     <string name="hide_desc">ビデオを非表示にすると、元のディレクトリから移動されます。ビデオの非表示を解除すると、映画ディレクトリに再作成されます</string>
+    <string name="hd_video_player">HDビデオプレーヤー</string>
+    <string name="all_format_hd_video_player">すべてのフォーマットHDビデオプレーヤー</string>
+
 
 
 </resources>
