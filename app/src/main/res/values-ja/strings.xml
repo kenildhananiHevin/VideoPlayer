@@ -93,6 +93,10 @@
     <string name="hide_desc">ビデオを非表示にすると、元のディレクトリから移動されます。ビデオの非表示を解除すると、映画ディレクトリに再作成されます</string>
     <string name="hd_video_player">HDビデオプレーヤー</string>
     <string name="all_format_hd_video_player">すべてのフォーマットHDビデオプレーヤー</string>
+    <string name="yes_exit">はい、終了します</string>
+    <string name="rate_app">アプリを評価する</string>
+    <string name="please_spare_a_moment_to_rate_and_give_your_valuable_feedback_to_us_before_leaving">退出する前にアプリを評価して貴重なフィードバックをお寄せください。</string>
+    <string name="do_you_want_to_exit">終了しますか？</string>
 
 
 

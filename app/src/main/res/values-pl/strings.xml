@@ -93,6 +93,10 @@
     <string name="hide_desc">Jeśli ukryjesz wideo, zostanie ono przeniesione z oryginalnego katalogu. Kiedy odblokujesz wideo, zostanie ono ponownie utworzone w katalogu filmów</string>
     <string name="hd_video_player">Odtwarzacz Wideo HD</string>
     <string name="all_format_hd_video_player">Odtwarzacz Wideo HD Wszystkie Format</string>
+    <string name="yes_exit">Tak, Wyjdź</string>
+    <string name="rate_app">Oceń Aplikację</string>
+    <string name="please_spare_a_moment_to_rate_and_give_your_valuable_feedback_to_us_before_leaving">Proszę poświęć chwilę na ocenę i zostawienie swojej cennej opinii przed odejściem.</string>
+    <string name="do_you_want_to_exit">Czy chcesz wyjść?</string>
 
 
 

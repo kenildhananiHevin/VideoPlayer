@@ -94,4 +94,8 @@
     <string name="hide_desc">If you hide the video, it will be moved from its original directory. When you unhide the video, it will be recreated in the movies directory</string>
     <string name="hd_video_player">HD Video Player</string>
     <string name="all_format_hd_video_player">All Format HD Video Player</string>
+    <string name="yes_exit">Yes, Exit</string>
+    <string name="rate_app">Rate App</string>
+    <string name="please_spare_a_moment_to_rate_and_give_your_valuable_feedback_to_us_before_leaving">Please spare a moment to rate and give your valuable feedback to us before leaving.</string>
+    <string name="do_you_want_to_exit">Do you want to Exit?</string>
 </resources>

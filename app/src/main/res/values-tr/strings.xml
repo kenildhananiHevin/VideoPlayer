@@ -93,6 +93,10 @@
     <string name="hide_desc">Videoyu gizlerseniz, orijinal dizininden taşınacaktır. Videoyu gizlilikten çıkardığınızda, film dizininde yeniden oluşturulacaktır</string>
     <string name="hd_video_player">HD Video Oynatıcı</string>
     <string name="all_format_hd_video_player">Tüm Formatlar HD Video Oynatıcı</string>
+    <string name="yes_exit">Evet, Çık</string>
+    <string name="rate_app">Uygulamayı Değerlendir</string>
+    <string name="please_spare_a_moment_to_rate_and_give_your_valuable_feedback_to_us_before_leaving">Lütfen çıkmadan önce bize değerlendirme ve değerli geri bildiriminizi vermek için bir an ayırın.</string>
+    <string name="do_you_want_to_exit">Çıkmak istiyor musunuz?</string>
 
 
 

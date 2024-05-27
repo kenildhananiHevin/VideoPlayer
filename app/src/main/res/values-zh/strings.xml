@@ -93,6 +93,10 @@
     <string name="hide_desc">如果你隐藏视频，它将从原始目录中移出。当你取消隐藏视频时，它将在电影目录中重新创建</string>
     <string name="hd_video_player">高清视频播放器</string>
     <string name="all_format_hd_video_player">全格式高清视频播放器</string>
+    <string name="yes_exit">是的，退出</string>
+    <string name="rate_app">评价应用</string>
+    <string name="please_spare_a_moment_to_rate_and_give_your_valuable_feedback_to_us_before_leaving">在离开之前，请花点时间评价并给我们您的宝贵反馈。</string>
+    <string name="do_you_want_to_exit">你想退出吗?</string>
 
 
 

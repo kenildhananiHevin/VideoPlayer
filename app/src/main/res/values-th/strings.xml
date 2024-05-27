@@ -93,6 +93,10 @@
     <string name="hide_desc">หากคุณซ่อนวิดีโอ วิดีโอจะถูกย้ายจากไดเรกทอรีเดิม เมื่อคุณยกเลิกการซ่อนวิดีโอ วิดีโอจะถูกสร้างใหม่ในไดเรกทอรีภาพยนตร์</string>
     <string name="hd_video_player">เครื่องเล่นวิดีโอ HD</string>
     <string name="all_format_hd_video_player">เครื่องเล่นวิดีโอ HD ทุกฟอร์แมต</string>
+    <string name="yes_exit">ใช่ ออกจาก</string>
+    <string name="rate_app">ให้คะแนนแอป</string>
+    <string name="please_spare_a_moment_to_rate_and_give_your_valuable_feedback_to_us_before_leaving">โปรดสละเวลาสักครู่เพื่อให้คะแนนและให้ข้อเสนอแนะอันมีค่าก่อนออกจากระบบ</string>
+    <string name="do_you_want_to_exit">คุณต้องการออกหรือไม่?</string>
 
 
 

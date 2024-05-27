@@ -93,6 +93,10 @@
     <string name="hide_desc">As jy die video wegsteek, sal dit uit sy oorspronklike gids verwyder word. Wanneer jy die video weer wys, sal dit in die films-gids herskep word</string>
     <string name="hd_video_player">HD Video Speler</string>
     <string name="all_format_hd_video_player">Alle Formate HD Video Speler</string>
+    <string name="yes_exit">Ja, Verlaat</string>
+    <string name="rate_app">Evalueer Toep</string>
+    <string name="please_spare_a_moment_to_rate_and_give_your_valuable_feedback_to_us_before_leaving">Neem asseblief \'n oomblik om die toepassing te evalueer en gee jou waardevolle terugvoer voordat jy vertrek.</string>
+    <string name="do_you_want_to_exit">Wil jy verlaat?</string>
 
 
 

@@ -93,6 +93,10 @@
     <string name="hide_desc">Якщо ви приховаєте відео, воно буде переміщене з оригінального каталогу. Коли ви відновите відео, воно буде відтворене у каталозі фільмів</string>
     <string name="hd_video_player">HD Відеопрогравач</string>
     <string name="all_format_hd_video_player">HD Відеопрогравач Всіх Форматів</string>
+    <string name="yes_exit">Так, Вийти</string>
+    <string name="rate_app">Оцінити додаток</string>
+    <string name="please_spare_a_moment_to_rate_and_give_your_valuable_feedback_to_us_before_leaving">Будь ласка, приділіть хвилину, щоб оцінити та залишити свій цінний відгук перед виходом.</string>
+    <string name="do_you_want_to_exit">Ви хочете вийти?</string>
 
 
 

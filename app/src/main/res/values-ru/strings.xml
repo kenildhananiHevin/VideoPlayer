@@ -93,6 +93,10 @@
     <string name="hide_desc">Если вы скроете видео, оно будет перемещено из его оригинального каталога. Когда вы восстановите видео, оно будет воссоздано в каталоге фильмов</string>
     <string name="hd_video_player">HD Видеоплеер</string>
     <string name="all_format_hd_video_player">HD Видеоплеер Всех Форматов</string>
+    <string name="yes_exit">Да, выйти</string>
+    <string name="rate_app">Оценить приложение</string>
+    <string name="please_spare_a_moment_to_rate_and_give_your_valuable_feedback_to_us_before_leaving">Пожалуйста, уделите минуту, чтобы оценить и оставить свой отзыв перед уходом.</string>
+    <string name="do_you_want_to_exit">Вы хотите выйти?</string>
 
 
 

@@ -93,6 +93,10 @@
     <string name="hide_desc">Wenn du das Video versteckst, wird es aus seinem ursprünglichen Verzeichnis verschoben. Wenn du das Video wieder einblendest, wird es im Filme-Verzeichnis neu erstellt</string>
     <string name="hd_video_player">HD-Videoplayer</string>
     <string name="all_format_hd_video_player">HD-Videoplayer für alle Formate</string>
+    <string name="yes_exit">Ja, Beenden</string>
+    <string name="rate_app">App Bewerten</string>
+    <string name="please_spare_a_moment_to_rate_and_give_your_valuable_feedback_to_us_before_leaving">Bitte nehmen Sie sich einen Moment Zeit, um uns zu bewerten und Ihr wertvolles Feedback zu geben, bevor Sie gehen.</string>
+    <string name="do_you_want_to_exit">Möchten Sie beenden?</string>
 
 
 

@@ -93,6 +93,10 @@
     <string name="hide_desc">동영상을 숨기면 원래 디렉토리에서 이동됩니다. 동영상 숨기기를 해제하면 동영상이 영화 디렉토리에 다시 생성됩니다</string>
     <string name="hd_video_player">HD 비디오 플레이어</string>
     <string name="all_format_hd_video_player">모든 형식 HD 비디오 플레이어</string>
+    <string name="yes_exit">예, 종료</string>
+    <string name="rate_app">앱 평가</string>
+    <string name="please_spare_a_moment_to_rate_and_give_your_valuable_feedback_to_us_before_leaving">떠나기 전에 시간을 내어 평가하고 귀중한 피드백을 남겨주세요.</string>
+    <string name="do_you_want_to_exit">종료하시겠습니까?</string>
 
 
 

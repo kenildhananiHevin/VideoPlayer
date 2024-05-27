@@ -93,6 +93,10 @@
     <string name="hide_desc">Se você ocultar o vídeo, ele será movido do seu diretório original. Quando você mostrar o vídeo novamente, ele será recriado no diretório de filmes</string>
     <string name="hd_video_player">Reprodutor de Vídeo HD</string>
     <string name="all_format_hd_video_player">Reprodutor de Vídeo HD Todos os Formatos</string>
+    <string name="yes_exit">Sim, Sair</string>
+    <string name="rate_app">Avaliar Aplicativo</string>
+    <string name="please_spare_a_moment_to_rate_and_give_your_valuable_feedback_to_us_before_leaving">Por favor, reserve um momento para avaliar e dar seu valioso feedback antes de sair.</string>
+    <string name="do_you_want_to_exit">Você quer sair?</string>
 
 
 

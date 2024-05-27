@@ -93,6 +93,10 @@
     <string name="hide_desc">Jika Anda menyembunyikan video, video tersebut akan dipindahkan dari direktori aslinya. Ketika Anda menampilkan kembali video tersebut, video itu akan dibuat ulang di direktori film</string>
     <string name="hd_video_player">Pemutar Video HD</string>
     <string name="all_format_hd_video_player">Pemutar Video HD Semua Format</string>
+    <string name="yes_exit">Ya, Keluar</string>
+    <string name="rate_app">Beri Nilai Aplikasi</string>
+    <string name="please_spare_a_moment_to_rate_and_give_your_valuable_feedback_to_us_before_leaving">Luangkan waktu sejenak untuk menilai dan memberikan umpan balik berharga Anda kepada kami sebelum pergi.</string>
+    <string name="do_you_want_to_exit">Apakah Anda ingin keluar?</string>
 
 
 

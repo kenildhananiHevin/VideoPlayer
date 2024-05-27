@@ -91,8 +91,12 @@
     <string name="resolution">Resolución</string>
     <string name="date">Fecha</string>
     <string name="hide_desc">Si ocultas el video, se moverá de su directorio original. Cuando vuelvas a mostrar el video, se recreará en el directorio de películas</string>
-    <string name="hd_video_player">Reproductor de Video HD</string>
+    <string name="hd_video_player">Reproductor de vídeo de alta definición</string>
     <string name="all_format_hd_video_player">Reproductor de Video HD de Todos los Formatos</string>
+    <string name="yes_exit">Sí, Salir</string>
+    <string name="rate_app">Calificar App</string>
+    <string name="please_spare_a_moment_to_rate_and_give_your_valuable_feedback_to_us_before_leaving">Por favor, tómese un momento para calificar y darnos sus valiosos comentarios antes de irse.</string>
+    <string name="do_you_want_to_exit">Quieres salir?</string>
 
 
 

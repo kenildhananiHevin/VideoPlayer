@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/bg"
     android:orientation="vertical">
 
@@ -17,9 +17,9 @@
         android:scaleY="0.85"
         android:src="@drawable/ads_hex"
         android:visibility="gone"
-        tools:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -110,6 +110,87 @@
                 app:layout_constraintTop_toBottomOf="@id/ivPrivacy" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
+
+    <TextView
+        android:id="@+id/txtVideo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:textColor="@color/black"
+        android:singleLine="true"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@id/txtDasHdDesc"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:textSize="@dimen/_12sdp" />
+
+    <TextView
+        android:id="@+id/txtDasHdDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:textColor="@color/black"
+        android:singleLine="true"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@id/txtDasHd"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:textSize="@dimen/_12sdp" />
+
+    <TextView
+        android:id="@+id/txtDasHd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:textColor="@color/black"
+        android:singleLine="true"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@id/txtPrivacy"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:textSize="@dimen/_12sdp" />
+
+    <TextView
+        android:id="@+id/txtPrivacy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:textColor="@color/black"
+        android:singleLine="true"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@id/txtRate"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:textSize="@dimen/_12sdp" />
+
+    <TextView
+        android:id="@+id/txtRate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:singleLine="true"
+        app:layout_constraintBottom_toTopOf="@id/txtShare"
+        android:ellipsize="marquee"
+        android:visibility="gone"
+        android:text=""
+        android:marqueeRepeatLimit="marquee_forever"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12sdp" />
+
+
+    <TextView
+        android:id="@+id/txtShare"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="marquee"
+        android:gravity="center_horizontal"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:singleLine="true"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="@dimen/_12sdp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/banner_ad_container" />
 
     <include
         android:id="@+id/banner_ad_container"

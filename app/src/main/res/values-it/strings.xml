@@ -93,6 +93,10 @@
     <string name="hide_desc">Se nascondi il video, verrà spostato dalla sua directory originale. Quando mostrerai nuovamente il video, verrà ricreato nella directory dei film</string>
     <string name="hd_video_player">Lettore Video HD</string>
     <string name="all_format_hd_video_player">Lettore Video HD Tutti i Formati</string>
+    <string name="yes_exit">Sì, Esci</string>
+    <string name="rate_app">Valuta App</string>
+    <string name="please_spare_a_moment_to_rate_and_give_your_valuable_feedback_to_us_before_leaving">Per favore, prenditi un momento per valutare e darci il tuo prezioso feedback prima di andare via.</string>
+    <string name="do_you_want_to_exit">Vuoi uscire?</string>
 
 
 

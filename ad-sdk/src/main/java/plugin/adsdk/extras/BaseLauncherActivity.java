@@ -79,6 +79,7 @@ public abstract class BaseLauncherActivity extends BaseActivity {
     }
 
     protected abstract Intent destinationIntent();
+    protected abstract Intent mainIntent();
 
     protected abstract String extraAppContentText();
 
@@ -265,6 +266,7 @@ public abstract class BaseLauncherActivity extends BaseActivity {
         if (shouldShowScreens && haveStartScreenData) {
             intent = new Intent(this, StartOneActivity.class);
             intent.putExtra("DEST", destinationIntent());
+            intent.putExtra("MAIN", mainIntent());
             intent.putExtra("NO_ADS_INTENT", noAdsIntent());
             intent.putExtra("CONTENT_IMAGE", extraAppContentImage());
             if (extraAppContentText() != null)
@@ -276,7 +278,7 @@ public abstract class BaseLauncherActivity extends BaseActivity {
 
         BaseCallback callback = () -> {
             startActivity(intent);
-            //finish();
+//            finish();
         };
 
         String[] permissions = permissions();

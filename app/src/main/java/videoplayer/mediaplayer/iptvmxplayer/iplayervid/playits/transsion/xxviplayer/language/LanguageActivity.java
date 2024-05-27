@@ -1,7 +1,5 @@
 package videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.language;
 
-import android.app.UiModeManager;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
@@ -14,7 +12,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatDelegate;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,7 +22,6 @@ import java.util.Random;
 import plugin.adsdk.service.BaseCallback;
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.R;
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.activity.BaseActivity;
-import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.activity.DashBoardActivity;
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.activity.MainActivity;
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.adapter.LanguageAdapter;
 import videoplayer.mediaplayer.iptvmxplayer.iplayervid.playits.transsion.xxviplayer.model.language_model.Languages;
@@ -114,7 +110,7 @@ public class LanguageActivity extends BaseActivity {
                     editor.putBoolean("language_set", true);
                     editor.apply();
                     if (intent) {
-                        startActivity(new Intent(LanguageActivity.this, DashBoardActivity.class));
+                        startActivity(new Intent(LanguageActivity.this, MainActivity.class));
                         finish();
                     } else {
                         if (!prefsString.equals(languages.getLanguageCode())) {
@@ -171,18 +167,7 @@ public class LanguageActivity extends BaseActivity {
                 }
             });
         } else {
-            new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    backClick = false;
-                }
-            }, 2000);
-            if (backClick) {
-                finishAffinity();
-            } else {
-                backClick = true;
-                Toast.makeText(LanguageActivity.this, R.string.press, Toast.LENGTH_SHORT).show();
-            }
+            exitBackPressed();
         }
     }
 

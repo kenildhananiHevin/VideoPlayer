@@ -623,6 +623,7 @@ public class MainActivity extends BaseActivity {
         if (isSelectionEnabledVideo) {
             deSelectMutableLiveData.postValue("");
         } else {
+            exitBackPressed();
         }
     }
 

@@ -1,23 +1,36 @@
 package plugin.adsdk.extras;
 
+import android.app.Activity;
+import android.app.UiModeManager;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.widget.NestedScrollView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.Locale;
+import java.util.Objects;
+
 import plugin.adsdk.DebouncedOnClickListener;
+import plugin.adsdk.LocaleHelper;
 import plugin.adsdk.R;
 import plugin.adsdk.service.AdsUtility;
 import plugin.adsdk.service.BaseActivity;
@@ -26,9 +39,34 @@ import plugin.adsdk.service.utils.PurchaseHandler;
 public class StartOneActivity extends BaseActivity {
 
     private int activeIndex = 0;
+    String languageCode;
 
     public void onCreate(Bundle bundle) {
+        handleLanguageChange();
+
+        SharedPreferences mPrefs = getSharedPreferences("THEME", 0);
+        boolean theme_boolean = mPrefs.getBoolean("iscustom", true);
+        if (theme_boolean) {
+            UiModeManager currentNightMode = (UiModeManager) getSystemService(Context.UI_MODE_SERVICE);
+            if (currentNightMode.getNightMode() == UiModeManager.MODE_NIGHT_YES) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            }
+        } else {
+            theme_boolean = mPrefs.getBoolean("islight", true);
+            if (theme_boolean) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+            }
+        }
+        SharedPreferences preferences = getSharedPreferences("Language", 0);
+        languageCode = preferences.getString("language_code", "en");
+        LocaleHelper.setLocale(StartOneActivity.this, languageCode);
         super.onCreate(bundle);
+
+        languageCode = preferences.getString("language_code", "en");
         if (bundle == null) {
             AdsUtility.startScreenCount++;
             if (AdsUtility.startScreenCount <= 0) {
@@ -62,6 +100,12 @@ public class StartOneActivity extends BaseActivity {
         }
     }
 
+    private void handleLanguageChange() {
+        SharedPreferences preferences = getSharedPreferences("Language", 0);
+        String languageCode = preferences.getString("language_code", "en");
+        LocaleHelper.setLocale(StartOneActivity.this, languageCode);
+    }
+
     private void callIntent() {
         if (AdsUtility.config.startScreenRepeatCount > activeIndex) {
             Intent intent = new Intent(StartOneActivity.this, StartOneActivity.class);
@@ -81,8 +125,17 @@ public class StartOneActivity extends BaseActivity {
             showInterstitial(intent);
         } else {
             if (getIntent().getParcelableExtra("DEST") != null) {
-                Intent dest = getIntent().getParcelableExtra("DEST");
-                showInterstitial(dest);
+
+                SharedPreferences preferences = getSharedPreferences("Language", 0);
+                boolean prefsString = preferences.getBoolean("language_set", false);
+                if (prefsString) {
+                    Intent main = getIntent().getParcelableExtra("MAIN");
+                    showInterstitial(main);
+                } else {
+                    Intent dest = getIntent().getParcelableExtra("DEST");
+                    showInterstitial(dest);
+                }
+
             } else {
                 Toast.makeText(this, "try again", Toast.LENGTH_SHORT).show();
                 AdsUtility.destroy();
@@ -97,8 +150,26 @@ public class StartOneActivity extends BaseActivity {
     }
 
     private void initDashboardData() {
-        nativeAd();
-        bannerAd();
+        nativeAdSmall();
+        /*bannerAd();*/
+
+        View txtShare = findViewById(R.id.txtShare);
+        txtShare.setSelected(true);
+
+        View txtRate = findViewById(R.id.txtRate);
+        txtRate.setSelected(true);
+
+        View txtPrivacy = findViewById(R.id.txtPrivacy);
+        txtPrivacy.setSelected(true);
+
+        View txtDasHd = findViewById(R.id.txtDasHd);
+        txtDasHd.setSelected(true);
+
+        View txtDasHdDesc = findViewById(R.id.txtDasHdDesc);
+        txtDasHdDesc.setSelected(true);
+
+        View txtVideo = findViewById(R.id.txtVideo);
+        txtVideo.setSelected(true);
 
         View noAds = findViewById(R.id.noAds);
         if (noAds != null && AdsUtility.config.qurekaButtons.contains("1")) {
@@ -355,5 +426,49 @@ public class StartOneActivity extends BaseActivity {
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putInt("activeIndex", activeIndex);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        handleLanguageChange();
+        SharedPreferences preferences = getSharedPreferences("Language", 0);
+        String languageCode = preferences.getString("language_code", "en");
+        if (!Objects.equals(this.languageCode, languageCode)) {
+            recreate();
+        }
+        SharedPreferences mPrefs = getSharedPreferences("THEME", 0);
+        boolean theme_boolean = mPrefs.getBoolean("iscustom", true);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.setStatusBarColor(getResources().getColor(R.color.white));
+            window.setNavigationBarColor(getResources().getColor(R.color.white));
+        }
+        if (theme_boolean) {
+            UiModeManager currentNightMode = (UiModeManager) getSystemService(Context.UI_MODE_SERVICE);
+            if (currentNightMode.getNightMode() == UiModeManager.MODE_NIGHT_YES) {
+                clearLightStatusBar(this);
+            } else {
+                setLightStatusBar(this);
+            }
+        } else {
+            theme_boolean = mPrefs.getBoolean("islight", true);
+            if (theme_boolean) {
+                setLightStatusBar(this);
+            } else {
+                clearLightStatusBar(this);
+            }
+        }
+    }
+
+
+    public static void setLightStatusBar(Activity activity) {
+        View decorView = activity.getWindow().getDecorView();
+        decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+    }
+
+    public static void clearLightStatusBar(Activity activity) {
+        View decorView = activity.getWindow().getDecorView();
+        decorView.setSystemUiVisibility(0);
     }
 }

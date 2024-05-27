@@ -93,5 +93,10 @@
     <string name="hide_desc">Nếu bạn ẩn video, nó sẽ được chuyển từ thư mục gốc. Khi bạn hiển thị lại video, nó sẽ được tái tạo trong thư mục phim</string>
     <string name="hd_video_player">Trình Phát Video HD</string>
     <string name="all_format_hd_video_player">Trình Phát Video HD Mọi Định Dạng</string>
+    <string name="yes_exit">Có, Thoát</string>
+    <string name="rate_app">Đánh Giá Ứng Dụng</string>
+    <string name="please_spare_a_moment_to_rate_and_give_your_valuable_feedback_to_us_before_leaving">Vui lòng dành một chút thời gian để đánh giá và cung cấp phản hồi quý giá của bạn cho chúng tôi trước khi rời đi.</string>
+    <string name="do_you_want_to_exit">Bạn có muốn thoát không?</string>
+
 
 </resources>

@@ -93,6 +93,10 @@
     <string name="hide_desc">Si vous cachez la vidéo, elle sera déplacée de son répertoire d\'origine. Lorsque vous réaffichez la vidéo, elle sera recréée dans le répertoire des films</string>
     <string name="hd_video_player">Lecteur Vidéo HD</string>
     <string name="all_format_hd_video_player">Lecteur Vidéo HD Tous Formats</string>
+    <string name="yes_exit">Oui, Sortir</string>
+    <string name="rate_app">Évaluer l\'application</string>
+    <string name="please_spare_a_moment_to_rate_and_give_your_valuable_feedback_to_us_before_leaving">Veuillez prendre un moment pour évaluer et donner vos précieux commentaires avant de partir.</string>
+    <string name="do_you_want_to_exit">Voulez-vous sortir?</string>
 
 
 

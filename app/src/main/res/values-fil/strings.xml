@@ -93,6 +93,10 @@
     <string name="hide_desc">Kapag itinago mo ang video, ito ay ililipat mula sa orihinal na direktoryo. Kapag ibinalik mo ang video, muling lilikhain ito sa direktoryo ng mga pelikula</string>
     <string name="hd_video_player">HD Video Player</string>
     <string name="all_format_hd_video_player">HD Video Player ng Lahat ng Format</string>
+    <string name="yes_exit">Oo, Lumabas</string>
+    <string name="rate_app">I-rate ang App</string>
+    <string name="please_spare_a_moment_to_rate_and_give_your_valuable_feedback_to_us_before_leaving">Mangyaring maglaan ng sandali upang i-rate at ibigay ang iyong mahalagang feedback sa amin bago umalis.</string>
+    <string name="do_you_want_to_exit">Gusto mo bang lumabas?</string>
 
 
 
